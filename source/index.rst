@@ -7,8 +7,8 @@ Welcome to Sara's Wiki!
 ================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :glob:
+   :titlesonly:
 
 
 Introduction
