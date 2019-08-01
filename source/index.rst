@@ -6,13 +6,6 @@
 Welcome to Sara's Wiki!
 ================================
 
-.. toctree::
-   :glob:
-   :titlesonly:
-
-
-Introduction
-============
 This is wiki home of Sara :-)
 
 Its base on:
@@ -23,8 +16,20 @@ Its base on:
 * `pandoc <https://pandoc.org/#>`_
 
 
+Index
+============
+
+.. toctree::
+   :glob:
+   :titlesonly:
+
+   *
+   */index
+
+
+
 Indices and tables
-==================
+------------------
 
 * :ref:`genindex`
 * :ref:`modindex`
