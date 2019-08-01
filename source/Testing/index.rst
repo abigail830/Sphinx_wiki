@@ -13,4 +13,6 @@ Index
    *
    */index
 
+.. index:: 测试
+
 
