@@ -42,3 +42,18 @@
       // test implementation
   }
 
+
+建议使用驼峰式命名（单词全小写，单词之间下划线隔开）。
+
+可以使用IDE修改默认模版提供更好的提示：
+
+.. image:: ../../images/naming-ide.png
+  :width: 300px
+
+
+当所有测试命名都比较规范和能反应测试内容的时候，测试本身就成为一个解释系统功能的最好的文档:
+
+.. image:: ../../images/naming-doc.png
+  :width: 300px
+
+
