@@ -53,3 +53,5 @@ Technical Debt
 ^^^^^^^
 
 我最初是在2003年10月1日发表这篇文章的。我在2019年4月对它进行了彻底的重写。
+
+.. index:: technical debt, martin fowler
