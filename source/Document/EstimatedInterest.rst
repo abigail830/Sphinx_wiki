@@ -5,7 +5,7 @@ Estimated Interest
   **This is article from Martin Fowler** `Estimated Interest <https://martinfowler.com/bliki/EstimatedInterest.html>`_
 
 
-`技术债务 <http://wiki.saraqian.cn/Document/Technical%20Debt.html>`_是一个非常有用的概念，但它提出了一个问题:你如何衡量它? 遗憾的是，技术债务与金融债务不同，因此很难判断你负债的程度(尽管我们最近似乎在衡量金融债务方面也遇到了一些麻烦)。
+ `技术债务 <http://wiki.saraqian.cn/Document/Technical%20Debt.html>`_ 是一个非常有用的概念，但它提出了一个问题:你如何衡量它? 遗憾的是，技术债务与金融债务不同，因此很难判断你负债的程度(尽管我们最近似乎在衡量金融债务方面也遇到了一些麻烦)。
 
 这里有一个想法需要考虑。当一个团队完成一个特性时，请他们告诉您他们花了多长时间(实际的工作)，以及他们认为如果系统正确地进行了清理，需要多长时间。两者的区别在于技术债务的利息。(如果他们真的花了5天的时间，但他们认为在一个干净的系统下，他们会花3天的时间，那么你就为你的技术债务支付了2天的利息。)
 
