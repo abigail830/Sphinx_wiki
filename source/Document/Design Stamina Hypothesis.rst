@@ -1,12 +1,16 @@
-Design Stamina Hypothesis 设计耐力假说
+Design Stamina Hypothesis 
 ==========================================
 
 .. note::
   **This is article from Martin Fowler** `Design Stamina Hypothesis <https://martinfowler.com/bliki/DesignStaminaHypothesis.html>`_
 
-设计好软件值得吗?
 
-------------------
+设计耐力假说
+-------------
+
+
+设计好软件值得吗?
+^^^^^^^^^^^^^^^^^
 
 我时常会间接地讨论好的软件设计是否值得进行。我说这些对话是间接的，因为我不认为我曾经遇到过有人说软件设计是毫无意义的。通常是这样表达的:“我们真的需要快速行动，以实现明年的目标，所以我们正在减少 **一些设计活动** "。
 
