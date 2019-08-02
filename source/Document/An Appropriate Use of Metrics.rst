@@ -10,10 +10,12 @@ An Appropriate Use of Metrics
 
  * `What's wrong with how we use metrics?`_
  * `Be careful what you measure`_
-   * `Explicitly link metrics to goals`_
-   * `Favor tracking trends over absolute numbers`_
-   * `Use shorter tracking periods`_
-   * `Change metrics when they stop driving change`_
+ 
+   1. `Explicitly link metrics to goals`_
+   2. `Favor tracking trends over absolute numbers`_
+   3. `Use shorter tracking periods`_
+   4. `Change metrics when they stop driving change`_
+   
  * `Conclusion`_
  
  -------------------------------
@@ -195,7 +197,7 @@ Related articles
 
 You might find the following articles on the use and mis-use of metrics interesting to read(然而链接失效了）:
 
-* `Gaming Incentives by Esther Derby <http://www.estherderby.com/2010/09/gaming-incentives.html> `_  - A reflection on how people manipulate situations to maximise their incentivization scheme.
+* `Gaming Incentives by Esther Derby <http://www.estherderby.com/2010/09/gaming-incentives.html>`_  - A reflection on how people manipulate situations to maximise their incentivization scheme.
 * `Vanity Metrics vs. Actionable Metrics by Eric Ries <http://www.fourhourworkweek.com/blog/2009/05/19/vanity-metrics-vs-actionable-metrics/>`_  - Lean Startup evangelist, Eric Ries describes how to make metrics more actionable and the dangers of measurement for the sake of measurement.
 * `Velocity is Killing Agilty by Jim Highsmith <http://jimhighsmith.com/cgi-sys/suspendedpage.cgi>`_  - A highly relevant article describing how companies misappropriate velocity as a metric.
 
