@@ -7,6 +7,9 @@ An Appropriate Use of Metrics
 
 管理层喜欢他们的度量标准。这种想法是这样的:“我们需要一个数字来衡量我们做得如何。数字让人专注，帮助我们衡量成功。”虽然出发点是好的，但是用数字进行管理会导致不直观的问题行为，并最终影响更广泛的项目和组织目标。度量本身并不是一件坏事;只是经常使用不当。本文演示了管理传统上使用度量标准所导致的许多问题，并提供了解决这些功能障碍的替代方法。
 
+-------------------------------
+
+
  * What's wrong with how we use metrics?
  * Be careful what you measure
    * Explicitly link metrics to goals
@@ -14,6 +17,8 @@ An Appropriate Use of Metrics
    * Use shorter tracking periods
    * Change metrics when they stop driving change
  * Conclusion
+ 
+ -------------------------------
  
 
 What's wrong with how we use metrics?
