@@ -31,7 +31,7 @@ TechnicalDebt
 
 
 进一步的阅读
-^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 * 据我所知，Ward在1992年 `OOPSLA <http://c2.com/doc/oopsla92.html>`_ 经验报告中首次引入了这个概念。 `维基 <http://wiki.c2.com/?ComplexityAsDebt>`_ 上也讨论过这个问题。
 * 沃德·坎宁安(Ward Cunningham)在一段 `视频 <https://www.youtube.com/watch?v=pqeJFYwnkjE>`_ 中讨论了他创造的这个比喻。
@@ -46,6 +46,6 @@ TechnicalDebt
 
 
 修正
-^^^^
+^^^^^^^
 
 我最初是在2003年10月1日发表这篇文章的。我在2019年4月对它进行了彻底的重写。
