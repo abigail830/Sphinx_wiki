@@ -9,6 +9,7 @@ Basic steps
 
 app.component.html
 ^^^^^^^^^^^^^^^^^^^^^^
+
 .. code-block:: HTML
 
   <div id="title">Hello World</div>
@@ -22,6 +23,7 @@ app.component.scss
   .title {
     text-align: center
   }
+
 
 Value assign via Typescript
 -------------------------------
@@ -37,7 +39,7 @@ app.component.html
 app.component.ts
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: typescript
+.. code-block:: TYPESCRIPT
   
   import { Component } from '@angular/core';
 
@@ -64,7 +66,7 @@ More basic Angular template
   </div>
 
   
- **条件else**
+**条件else**
 
 .. code-block:: HTML
 
