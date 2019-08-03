@@ -34,7 +34,7 @@ app.component.html
 
 app.component.ts
 ^^^^^^^^^^^^^^^^^^^^^^
-.. code-block:: TYPESCRIPT
+.. code-block:: javascript
   
   import { Component } from '@angular/core';
 
@@ -71,7 +71,7 @@ More basic Angular template
 
 * ngFor="let ppl of nameList"
 
-.. code-block:: html
+.. code-block:: HTML
 
   <div>{{content}} 
     <div *ngFor="let ppl of nameList">{{ppl}}</div>
