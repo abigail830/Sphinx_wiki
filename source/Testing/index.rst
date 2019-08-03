@@ -14,6 +14,3 @@ Index
    *
    */index
 
-.. index:: Testing
-
-
