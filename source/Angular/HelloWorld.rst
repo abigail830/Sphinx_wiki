@@ -8,7 +8,6 @@ Basic steps
 ---------------
 
 app.component.html
-^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: HTML
 
@@ -16,7 +15,6 @@ app.component.html
 
 
 app.component.scss
-^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: CSS
   
@@ -29,7 +27,6 @@ Value assign via Typescript
 -------------------------------
 
 app.component.html
-^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: HTML
 
@@ -37,7 +34,6 @@ app.component.html
 
 
 app.component.ts
-^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: TYPESCRIPT
   
