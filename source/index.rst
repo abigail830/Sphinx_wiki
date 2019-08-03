@@ -8,7 +8,9 @@ Welcome to Sara's Wiki!
 
 This is wiki home of Sara :-)
 
-Its base on:
+.. note::
+   
+   Its base on:
 
 * `restructuredtext <http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_
 * `sphinx <https://www.sphinx-doc.org/en/1.5/tutorial.html>`_
