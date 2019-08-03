@@ -54,7 +54,7 @@ Angular-CLI
 ^^^^^^^^^^
 
 .. image:: ../../images/e2e.png
-  :width: 500px
+  :width: 600px
 
 
 
