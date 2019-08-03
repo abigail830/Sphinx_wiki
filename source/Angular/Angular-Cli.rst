@@ -1,6 +1,7 @@
 Angular-CLI
 =============
 
+*  `环境准备`_
 *  `创建新项目`_ ： ng new [ApplicationName]
 *  `项目启动`_ （默认端口4200）ng serve
 *  `运行项目中的测试`_ ： ng test / ng e2d
@@ -10,6 +11,20 @@ Angular-CLI
 * 代码模块生成： ng generate [component|directive|pipe|service|class|guard|interface|enum|module] [name]
 
 **More refer to:** https://github.com/angular/angular-cli
+
+
+环境准备
+-----------
+
+* IDE Editor: Visual Studio Code
+* 安装Node.js  ( node -v)
+* 安装npm  (npm -v)
+* 安装angular-cli  (npm install -g @angular/cli)
+* Other UI related:
+
+    - npm install --save @angular/material @angular/cdk @angular/animations
+    - npm install --save hammerjs
+
 
 创建新项目
 -----------
