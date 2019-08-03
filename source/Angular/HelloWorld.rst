@@ -4,7 +4,7 @@ Hello World of Angular
 .. image:: ../../images/helloworld.png
   :width: 600px
 
-Basic steps
+基础ABC
 ---------------
 
 app.component.html
@@ -22,9 +22,8 @@ app.component.scss
     text-align: center
   }
 
-
-Value assign via Typescript
--------------------------------
+数据绑定
+----------
 
 app.component.html
 
@@ -50,10 +49,10 @@ app.component.ts
   }
 
 
-More basic Angular template
+Angular模版基础关键字
 --------------------------------
 
-**条件判断ng-if**
+1. **条件判断ng-if**
 
 .. code-block:: HTML
 
@@ -62,7 +61,7 @@ More basic Angular template
   </div>
 
   
-**条件else**
+2. **条件else**
 
 .. code-block:: HTML
 
@@ -70,9 +69,9 @@ More basic Angular template
   <ng-template #welcome>Welcome! Please logon</ng-template>
 
 
-**For循环**
+3. **For循环**
 
-* ngFor="let ppl of nameList"
+  * ngFor="let ppl of nameList"
 
 .. code-block:: HTML
 
@@ -88,5 +87,5 @@ More basic Angular template
 
 
 
-
+.. index: angular, UI
 
