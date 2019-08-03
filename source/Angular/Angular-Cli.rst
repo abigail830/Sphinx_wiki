@@ -72,6 +72,7 @@ Angular-CLI
   :width: 600px
 
 
+.. index:: angular, UI
 
 
 
