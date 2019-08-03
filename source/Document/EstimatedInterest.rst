@@ -18,4 +18,4 @@ Estimated Interest
 最新消息:最近的一场讨论提出了另一种吸引估计兴趣的方法。在Retrospective回顾会期间(明智的团队在每次迭代结束时都会这样做)，获取针对系统的每个问题领域所支付的利息的估计。根据最近完成的工作来做这个评估可能比根据未来的故事来做预估要容易。
 
 
-.. index:: technical debt, martin fowloer
+.. index:: technical debt, martin fowler
