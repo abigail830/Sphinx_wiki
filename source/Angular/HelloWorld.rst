@@ -9,7 +9,7 @@ Basic steps
 
 app.component.html
 ^^^^^^^^^^^^^^^^^^^^^^
-.. code-block:: html
+.. code-block:: HTML
 
   <div id="title">Hello World</div>
 
@@ -17,7 +17,7 @@ app.component.html
 app.component.scss
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: css
+.. code-block:: CSS
   
   .title {
     text-align: center
@@ -28,13 +28,13 @@ Value assign via Typescript
 
 app.component.html
 ^^^^^^^^^^^^^^^^^^^^^^
-.. code-block:: html
+.. code-block:: HTML
 
   <div id="title">{{content}}</div>
 
 app.component.ts
 ^^^^^^^^^^^^^^^^^^^^^^
-.. code-block:: typescript
+.. code-block:: TYPESCRIPT
   
   import { Component } from '@angular/core';
 
@@ -54,7 +54,7 @@ More basic Angular template
 
 **条件判断ng-if**
 
-.. code-block:: html
+.. code-block:: HTML
 
   <div>{{content}} 
     <div *ngIf="name == ‘sara'">{{name}}</div>
@@ -62,7 +62,7 @@ More basic Angular template
   
  **条件else**
 
-.. code-block:: html
+.. code-block:: HTML
 
   <div *ngIf="name; else welcome">{{content}} {{name}}</div>
   <ng-template #welcome>Welcome! Please logon</ng-template>
@@ -77,7 +77,7 @@ More basic Angular template
     <div *ngFor="let ppl of nameList">{{ppl}}</div>
   </div>
  
-.. code-block:: typescript
+.. code-block:: TYPESCRIPT
 
   nameList: string[];
   this.nameList = ['Kevin', 'Amy', 'Bonson'];
