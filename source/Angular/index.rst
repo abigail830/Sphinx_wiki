@@ -13,4 +13,4 @@ Index
    *
    */index
 
-
+.. index:: angular, UI
