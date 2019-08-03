@@ -28,13 +28,16 @@ Value assign via Typescript
 
 app.component.html
 ^^^^^^^^^^^^^^^^^^^^^^
+
 .. code-block:: HTML
 
   <div id="title">{{content}}</div>
 
+
 app.component.ts
 ^^^^^^^^^^^^^^^^^^^^^^
-.. code-block:: javascript
+
+.. code-block:: typescript
   
   import { Component } from '@angular/core';
 
@@ -59,6 +62,7 @@ More basic Angular template
   <div>{{content}} 
     <div *ngIf="name == ‘sara'">{{name}}</div>
   </div>
+
   
  **条件else**
 
@@ -66,6 +70,7 @@ More basic Angular template
 
   <div *ngIf="name; else welcome">{{content}} {{name}}</div>
   <ng-template #welcome>Welcome! Please logon</ng-template>
+
 
 **For循环**
 
@@ -77,6 +82,7 @@ More basic Angular template
     <div *ngFor="let ppl of nameList">{{ppl}}</div>
   </div>
  
+
 .. code-block:: TYPESCRIPT
 
   nameList: string[];
