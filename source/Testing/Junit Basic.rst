@@ -80,6 +80,7 @@ Reference:
   assertThat(takenCar).isEqualTo(car);
   assertThatThrownBy(() -> parkingBoy.park(new Car())).isInstanceOf(AllParkingLotsIsFullException.class);
 
-Reference: http://joel-costigliola.github.io/assertj/
+Reference: 
+  * http://joel-costigliola.github.io/assertj/
 
 .. index:: Testing
