@@ -82,4 +82,4 @@ Reference:
 
 Reference: http://joel-costigliola.github.io/assertj/
 
-.. index:: testing
+.. index:: Testing
