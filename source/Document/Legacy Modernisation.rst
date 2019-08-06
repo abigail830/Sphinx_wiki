@@ -5,7 +5,7 @@ Legacy Modernisation
   This is translation of https://www.thoughtworks.com/live-series-uk/content/legacy-modernisation
   
 *  `Introduction`_
-*  `WHAT DO WE MEAN BY LEGACY?`_
+*  `What do we mean by legacy?`_
   
 
 
@@ -29,7 +29,7 @@ Introduction
 遗留基础设施、遗留架构、遗留代码和遗留数据。这些约束使组织僵化，无情地增加了迁移和变更所涉及的成本和努力。
 
 
-WHAT DO WE MEAN BY LEGACY?
+What do we mean by Legacy?
 ------------------------------
 
 * 遗留代码:任何没有测试的代码
@@ -45,3 +45,11 @@ ThoughtWorks对来自42家英国和全球领先机构的72名高管进行了现�
 .. image:: ../../images/pie.png
   :width: 500px
 `
+遗留系统通过复杂性的不断增长引致有害的影响; 缺乏IT一致性意味着必须在系统中不断地进行类似的更改才能生效。它们通过已知的-未知的代码和数据耦合陷阱来麻痹计划:知道更改系统的一个元素将引致在系统中另一个看起来没有明显联系的区域中产生数千个bug和意想不到的结果。
+
+遗产困境的一大讽刺之处在于，许多以这种方式苦苦挣扎的企业都有理由相信，它们把创新放在首位。他们绝不自满，而是仔细观察竞争对手开发的功能，确定客户想要的新功能，并准备投入大量时间和资源为自己开发这些功能——不管遗留系统给他们带来什么困难。然而，他们添加新功能、服务和应用程序的努力未能提供客户所追求的更深层次的价值——以及他们所要求的一致体验。这是因为系统的核心组件保持不变——并且对新接口实际能够交付的内容也带有相同的约束。
+
+
+
+
+
