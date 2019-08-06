@@ -2,7 +2,7 @@ Legacy Modernisation
 ==========================
 
 .. note::
-  This is translation of https://www.thoughtworks.com/live-series-uk/content/legacy-modernisation
+  Translation of https://www.thoughtworks.com/live-series-uk/content/legacy-modernisation
   
 *  `简介 - INTRODUCTION`_
 *  `什么是遗留系统 - WHAT DO WE MEAN BY LEGACY`_
