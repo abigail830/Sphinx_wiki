@@ -8,6 +8,7 @@ Legacy Modernisation
 *  `WHAT DO WE MEAN BY LEGACY`_
 * `THE HIDDEN LEGACY`_
 * `THE ORIGINS OF INTERDEPENDENCE`_
+* `THE STAGES OF LEGACY MODERNIZATION`_
   
 
 
@@ -83,6 +84,17 @@ VERTICAL INTEGRATION
 
 What happens when vertically integrated businesses modernize?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+对遗留系统进行现代化的尝试遵循的实现曲线很容易以不作为告终。商业使现代化成为一项战略任务。这可能是由于竞争对手推出的新数字服务、用户对用户体验的负面反馈，或者市场对更快、更便宜的路线的需求日益明显。它的领导者不得不面对代码的混乱和一致性的匮乏，这需要时间和资源来解决。他们甚少去准备应对不适当的耦合及其带来的显著增加项目风险和不可预测性的问题。
+
+依赖的程度和现代化的风险变得清晰,组织面临着一个非常没有吸引力的选择:放弃现代化改造，继续工作在现有系统的约束下；或把婴儿与洗澡水一起倒掉,把几十年的对现有基础设施的投资一笔勾销,放弃所谓的现有优势,从头再来。
+
+THE STAGES OF LEGACY MODERNIZATION
+------------------------------------------
+
+A holistic approach to legacy modernization
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 
 
