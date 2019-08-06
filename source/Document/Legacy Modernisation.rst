@@ -4,16 +4,17 @@ Legacy Modernisation
 .. note::
   This is translation of https://www.thoughtworks.com/live-series-uk/content/legacy-modernisation
   
-*  `INTRODUCTION`_
-*  `WHAT DO WE MEAN BY LEGACY`_
-* `THE HIDDEN LEGACY`_
-* `THE ORIGINS OF INTERDEPENDENCE`_
-* `THE STAGES OF LEGACY MODERNIZATION`_
-* `Conclusion`_
+*  `简介 - INTRODUCTION`_
+*  `什么是遗留系统 - WHAT DO WE MEAN BY LEGACY`_
+* `隐藏的遗留系统 - THE HIDDEN LEGACY`_
+* `相互依赖的起源 - THE ORIGINS OF INTERDEPENDENCE`_
+* `垂直整合 - VERTICAL INTEGRATION`_
+* `遗产系统现代化的各个阶段 - THE STAGES OF LEGACY MODERNIZATION`_
+* `结论 - Conclusion`_
   
 
 
-INTRODUCTION
+简介 - INTRODUCTION
 ------------------
 
 ::
@@ -33,7 +34,7 @@ INTRODUCTION
 遗留基础设施、遗留架构、遗留代码和遗留数据。这些约束使组织僵化，无情地增加了迁移和变更所涉及的成本和努力。
 
 
-WHAT DO WE MEAN BY LEGACY
+什么是遗留系统 - WHAT DO WE MEAN BY LEGACY
 ------------------------------
 
 * 遗留代码:没有自动化测试覆盖的代码
@@ -53,7 +54,7 @@ ThoughtWorks对来自42家英国和全球领先机构的72名高管进行了现�
 
 遗产困境的一大讽刺之处在于，许多以这种方式苦苦挣扎的企业都有理由相信，它们把创新放在首位。他们绝不自满，而是仔细观察竞争对手开发的功能，确定客户想要的新功能，并准备投入大量时间和资源为自己开发这些功能——不管遗留系统给他们带来什么困难。然而，他们添加新功能、服务和应用程序的努力未能提供客户所追求的更深层次的价值——以及他们所要求的一致体验。这是因为系统的核心组件保持不变——并且对新接口实际能够交付的内容也带有相同的约束。
 
-THE HIDDEN LEGACY
+隐藏的遗留系统 - THE HIDDEN LEGACY
 ----------------------
 
 The hidden legacy within most organizations
@@ -65,7 +66,7 @@ The hidden legacy within most organizations
 
 唯一的解决方案是承诺停止开发并开始进行现代化——修复系统的基础，以使业务成为响应性强、敏捷的组织。这是一个充满挑战的过程——遗留问题有大量机会渗透并影响涌现的系统。然而，当企业致力于更广泛的组织变革时——当他们花时间理解业务和IT基础设施之间的真正相互作用时，这是一个可以有效导航的旅程。
 
-THE ORIGINS OF INTERDEPENDENCE
+相互依赖的起源 - THE ORIGINS OF INTERDEPENDENCE
 -------------------------------------
 
 A common legacy: The origins of interdependence
@@ -80,7 +81,7 @@ A common legacy: The origins of interdependence
 
 敏捷性和灵活性是构建响应性组织的关键——而这些大型和复杂企业的遗留系统尤其不适合交付它们。如果你只能像银行一样提供银行服务，那么当客户想要从即时通讯应用程序中获得同样的体验时，会发生什么呢?如果你只能像超市一样销售商品，那么当客户要求以与使用音乐流媒体服务相同的方式访问商品时会发生什么?
 
-VERTICAL INTEGRATION
+垂直整合 - VERTICAL INTEGRATION
 --------------------------
 
 What happens when vertically integrated businesses modernize?
@@ -90,7 +91,7 @@ What happens when vertically integrated businesses modernize?
 
 依赖的程度和现代化的风险变得清晰,组织面临着一个非常没有吸引力的选择:放弃现代化改造，继续工作在现有系统的约束下；或把婴儿与洗澡水一起倒掉,把几十年的对现有基础设施的投资一笔勾销,放弃所谓的现有优势,从头再来。
 
-THE STAGES OF LEGACY MODERNIZATION
+遗产系统现代化的各个阶段 - THE STAGES OF LEGACY MODERNIZATION
 ------------------------------------------
 
 A holistic approach to legacy modernization
@@ -142,7 +143,7 @@ Stage 4: 实事求是地执行——获得最大的成功机会
 
 通过一个渐进的替换策略，一个组织能够在业务的垂直面上处理遗留的现代化，重点放在能够交付最大价值的系统为客户盈利。这种集中的方法使组织能够将业务流程、组织的相关元素以及IT基础设施一起进行现代化改造。它保持了与结果的耦合和依赖关系。至关重要的是，它还使现代化进程能够在进行过程中展示价值。通过首先专注于构建一个新系统中最有价值的元素，它可以强化为什么系统中其他元素可能根本不需要保留。
 
-Conclusion
+结论 - Conclusion
 ---------------
 
 设计是演进的产物，不是终点
