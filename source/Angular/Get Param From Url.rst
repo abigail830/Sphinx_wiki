@@ -1,16 +1,15 @@
 Get Param From URL
 =======================
 
-假设：
+假设1：
+-----------------
 
 * 有dashboard页面： http://localhost:4200/dashboard
 * 点击列表任意一项，会带着对应ID跳进detail页面：http://localhost:4200/pokemon-detail/003
-
-问：
-
-* 如何获取URL上面的ID？
+* 问：如何获取URL上面的ID？
 
 Solution：
+----------------------
 
 .. code-block:: typescript
   :linenos:
