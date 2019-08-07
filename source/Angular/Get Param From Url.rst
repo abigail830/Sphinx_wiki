@@ -14,7 +14,7 @@ Solution：
 
 .. code-block:: typescript
   :linenos:
-  :emphasize-lines: 2,11,14
+  :emphasize-lines: 2,12,15
   
   import { Component, OnInit } from '@angular/core';
   import { ActivatedRoute } from '@angular/router';
@@ -32,4 +32,4 @@ Solution：
     ngOnInit() {
       this.id = this.route.snapshot.paramMap.get('id');
     }
-}
+  }
