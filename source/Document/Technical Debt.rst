@@ -5,7 +5,7 @@ Technical Debt
   **This is article from Martin Fowler** `TechnicalDebt <https://martinfowler.com/bliki/TechnicalDebt.html>`_
 
 
-软件系统很容易积累缺陷——内部质量上的缺陷使得进一步修改和扩展系统比理想情况下更加困难。技术债务是一个由Ward Cunningham创造的隐喻，它描述了如何处理这一问题，把它看作是一种金融债务。添加新功能所需要的额外努力是为债务支付的利息。
+相比在整洁的软件代码中，在内在质量较低的代码中增加新功能时，要投入更多额外的资源。技术债务是一个由Ward Cunningham创造的隐喻，它描述了在处理内在质量低的代码时候，可以把它看作是在偿还一种金融债务。添加新功能所需要的额外努力是为债务支付的利息。
 
 .. image:: ../../images/technical-debt.png
   :width: 500px
