@@ -8,13 +8,11 @@ Refer to https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install
 Create project via CLI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: console
-  :linenos:
-  
-  dotnet new console -o myApp
+.. code-block::
+
+  dotnet new -o myApp
 
 .. code-block:: c#
-  :linenos:
   
   using System;
 
@@ -33,7 +31,6 @@ Run project via CLI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: console
-  :linenos:
   
   dotnet run
   
