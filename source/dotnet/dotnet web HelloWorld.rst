@@ -37,7 +37,9 @@ Try edit the web page and re-run
 MVC WebApp
 --------------------
 
-If using VS IDE, 'controllers' folder right click to new a controller. Said "DemoController"
+**Create porject**: If using VS IDE, create a .net MVC project(said version 5)
+
+**Add Controller**: 'controllers' folder right click to new a controller. Said "DemoController"
 
 .. code-block:: c#
 
@@ -63,9 +65,9 @@ If using VS IDE, 'controllers' folder right click to new a controller. Said "Dem
       }
   }
 
-And also create a new folder 'Demo" under "Views", just keep it empty as above controller would return String instead of ActionResult which required html associated.
+**Create Empty View**: And also create a new folder 'Demo" under "Views", just keep it empty as above controller would return String instead of ActionResult which required html associated.
 
-The URL would be map according to RouteConfig.cs - url: "{controller}/{action}/{id}". So above controller would be map to url: 127.0.0.1:8080/Demo and 127.0.0.1:8080/Demo/Welcome
+**URL mapping**: The URL would be map according to RouteConfig.cs - url: "{controller}/{action}/{id}". So above controller would be map to url: 127.0.0.1:8080/Demo and 127.0.0.1:8080/Demo/Welcome
 
 
 Remark
