@@ -34,5 +34,5 @@ Run project via CLI
   
   dotnet run
   
-
-
+.. image:: ../../images/dotnet-helloworld.png
+  :width: 600px
