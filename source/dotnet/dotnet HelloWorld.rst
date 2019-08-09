@@ -1,4 +1,4 @@
-.net Hello world
+DotNet Hello world
 =========================
 
 Install SDK
@@ -8,10 +8,14 @@ Refer to https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install
 Create project via CLI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: bash
+.. code-block:: console
+  :linenos:
+  
   dotnet new console -o myApp
 
 .. code-block:: c#
+  :linenos:
+  
   using System;
 
   namespace myApp
@@ -28,7 +32,9 @@ Create project via CLI
 Run project via CLI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: bash
+.. code-block:: console
+  :linenos:
+  
   dotnet run
   
 
