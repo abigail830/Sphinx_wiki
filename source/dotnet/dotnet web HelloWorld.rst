@@ -75,6 +75,29 @@ MVC WebApp
 .. image:: ../../images/param.png
   :width: 600px
 
+**Capture Param in URL**:
+
+.. code-block:: c#
+
+  public string Welcome(string name, int ID = 1)
+  {
+      return HttpUtility.HtmlEncode("Hello " + name + ", ID: " + ID);
+  }
+
+Then try to access via http://localhost:xxx/HelloWorld/Welcome/1?name=Scott, "1" in URL would be assign as ID.
+
+Another way to using params in url is to redefine the route in RouteConfig.cs
+
+.. code-block:: c#
+
+  routes.MapRoute(
+                name: "Demo",
+                url: "{controller}/{action}/{name}/{id}",
+                defaults: new { controller = "Demo", action = "Index", id = UrlParameter.Optional }
+            );
+            
+Then we could pass param like: http://127.0.0.1:8080/Demo/Welcome/Sara/3
+
 Remark
 ------------------
 
