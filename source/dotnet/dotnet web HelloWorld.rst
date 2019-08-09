@@ -70,6 +70,10 @@ MVC WebApp
 
 **URL mapping**: The URL would be map according to RouteConfig.cs - url: "{controller}/{action}/{id}". So above controller would be map to url: 127.0.0.1:8080/Demo and 127.0.0.1:8080/Demo/Welcome
 
+**Capture Param**:
+
+.. image:: ../../images/param.png
+  :width: 600px
 
 Remark
 ------------------
