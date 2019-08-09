@@ -3,6 +3,7 @@ Dotnet Web HelloWorld
 
 * `Native WebApp`_
 * `MVC WebApp`_
+* `Remark`_
 
 Native WebApp
 --------------------
