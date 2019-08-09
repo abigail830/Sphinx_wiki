@@ -21,6 +21,13 @@ Default startup link would be : http://localhost:5000/
   :width: 600px
 
 
+Try edit the web page and re-run
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../../images/edit-helloworld.png.png
+  :width: 600px
+
+
 Remark
 ------------------
 
