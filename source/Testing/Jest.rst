@@ -5,6 +5,7 @@ About Jest Basic
 * `Basic Test Example with Javascript`_
 * `Mock With Jest`_
 * `Stub With Jest`_
+* `Mock module - such as 3rd party lib`_
 
 Basic Notes
 -----------------
@@ -12,6 +13,7 @@ Basic Notes
 * 和Junit一样，拥有beforeAll/beforeEach/afterEach/afterAll
 * TestSuit可以用describe包起来，里面每个案例以test或it开头
 * 每个测试案例的描述可以参考“should do sth when condition fulfills"
+* Jest 官网： https://jestjs.io/docs/en/getting-started
 
 .. code-block:: javascript
   
@@ -139,7 +141,7 @@ Stub With Jest
   })
 
 
-Mock 3rd party lib
+Mock module - such as 3rd party lib
 --------------------------
 
 Mock axios - user.js
@@ -176,4 +178,96 @@ user.test.js
       expect(axios.get).toHaveBeenCalled();
     })
   });
+
+组合异步调用场景
+^^^^^^^^^^^^^^^
+
+event.js
+
+.. code-block:: javascript
+
+  import fetch from './fetch';
+  export default {
+    async getPostList() {
+      return fetch.fetchPostsList(data => {
+        // do something
+        console.log('fetchPostsList be called!');
+      });
+    }
+  }
+
+fetch.js
+
+.. code-block:: javascript  
+  
+  import axios from 'axios';
+
+  export default {
+    async fetchPostsList(callback) {
+      return axios.get('https://jsonplaceholder.typicode.com/posts').then(res => {
+        return callback(res.data);
+      })
+    }
+  }
+
+* 思路一: 单独测试fetch.js的时候，mock axios module, 可以验证callback方法的确被调用了
+
+.. code-block:: javascript  
+  
+  import fetch from '../src/fetch.js'
+
+  test('should able to invoke the callback via fetchPostsList', async () => {
+    expect.assertions(1);
+    //given
+    let mockFn = jest.fn();
+    //when
+    await fetch.fetchPostsList(mockFn);
+    // then
+    expect(mockFn).toBeCalled();
+  })
+  
+* 思路二: 对于event.js来说，可以验证mock了的fetch方法的确被调用了，此时“fetchPostsList be called!”并不会被打印，因为没有使用真身
+
+.. code-block:: javascript  
+  
+  import events from '../src/events';
+  import fetch from '../src/fetch';
+
+  jest.mock('../src/fetch.js');
+  // jest.mock('../src/fetch.js', () => ({ fetch: jest.fn() }))
+
+  test('mock 整个 fetch.js模块', async () => {
+    //fetch.fetchPostsList.mockResolvedValue("abc");
+    expect.assertions(2);
+    //when
+    await events.getPostList();
+    //then
+    expect(fetch.fetchPostsList).toHaveBeenCalled();
+    expect(fetch.fetchPostsList).toHaveBeenCalledTimes(1);
+  });
+  
+ * 思路三: 对于event.js来说，可以验证fetch方法的确被调用了，spy的fetch因为并没有override其中的implementation其实是真身，所以会打印“fetchPostsList be called!”
+
+.. code-block:: javascript  
+  
+  import events from '../src/events';
+  import fetch from '../src/fetch';
+  
+  test('使用jest.spyOn()监控fetch.fetchPostsList被正常调用', async() => {
+    expect.assertions(2);
+    //given
+    const spyFn = jest.spyOn(fetch, 'fetchPostsList');
+    //when
+    await events.getPostList();
+    //then
+    expect(spyFn).toHaveBeenCalled();
+    expect(spyFn).toHaveBeenCalledTimes(1);
+  })
+
+
+
+
+
+
+
 
