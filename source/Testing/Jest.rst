@@ -1,6 +1,10 @@
 About Jest Basic
 ================
 
+* `Basic Notes`_
+* `Basic Test Example with Javascript`_
+* `Basic Mock With Jest`_
+* `Basic Stub With Jest`_
 
 Basic Notes
 -----------------
@@ -65,7 +69,7 @@ filter.js
   module.exports = filter;
 
 filter.test.js
-* 使用jest.fn塑造mock object，verifiable
+* 使用jest.fn封装mock object，可后续进行验证
 * mockFilterCallback.mock.calls.length， 被mock的object被调用次数
 * mockFilterCallback.mock.calls[0][0]， 被mock的object第一次被调用时候第一个入参
 * mockFilterCallback.mock.results[0].value 被mock的object第一次被调用时的结果
@@ -97,5 +101,39 @@ filter.test.js
   })
   
   
- 
+Basic Stub With Jest
+---------------------------------
+* jest.fn()封装mock object
+* mockReturnValueOnce，模拟返回结果，只会根据设置次序返回一次
+* mockReturnValue 模拟返回结果，每次调用都会使用
+
+
+.. code-block:: javascript
+
+  const filter = require('../src/filter');
+
+  //test code
+  describe("test suit for filter", ()=>{
+
+    test("test case1", ()=>{
+        //given
+        const mockFilterCallback = jest.fn();
+        mockFilterCallback
+            .mockReturnValueOnce(true)
+            .mockReturnValueOnce(true)
+            .mockReturnValue(false);
+        //when
+        filter([1,2,3], mockFilterCallback);
+        //then
+        expect(mockFilterCallback.mock.calls.length).toBe(3);
+        expect(mockFilterCallback.mock.calls[0][0]).toBe(1);
+        expect(mockFilterCallback.mock.calls[1][0]).toBe(2);
+        expect(mockFilterCallback.mock.calls[2][0]).toBe(3);
+        expect(mockFilterCallback.mock.instances.length).toBe(3)
+        expect(mockFilterCallback.mock.results[0].value).toBeTruthy;
+        expect(mockFilterCallback.mock.results[1].value).toBeTruthy;
+        expect(mockFilterCallback.mock.results[2].value).toBeFalsy;
+        // expect(mockFilterCallback.mock.returns).toBe(2);
+    })
+  })
  
