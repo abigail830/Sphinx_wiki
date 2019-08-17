@@ -137,4 +137,43 @@ Stub With Jest
         expect(mockFilterCallback.mock.results[2].value).toBeFalsy;
     })
   })
- 
+
+
+Mock 3rd party lib
+--------------------------
+
+Mock axios - user.js
+
+.. code-block:: javascript
+  
+  import axios from 'axios';
+
+  export default class Users {
+    static all() {
+      return axios.get('/users.json').then(resp => resp.data);
+    }
+  }
+
+user.test.js
+
+.. code-block:: javascript
+  
+  import axios from 'axios';
+  import Users from '../src/users';
+
+  jest.mock('axios');
+
+  test('should fetch users', () => {
+    const users = [{name: 'Bob'}];
+    const resp = {data: users};
+
+    axios.get.mockResolvedValue(resp);
+    // or you could use the following depending on your use case:
+    // axios.get.mockImplementation(() => Promise.resolve(resp))
+
+    return Users.all().then(data => {
+      expect(data).toEqual(users);
+      expect(axios.get).toHaveBeenCalled();
+    })
+  });
+
