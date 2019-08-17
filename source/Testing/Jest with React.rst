@@ -38,7 +38,7 @@ Jest with React
 
 当我们想对这个组件进行测试
 
-Approach 1.a - UI Test 使用react原声render
+Approach 1.a - UI Test 使用react自带的render
 --------------------------------------------------
 
 .. code-block:: javascript
