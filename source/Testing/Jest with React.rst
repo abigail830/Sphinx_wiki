@@ -8,7 +8,6 @@ Jest with React
 下面以其中一个CheckBox组件为例子, Checkbox上有label，会随着点击在On/Off之间切换
 
 .. code-block:: javascript
-   :linenos:
 
   import React from 'react';
   
@@ -43,8 +42,7 @@ Approach 1.a - UI Test 使用react原声render
 --------------------------------------------------
 
 .. code-block:: javascript
-   :linenos:
-  
+   
   import React from 'react';
   import {render, fireEvent, cleanup} from '@testing-library/react';
   import CheckboxWithLabel from '../CheckboxWithLabel';
@@ -70,8 +68,7 @@ Approach 1.b - UI Test 使用enzyme的render
 --------------------------------------------------
 
 .. code-block:: javascript
-   :linenos:
-  
+     
   import React from 'react';
   import {shallow,configure} from 'enzyme';
   import CheckboxWithLabel from '../CheckboxWithLabel';
@@ -96,8 +93,7 @@ Approach 2 - Snapshot Test
 ----------------------------------
 
 .. code-block:: javascript
-   :linenos:
-  
+   
   // Link.react.test.js
   import React from 'react';
   import CheckboxWithLabel from '../CheckboxWithLabel';
