@@ -1,4 +1,4 @@
-Mock、Stub、Spy of C#
+Mock、Stub、Spy of Nunit
 ===================================
 
 * `Background`_
@@ -218,4 +218,4 @@ Quick Note
 * Verify: mockPrinter.Verify(p => p.Print("This is the mock return"), Times.Once);
 
 
-.. index: Testing, dotnet, C#
+.. index: Testing, dotnet, C#, Nunit
