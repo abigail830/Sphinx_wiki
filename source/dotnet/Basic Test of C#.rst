@@ -57,8 +57,10 @@ solution/project/NumberCounterService.cs
     }
   }
   
-  
- .. code-block:: C#
+ 
+测试在solution/project.test/NumberCounterServiceTest.cs
+ 
+.. code-block:: C#
   
   using NUnit.Framework;
   using System;
