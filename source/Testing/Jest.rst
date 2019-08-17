@@ -1,4 +1,4 @@
-About Jest Basic
+Jest Basic
 ================
 
 * `Basic Notes`_
@@ -267,9 +267,5 @@ fetch.js
   })
 
 
-
-
-
-
-
+.. index:: Testing
 
