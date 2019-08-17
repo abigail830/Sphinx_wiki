@@ -6,6 +6,7 @@ About Jest Basic
 * `Mock With Jest`_
 * `Stub With Jest`_
 * `Mock module - such as 3rd party lib`_
+* `async, await and spyOn`_
 
 Basic Notes
 -----------------
@@ -179,8 +180,8 @@ user.test.js
     })
   });
 
-组合异步调用场景
-^^^^^^^^^^^^^^^
+async, await and spyOn
+-------------------------------
 
 event.js
 
@@ -246,7 +247,8 @@ fetch.js
     expect(fetch.fetchPostsList).toHaveBeenCalledTimes(1);
   });
   
- * 思路三: 对于event.js来说，可以验证fetch方法的确被调用了，spy的fetch因为并没有override其中的implementation其实是真身，所以会打印“fetchPostsList be called!”
+
+* 思路三: 对于event.js来说，可以验证fetch方法的确被调用了，spy的fetch因为并没有override其中的implementation其实是真身，所以会打印“fetchPostsList be called!”
 
 .. code-block:: javascript  
   
