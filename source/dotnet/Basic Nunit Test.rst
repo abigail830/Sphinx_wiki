@@ -1,4 +1,4 @@
-Basic Test of C#
+Basic Nunit Test of C#
 ==============================
 
 * `Starting Note`_
@@ -163,5 +163,5 @@ solution/project/NumberCounterService.cs
     }
   }
 
-.. index:: Testing, dotnet, C#
+.. index:: Testing, dotnet, C#, Nunit
 
