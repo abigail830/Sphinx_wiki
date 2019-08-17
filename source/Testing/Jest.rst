@@ -3,8 +3,8 @@ About Jest Basic
 
 * `Basic Notes`_
 * `Basic Test Example with Javascript`_
-* `Basic Mock With Jest`_
-* `Basic Stub With Jest`_
+* `Mock With Jest`_
+* `Stub With Jest`_
 
 Basic Notes
 -----------------
@@ -54,7 +54,7 @@ Sum.test.js
     })
   })
   
-Basic Mock With Jest
+Mock With Jest
 ------------------------------
 
 filter.js
@@ -69,10 +69,13 @@ filter.js
   module.exports = filter;
 
 filter.test.js
+
 * 使用jest.fn封装mock object，可后续进行验证
 * mockFilterCallback.mock.calls.length， 被mock的object被调用次数
 * mockFilterCallback.mock.calls[0][0]， 被mock的object第一次被调用时候第一个入参
 * mockFilterCallback.mock.results[0].value 被mock的object第一次被调用时的结果
+* mockFilterCallback.mock.instances.length 被mock的object被初始化的次数
+
 
 .. code-block:: javascript
   
@@ -96,12 +99,11 @@ filter.test.js
         expect(mockFilterCallback.mock.results[0].value).toBeFalsy;
         expect(mockFilterCallback.mock.results[1].value).toBeTruthy;
         expect(mockFilterCallback.mock.results[2].value).toBeFalsy;
-        // expect(mockFilterCallback.mock.returns).toBe(2);
     })
   })
   
   
-Basic Stub With Jest
+Stub With Jest
 ---------------------------------
 * jest.fn()封装mock object
 * mockReturnValueOnce，模拟返回结果，只会根据设置次序返回一次
@@ -133,7 +135,6 @@ Basic Stub With Jest
         expect(mockFilterCallback.mock.results[0].value).toBeTruthy;
         expect(mockFilterCallback.mock.results[1].value).toBeTruthy;
         expect(mockFilterCallback.mock.results[2].value).toBeFalsy;
-        // expect(mockFilterCallback.mock.returns).toBe(2);
     })
   })
  
