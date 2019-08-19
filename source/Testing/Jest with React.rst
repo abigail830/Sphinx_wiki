@@ -111,4 +111,26 @@ Approach 2 - Snapshot Test
     expect(tree).toMatchSnapshot();
   });
 
+
+在运行下面测试后，目录中会生成_snapshots_文件夹，里面等于把界面渲染一次，转换成json然后存为.snap文件如下
+
+.. code-block::
+  
+  // Jest Snapshot v1, https://goo.gl/fbAQLP
+
+  exports[`Link changes the class when hovered 1`] = `
+  <label>
+    <input
+      checked={false}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    Off
+  </label>
+  `;
+
+之后的每次运行，都会把component重新渲染和转换为json，然后与.snap中的内容比较，如果一致则通过，如果不一致（如本地界面确实做了修改），本地运行时会提示不一致，按U则可以接受变化并自动更新__snapshots__文件夹里面的内容。（_snapshot_及其内容需要一同提交到码云）
+
+因为snapshot测试会渲染整个component涉及的页面，所以对覆盖率提升非常明显，写法也非常简单，但它并不能如上文UI Test那样验证页面内的逻辑操作，所以对logic部分的保护帮助较少。另一方面，如果页面稍有改动，snapshot就会需要更新（虽然更新也非常简单-只需要按U接受）。整体来说，考虑以UI测试为主，有余力的时候再顺手加个snapshot。
+
 .. index:: Testing, React
