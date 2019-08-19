@@ -7,8 +7,8 @@ Basic Nunit Test of C#
 
 Starting Note
 ----------------------
-* 如果代码在solution/project/NumberCounterService.cs，那需要另外建solution/project.test/NumberCounterServiceTest.cs
-* project.test会引用project，项目内的路径一一对应，文件名在后面添加Test
+* 如果代码在solution/project/NumberCounterService.cs，那需要另外建solution/project.Tests/NumberCounterServiceTest.cs
+* project.Tests会引用project，项目内的路径一一对应，文件名在后面添加Test
 * [OneTimeSetUp]/[OneTimeTearDown]/[SetUp]/[TearDown]对应与Java中的beforeAll等用法
 * [TestFixture()]/ [Test()]对应与TestSuit和测试案例@Test
 * 常用assert：
@@ -16,6 +16,10 @@ Starting Note
   - Assert.AreEqual(expect, actual)
   - Assert.That(ex.Message, Is.EqualTo("b should not be zero when div"))
   - 触发并Assert异常： var ex = Assert.Throws<ArgumentException>(() => service.Count("DIV", 6, 0));
+
+.. image:: ../../images/reference.png
+  :width: 600px
+  
 
 
 Basic Test Example
