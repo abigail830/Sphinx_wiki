@@ -173,6 +173,7 @@ ConfigFactory.cs, 里面调用ConfigUtil
   }
 
 BizService.cs中，从构造器传入ConfigFactory
+
 .. code-block:: c#
   
   using System;
