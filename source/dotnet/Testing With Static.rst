@@ -144,7 +144,7 @@ ConfigUtil代码如下
 注意，这里使用了virtual，是因为moq只能setup准备virtua的方法，所以
 
 * 方法一： 直接抽取成virtual方法，如上
-* 方法二： 把static调用抽取一个接口（),moq在创建mock的时候就直接mock IBizService.（Better）
+* 方法二： 把static调用抽取一个接口或中介类， 如下
 
 
 思路二：把static抽取为factory（中间多一层）
@@ -261,7 +261,3 @@ BizServiceTest.cs
   }
 
 .. index:: Testing, c#, dotnet,Nunit 
-
-
-
-
