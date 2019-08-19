@@ -3,6 +3,10 @@ Jest with React
 
 如果分层结构解耦得比较好，逻辑和视图的测试是可以分开进行的。对于逻辑的测试，可以参考 `Jest Basic  <http://wiki.saraqian.cn/Testing/Jest.html>`_ , 以下的例子主要展示视图层的测试.
 
+.. image:: ./images/ui_layer.png
+  :width: 600px
+
+
 当使用Jest为测试框架，测试可以以两种方式进行: UI Test / Snapshot Test
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
