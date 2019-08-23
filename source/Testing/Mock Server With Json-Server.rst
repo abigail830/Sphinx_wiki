@@ -34,7 +34,7 @@ Only 3 steps within 10mins to create a mock sever:
             "age": 35
         }
     ]
-}
+  }
 
 * Step3. json-server db.json
 
