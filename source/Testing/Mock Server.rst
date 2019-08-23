@@ -9,6 +9,8 @@ Different ways to create mock server:
 Json-Server
 ----------------------
 
+官网： https://github.com/typicode/json-server#simple-example
+
 Only 3 steps within 10mins to create a mock sever:
 
 * Step1. npm install -g json-server
