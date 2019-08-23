@@ -59,6 +59,8 @@ Open http://localhost:3000 will found as below:
 .. image:: ../../images/json-server.png
   :width: 500px
 
+基于以上这个json，我们已经可以获得 /users, /users/1, /users?name=Saving...etc等的多个反馈
+
 
 Manage as Project
 ----------------------------
