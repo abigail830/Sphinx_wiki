@@ -143,7 +143,7 @@ Stub With Jest
 
 
 Mock module - such as 3rd party lib
---------------------------
+------------------------------------------------
 
 Mock axios - user.js
 
