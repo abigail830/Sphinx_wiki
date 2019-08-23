@@ -51,8 +51,32 @@ Only 3 steps within 10mins to create a mock sever:
   Type s + enter at any time to create a snapshot of the database
 
 
+Open http://localhost:3000 will found as below:
+
 .. image:: ../../images/json-server.png
   :width: 500px
 
+To make it better, we could make it as a npm/yarn project to easier manage:
+
+* 初始化项目： yarn init
+* 加依赖： yarn add json-server | npm install json-server
+
+Package.json
+
+.. code-block:: json
+  
+  {
+    "name": "mock-server",
+    "version": "1.0.0",
+    "description": "mock server with json-server",
+    "scripts": {
+      "start": "json-server --watch db.json --port 3001"
+    },
+    "author": "SaraQian",
+    "license": "MIT",
+    "dependencies": {
+      "json-server": "^0.15.0"
+    }
+  }
 
 
