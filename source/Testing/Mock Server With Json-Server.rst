@@ -112,7 +112,12 @@ Setup Route
     "/v1/*": "/$1"
   }
 
-2. Update start script: json-server --watch db.json --port 3001 --routes routes.json
+2. Update start script: 
+
+.. code-block:: bash
+  
+  json-server --watch db.json --port 3001 --routes routes.json
+  
 
 Then http://localhost:3001/v1/users will be route to http://localhost:3001/users
 
@@ -128,7 +133,12 @@ Setup Header
     next()
   }
 
-2. Update start script: "json-server --watch db.json --port 3001 --routes routes.json  --middlewares ./header.js"
+2. Update start script: 
+
+.. code-block:: bash
+  
+  json-server --watch db.json --port 3001 --routes routes.json  --middlewares ./header.js
+
 
 3. Output in testing
 
