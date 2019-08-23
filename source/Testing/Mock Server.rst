@@ -1,12 +1,13 @@
-Mock Server
+Mock Server with Json-Server
 ======================
 
 Different ways to create mock server:
 
-* `Json-Server`_
+* `Basic Setup`_
+* `Manage as Project`_
 
 
-Json-Server
+Basic Setup
 ----------------------
 
 官网： https://github.com/typicode/json-server#simple-example
@@ -57,6 +58,10 @@ Open http://localhost:3000 will found as below:
 
 .. image:: ../../images/json-server.png
   :width: 500px
+
+
+Manage as Project
+----------------------------
 
 To make it better, we could make it as a npm/yarn project to easier manage:
 
