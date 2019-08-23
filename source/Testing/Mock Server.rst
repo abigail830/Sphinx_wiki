@@ -59,7 +59,18 @@ Open http://localhost:3000 will found as below:
 .. image:: ../../images/json-server.png
   :width: 500px
 
-基于以上这个json，我们已经可以获得 /users, /users/1, /users?name=Saving...etc等的多个反馈
+
+基于以上这个json，我们已经可以获得：
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* 基础查询：/users, /users/1, /users?name=Saving,...etc
+* 可以排序: http://localhost:3001/users?_sort=age&_order=desc 
+* 分页: http://localhost:3001/users?_page=1&_limit=1 
+* 查询起始: http://localhost:3001/users?_start=1&_end=3 
+* 筛选(_gte/_lte/_ne/_like)：http://localhost:3001/users?age_gte=19&age_lte=31
+* 全文查询：http://localhost:3001/users?q=ing
+* 父/子查询（_expand/_embed）
+* 全部数据： http://localhost:3001/db
 
 
 Manage as Project
