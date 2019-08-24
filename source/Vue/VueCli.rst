@@ -36,9 +36,9 @@ Steps
 常用组件库
 ^^^^^^^^^^^^^^^^^
 
-* ElementUI: `https://element.eleme.cn/#/zh-CN`_
-* Vuetify: `https://vuetifyjs.com/zh-Hans/getting-started/quick-start`_
-* Bootstrap-Vue: `https://bootstrap-vue.js.org/`_
+* `ElementUI <https://element.eleme.cn/#/zh-CN>`_
+* `Vuetify <https://vuetifyjs.com/zh-Hans/getting-started/quick-start>`_
+* `Bootstrap-Vue <https://bootstrap-vue.js.org/>`_
 
 .. index:: Vue
 
