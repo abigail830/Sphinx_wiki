@@ -20,11 +20,31 @@ Steps
   # Old command for v2: 
   # vue init webpack-simple cruise
 
+也可以通过图形界面创建项目"vue ui"
+
+
 * Start project with default pages:
 
 .. code-block:: bash
   
   yarn run serve
+
+* Package: 
+
+.. code-block:: bash
+
+  # Build package
+  yarn run build
+  
+  # Run package in local 
+  npm install -g serve
+  serve -s dist
+  
+  #   |   Serving!                                       │
+  #   │                                                  │
+  #   │   - Local:            http://localhost:5000      │
+  #   │   - On Your Network:  http://192.168.31.5:5000   |
+
 
 
 **Remark**: 
