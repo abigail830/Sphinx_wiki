@@ -1,7 +1,7 @@
-Document
+Reading Notes
 ============
 
-Refering every helpful document
+Refering every helpful articles, books and translations.
 
 Index
 --------
