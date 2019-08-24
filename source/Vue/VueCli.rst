@@ -27,5 +27,13 @@ Steps
   yarn run serve
 
 
-**Remark**: 在默认项目中并没有配置如jest等测试相关的依赖以及scripts
+**Remark**: 
+* 在默认项目中并没有配置如jest等测试相关的依赖以及scripts
+* 如果在create的时候选择是手动选择依赖的话，里面可以手动添加如unit/e2e test, typescript, vuex,router等的依赖
+
+
+常用组件库
+^^^^^^^^^^^^^^^^^
+
+* ElementUI: `https://element.eleme.cn/#/zh-CN`_
   
