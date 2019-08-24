@@ -1,5 +1,5 @@
 Mock Server with Json-Server
-======================
+=====================================
 
 Different ways to create mock server:
 
@@ -34,7 +34,7 @@ Only 3 steps within 10mins to create a mock sever:
             "age": 35
         }
     ]
-}
+  }
 
 * Step3. json-server db.json
 
@@ -105,13 +105,19 @@ Setup Route
 ----------------------
 
 1. Adding route.json
+
 .. code-block:: json
   
   {
     "/v1/*": "/$1"
   }
 
-2. Update start script: json-server --watch db.json --port 3001 --routes routes.json
+2. Update start script: 
+
+.. code-block:: bash
+  
+  json-server --watch db.json --port 3001 --routes routes.json
+  
 
 Then http://localhost:3001/v1/users will be route to http://localhost:3001/users
 
@@ -119,6 +125,7 @@ Setup Header
 -----------------------
 
 1. Adding header.js
+
 .. code-block:: javascript
 
   module.exports = (req, res, next) => {
@@ -126,7 +133,12 @@ Setup Header
     next()
   }
 
-2. Update start script: "json-server --watch db.json --port 3001 --routes routes.json  --middlewares ./header.js"
+2. Update start script: 
+
+.. code-block:: bash
+  
+  json-server --watch db.json --port 3001 --routes routes.json  --middlewares ./header.js
+
 
 3. Output in testing
 
@@ -134,4 +146,4 @@ Setup Header
   :width: 500px
 
 
-
+.. index:: Testing, Json-Server
