@@ -28,6 +28,7 @@ Steps
 
 
 **Remark**: 
+
 * 在默认项目中并没有配置如jest等测试相关的依赖以及scripts
 * 如果在create的时候选择是手动选择依赖的话，里面可以手动添加如unit/e2e test, typescript, vuex,router等的依赖,然后常用的依赖组合可以存为自定义的prefix，下次创建的时候直接使用
 * 添加plugin的方式：vue add vuetify. 这里会添加@vue/cli-plugin-vuetify的插件（add的时候只需要打plugin后面的名字）
