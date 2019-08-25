@@ -6,8 +6,8 @@ RealWorldApp Example With Vue
 `FrontEnd instruction click here <https://github.com/gothinkster/realworld-starter-kit/blob/master/FRONTEND_INSTRUCTIONS.md>`_
 
 
-Here is the steps for Vue
------------------------------
+Part1. Build hardcode page with Vue
+------------------------------------------
 
 1. Init project with Cli
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -106,7 +106,6 @@ Till here
 ^^^^^^^^^^^^^
 
 you would able to see the home page same as `demo <https://vue-vuex-realworld.netlify.com/#/>`_ , but the menu is not working. While you would still able to access those page via url, said http://localhost:8080/register
-
 
 
 Remark
