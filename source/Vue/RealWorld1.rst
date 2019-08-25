@@ -1,9 +1,12 @@
-RealWorldApp Example With Vue (1)
+RealWorldApp Vue Example (1)
 =========================================
 
-`RealWorldApp <https://github.com/gothinkster/realworld>`_ is a very good example page could be used for practise different F/E and B/E language. Refering to the github, it already provided all necessary steps and basic file so that starter would be easier to follow.
+.. note::
+  
+  `RealWorldApp <https://github.com/gothinkster/realworld>`_ is a very good example page could be used for practise different F/E and B/E language. Refering to the github, it already provided all necessary steps and basic file so that starter would be easier to follow.
 
-`FrontEnd instruction click here <https://github.com/gothinkster/realworld-starter-kit/blob/master/FRONTEND_INSTRUCTIONS.md>`_
+  `FrontEnd instruction click here <https://github.com/gothinkster/realworld-starter-kit/blob/master/FRONTEND_INSTRUCTIONS.md>`_
+
 
 
 Build hardcode page with Vue
