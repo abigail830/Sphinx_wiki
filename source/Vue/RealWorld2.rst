@@ -1,5 +1,10 @@
-RealWorldApp Example With Vue - 2
+RealWorldApp Vue Example (2)
 ========================================
+
+.. note::
+  
+  After hardcode page done in step1, we could try to implement the real API. So that the F/E page could really try to interactive with backend service. Here we could either build a mock server by self, or using the existing backend service in http://conduit.productionready.io/api  
+  
 
 Continue update with real API
 ---------------------------------------
