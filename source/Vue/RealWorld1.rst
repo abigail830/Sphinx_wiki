@@ -1,5 +1,5 @@
-RealWorldApp Example With Vue - 1
-======================================
+RealWorldApp Example With Vue (1)
+=========================================
 
 `RealWorldApp <https://github.com/gothinkster/realworld>`_ is a very good example page could be used for practise different F/E and B/E language. Refering to the github, it already provided all necessary steps and basic file so that starter would be easier to follow.
 
@@ -104,9 +104,19 @@ Build hardcode page with Vue
 
 
 Till here
-^^^^^^^^^^^^^
+``````````````
 
 you would able to see the home page same as `demo <https://vue-vuex-realworld.netlify.com/#/>`_ , but the menu is not working. While you would still able to access those page via url, said http://localhost:8080/register
+
+Update linkage with Route-Link
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* In Navbar.vue, update those <a> related place to <router-link to="/register">Need an account?</router-link>
+* Similar, in Register.vue and Login.vue, also update the <a> to each other's route-link
+
+After doing this
+``````````````````````
+Suppose all pages could link to each other and display correctly.
 
 
 Remark
@@ -121,3 +131,12 @@ Remark
         "src/*"
       ]
     },
+
+* Knowledge point:
+
+  * How to use component and view
+  * How to import the css
+  * How to setup the route with router.ts and route-link
+  * How to import components in another Vue file
+
+.. index:: Vue
