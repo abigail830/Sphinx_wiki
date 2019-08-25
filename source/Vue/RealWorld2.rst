@@ -1,5 +1,5 @@
-RealWorldApp 2
-==========================
+RealWorldApp Example With Vue - 2
+========================================
 
 Continue update with real API
 ---------------------------------------
@@ -8,6 +8,7 @@ Suppose we could need to build a model to match the API' interface object. Some 
 
 * https://jvilk.com/MakeTypes/
 * http://json2ts.com/
+
 
 Generate Model
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -38,4 +39,9 @@ Generate Model
     password: string;
   }
 
+Create service
+^^^^^^^^^^^^^^^^^^^^^^^^
 
+We could use Axios: https://www.npmjs.com/package/axios to connect backend server
+
+* Create folder 'service'
