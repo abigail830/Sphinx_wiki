@@ -27,6 +27,7 @@ Build hardcode page with Vue
 * create main.css(or scss) under src/assets/main.css, and copy the content from `this link <https://demo.realworld.io/main.css>`_
 * In public/index.html, referring `Header <https://github.com/gothinkster/realworld-starter-kit/blob/master/FRONTEND_INSTRUCTIONS.md#header>`_ to copy 3 stylesheet dependencies
 * update the index.html to refer to main.css create in step1.
+* Remeber also to include this main.scss in main.ts - 'import '@/assets/main.scss';'
 
 .. code-block:: html
   
