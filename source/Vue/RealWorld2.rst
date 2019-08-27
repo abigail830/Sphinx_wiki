@@ -50,3 +50,17 @@ Create service
 We could use Axios: https://www.npmjs.com/package/axios to connect backend server
 
 * Create folder 'service'
+
+
+Using Vuex store
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Detail of VueX、Store、Module could refer to website: https://vuex.vuejs.org/zh/guide/
+
+
+
+
+
+.. index:: Vue
+
+
