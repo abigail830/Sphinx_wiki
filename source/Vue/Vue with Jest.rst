@@ -1,25 +1,35 @@
 Vue with Jest
 =====================
 
+* `Why Testing with Frontend`_
+* `Testing framework`_
+* `Vue Testing Guide`_
+  
+  *  `Start with vue component in javascript`_
+  * `Avoid`_
+  
+  
+* `Testing strategic`_
+
+Why Testing with Frontend
+------------------------------
+
+* Confident / Remoral fear to change code
+* Code Quality (Follow SRP / Better modular code / Understand what is my component doing)
+* Documentation
+* Developer happy wihtout 996
+
 
 Testing framework
 -----------------------
 
 * **Jasmine**
 
-  - BDD js测试框架
-  - `官网 <https://jasmine.github.io/>`_
-
-* **Karma**
-
-  - 测试运行器，允许在浏览器下运行测试，包含各种驱动
-  - Angular默认就是Jasmine+Karma (但其实另外弹出浏览器会比较慢）
-  - 也可以搭配Mocha使用
+  - BDD js测试框架, `官网 <https://jasmine.github.io/>`_
 
 * **Jest**
   
-  -  `官网 <https://jestjs.io/docs/en/dynamodb>`_
-  - 大包围，包括了测试框架和断言库和mock等所需元素，只需要引入一个包就可以。
+  -  `官网 <https://jestjs.io/docs/en/dynamodb>`_ , 大包围，包括了测试框架和断言库和mock等所需元素，只需要引入一个包就可以。
 
 * **Mocha** 
   
@@ -27,6 +37,10 @@ Testing framework
   - 由describe/it组成，也有before/after/beforeEach/afterEach， it.skip为跳过
   - mocha --recursive -R markdown > spec.md可以把测试用例生成文档
   
+* **Karma**
+
+  - 测试运行器，包含各种驱动,允许在浏览器下运行测试.
+  - Angular默认就是Jasmine+Karma (但其实另外弹出浏览器会比较慢）, 也可以搭配Mocha使用
   
 * **Chai**: 断言库
 
@@ -41,6 +55,85 @@ Testing framework
   expect([1,2,3]).to.include(2);
   expect([]).to.be.empty;
   
+
+Vue Testing Guide
+---------------------
+
+For the basic of Jest, please refer to another article `Jest Basic <http://wiki.saraqian.cn/Testing/Jest.html#>`_
+
+Here is focusing for testing with Vue.
+
+Start with vue component in javascript
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+count.js
+
+.. code-block:: javascript
+  
+  export default {
+    template: `
+      <div>
+        <span class="count">{{ count }}</span>
+        <button @click="increment">Increment</button>
+      </div>
+    `,
+
+    data () {
+      return {
+        count: 0
+      }
+    },
+
+    methods: {
+      increment () {
+        this.count++
+      }
+    }
+  }
+
+
+count.test.js
+  * mount - 渲染控件
+  * wrapper.vm - 获取vue component
+  * wrapper.html() - 获取component的dom html
+  * wrapper.vm.count - 获取component内的data
+  * wrapper.contains('button')/ wrapper.find('button') - 搜索控件
+
+.. code-block:: javascript
+  
+  import { mount } from '@vue/test-utils'
+  import Counter from './counter'
+
+  describe('Counter', () => {
+    // Now mount the component and you have the wrapper
+    const wrapper = mount(Counter)
+
+    it('renders the correct markup', () => {
+      expect(wrapper.html()).toContain('<span class="count">0</span>')
+    })
+
+    // it's also easy to check for the existence of elements
+    it('has a button', () => {
+      expect(wrapper.contains('button')).toBe(true)
+    })
+
+    it('button should increment the count', () => {
+      expect(wrapper.vm.count).toBe(0)
+      const button = wrapper.find('button')
+      button.trigger('click')
+      expect(wrapper.vm.count).toBe(1)
+    })
+  })
+
+Avoid
+^^^^^^^^^
+Not to test framework itself
+
+.. code-block:: 
+  <p>{{data}}</p>
+  ...
+  expect(p.text()).to.be('some prop value here')
+
 
 
 
