@@ -125,6 +125,14 @@ count.test.js
     })
   })
 
+**Remark**: 
+
+* 想象，如果button是另外一个Button.vue, 显示部分又是另外一个Display.vue，那当我们在测试Count.vue的时候，依然可以使用上面的测试方法，把3个Vue组件都集成起来进行测试，可以叫Integration Test.
+* 另一种想法，我们也可以单独的测试Count<->Display(当count输入prop时候能display出来, 和Count<->Button（当点击按钮的时候，count的prop会变化），那这种可以叫Shallow Test
+
+
+
+
 Avoid
 ^^^^^^^^^
 Not to test framework itself
@@ -134,6 +142,10 @@ Not to test framework itself
   ...
   expect(p.text()).to.be('some prop value here')
 
+
+.. seealso::
+  
+  Very good video: https://www.youtube.com/watch?v=OIpfWTThrK8
 
 
 
