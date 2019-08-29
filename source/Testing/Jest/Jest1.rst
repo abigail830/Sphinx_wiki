@@ -96,6 +96,9 @@ Common assertion
 * **toMatch** expect('team').not.toMatch(/I/);
 * **toContain** expect(shoppingList).toContain('beer');
 
+More matcher pls refer to : `Jest official website <https://jestjs.io/docs/en/expect.html#expectanything>`_
+
+
 To assert the exception
 ``````````````````````````
 
