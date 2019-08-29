@@ -4,10 +4,11 @@ Jest Basic
 * `Basic Notes`_
 * `Basic Test Example with Javascript`_
 * `Matcher`_
+* `More example`_
 
 Basic Notes
 -----------------
-* 命名：如果代码是abc.js,测试代码命名为abc.test.js
+* 命名：如果代码是abc.js,测试代码命名为abc.test.js或abc.spec.js
 * 和Junit一样，拥有beforeAll/beforeEach/afterEach/afterAll
 * TestSuit可以用describe包起来，里面每个案例以test或it开头
 * 每个测试案例的描述可以参考“should do sth when condition fulfills"
@@ -129,6 +130,47 @@ Jest优势之一就是已经集成了istanbul可以生成覆盖率报告。需�
 * 分支覆盖率（branch coverage）：是否每个if代码块都执行了？
 * 语句覆盖率（statement coverage）：是否每个语句都执行了？
 
+More example
+--------------------
+
+For example, here is the source code of error.js:
+
+.. code-block:: javascript
+ 
+  export default function getErrorMessage(code) {
+    if (code === 1) {
+      return "The camel walks on a leg";
+    } else if (code === 2) {
+      return "Rabbits don't eat carrots";
+    } else if (code === 3) {
+      return "Cats don't eat mouses";
+    }
+    throw new Error("No error messages for that code");
+  }
+
+error.test.js would be:
+
+.. code-block:: javascript
+  
+  import getErrorMessage from "./error-message";
+  
+  describe("getErrorMessage", () => {
+    it("returns camel message when code is 1", () => {
+      expect(getErrorMessage(1)).toBe("The camel walks on a leg");
+    });
+  
+    it("returns rabbit message when code is 2", () => {
+      expect(getErrorMessage(2)).toBe("Rabbits don't eat carrots");
+    });
+  
+    it("returns cat message when code is 3", () => {
+      expect(getErrorMessage(3)).toBe("Cats don't eat mouses");
+    });
+  
+    it("throws an error otherwise", () => {
+      expect(() => getErrorMessage(4)).toThrow("No error messages for that code");
+    });
+  });
 
 
 
