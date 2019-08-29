@@ -119,6 +119,7 @@ Message.vue
 这时候渲染出来的snapshot是：
 
 .. code-block::
+
   exports[`testing of Message.vue + List.vue Should able to display in Message when receive props 1`] = `
   <div id="app">
     <list-stub items="1,2,3,4"></list-stub>
