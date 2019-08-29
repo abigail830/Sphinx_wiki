@@ -14,13 +14,18 @@ What are we testing?
 --------------------------
 
 +------------------+----------------+----------------+
-| Input            | Vue Component  | Output         |
+|    Input         |                |   Output       |
 +==================+================+================+
 | :props           |                | @events        |
++------------------+                +----------------+
 | user interation  |                | render html    |
-| child component  |                | child component|
++------------------+     VUE        +----------------+
+| child component  |   Component    | child component|
++------------------+                +----------------+
 | VueX             |                | VueX           |
++------------------+                +----------------+
 | Vue Route        |                | Vue Route      |
++------------------+                +----------------+
 | Services         |                | Services       |
 +------------------+----------------+----------------+
 
