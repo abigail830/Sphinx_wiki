@@ -237,3 +237,4 @@ Believe Vue, not to test framework itself
 
 
 
+.. index:: Testing, Jest, Vue
