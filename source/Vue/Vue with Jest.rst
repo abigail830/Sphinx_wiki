@@ -30,6 +30,7 @@ Testing framework
 * **Jest**
   
   -  `官网 <https://jestjs.io/docs/en/dynamodb>`_ , 大包围，包括了测试框架和断言库和mock等所需元素，只需要引入一个包就可以。
+  - 内置istanbul可以直接生成coverage报告
 
 * **Mocha** 
   
@@ -54,7 +55,8 @@ Testing framework
   expect(foo).to.be.an.instanceof(Foo);
   expect([1,2,3]).to.include(2);
   expect([]).to.be.empty;
-  
+ 
+* Sinon: 用于Mock
 
 Vue Testing Guide
 ---------------------
