@@ -4,7 +4,6 @@ Vue with Jest
 * `What are we testing?`_
 * `Component Testing`_
 * `Avoid`_
-* `Testing strategic`_
 
 
 .. note::
@@ -14,16 +13,16 @@ Vue with Jest
 What are we testing?
 --------------------------
 
-------------------------------------------------------
++------------------+----------------+----------------+
 | Input            | Vue Component  | Output         |
-------------------------------------------------------
++==================+================+================+
 | :props           |                | @events        |
 | user interation  |                | render html    |
 | child component  |                | child component|
 | VueX             |                | VueX           |
 | Vue Route        |                | Vue Route      |
 | Services         |                | Services       |
-------------------------------------------------------
++------------------+----------------+----------------+
 
 
 Component Testing
@@ -208,7 +207,8 @@ login.spec.ts
 
 
 Avoid
-^^^^^^^^^
+----------
+
 Believe Vue, not to test framework itself
 
 .. code-block::
@@ -223,13 +223,4 @@ Believe Vue, not to test framework itself
   Very good video: https://www.youtube.com/watch?v=OIpfWTThrK8
 
 
-
-Testing strategic
-----------------------
-
-We have another wiki talking about `vue with react <http://wiki.saraqian.cn/Testing/Jest%20with%20React.html>`_. There mentioned a triangle for my thought of testing strategic, we also mentioned some good/bad for that triangle. But actually there is also other thought on this point.
-
-* Unit Test -> UI Test -> Snapshot Test
-* Unit Test -> Snapshot Test -> E2E Test
-* Unit Test -> Integration Test -> E2E Test
 
