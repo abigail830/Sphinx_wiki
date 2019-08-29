@@ -115,6 +115,28 @@ count.test.js
 * Basic test example could also refer to https://github.com/vuejs/vue-test-utils-jest-example
 
 
+Refactor mount to factory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+假设有按钮组件，按钮上显示的字由props:msg决定,而权限由第二个参数props:propsData决定。
+
+.. code-block:: javascript
+  
+  const msg = "submit"
+  const factory = (propsData) => {
+    return shallowMount(SubmitButton, {
+      propsData: {
+        msg,
+        ...propsData
+      }
+    })
+  }
+  
+  //const wrapper = factory()-->按钮显示submit，不是admin权限
+  //const wrapper = factory({ isAdmin: true })-> 按钮显示submit，admin权限
+  
+  
+
 Test with route
 ^^^^^^^^^^^^^^^^^^^^^^^
 
