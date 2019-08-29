@@ -1,11 +1,9 @@
 Vue with Jest
 =====================
 
-* `Vue Testing Guide`_
-  
-  * `Start with vue component in javascript`_
-  * `Avoid`_
-  
+* `What are we testing?`_
+* `Component Testing`_
+* `Avoid`_
 * `Testing strategic`_
 
 
@@ -14,7 +12,7 @@ Vue with Jest
   For the basic of Jest, please refer to another article `Jest Basic <http://wiki.saraqian.cn/Testing/Jest/Jest1.html>`_ . Here is focusing for testing with Vue. 参考测试策略，如果是单纯的ts/js逻辑部分，按照Jest Basic的测试直接写就可以了，这里关注的是Vue视图相关，如Component，View部分的UI界面及动作的测试。
 
 What are we testing?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------
 
 ------------------------------------------------------
 | Input            | Vue Component  | Output         |
@@ -28,8 +26,8 @@ What are we testing?
 ------------------------------------------------------
 
 
-Start with vue component in javascript
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Component Testing
+--------------------------------------------
 
 count.js
 
