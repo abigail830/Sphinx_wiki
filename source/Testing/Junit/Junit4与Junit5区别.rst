@@ -35,7 +35,7 @@ Junit4
 Annotation
 ------------
 
-.. image:: ../../images/diff45.png
+.. image:: ../../../images/diff45.png
   :width: 500px
 
 
