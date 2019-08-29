@@ -1,61 +1,10 @@
-Jest Basic
-================
+Jest Mock、Stub、Spy
+==============================
 
-* `Basic Notes`_
-* `Basic Test Example with Javascript`_
 * `Mock With Jest`_
 * `Stub With Jest`_
 * `Mock module - such as 3rd party lib`_
 * `async, await and spyOn`_
-
-Basic Notes
------------------
-* 命名：如果代码是abc.js,测试代码命名为abc.test.js
-* 和Junit一样，拥有beforeAll/beforeEach/afterEach/afterAll
-* TestSuit可以用describe包起来，里面每个案例以test或it开头
-* 每个测试案例的描述可以参考“should do sth when condition fulfills"
-* Jest 官网： https://jestjs.io/docs/en/getting-started
-
-.. code-block:: javascript
-  
-  beforeAll(() => console.log('1 - beforeAll'));
-  beforeEach(() => console.log('1 - beforeEach'));
-  test('test1', () => console.log('1 - test'));
-  test('test2 ', () => console.log('1 - test'));
-  afterEach(() => console.log('1 - afterEach'));
-  afterAll(() => console.log('1 - afterAll'));
-  
-  
-
-Basic Test Example with Javascript
----------------------------------------
-
-Sum.js
-
-.. code-block:: javascript
-  
-  function sum(a, b){
-    return a+b;
-  }
-  module.exports = sum;
-
-Sum.test.js
-
-.. code-block:: javascript
-  
-  const sum = require('../src/sum');
-
-  describe("test add function", ()=>{
-
-    test('should equals 3 when 1+2', ()=>{
-      //given
-
-      //when
-      var result = sum(1,2);
-      //then
-      expect(result).toBe(3);
-    })
-  })
   
 Mock With Jest
 ------------------------------
