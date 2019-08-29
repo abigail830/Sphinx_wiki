@@ -29,6 +29,14 @@ What are we testing?
 | Services         |                | Services       |
 +------------------+----------------+----------------+
 
+如：
+
+* 当输入属性变更时候，界面html是否变更正确？如果该属性进一步传到子组件时，子组件是否正确？
+* 当用户动作时，是否触发事件？属性是否跟着变更了？界面的变化是否正常？是否触发了子组件动作或界面变化？是否触发了vueX mutationAction？是否route发生跳转？是否触发其他服务类？
+* 当子组件变化时，父组件是否正常？
+
+通常配合Vue-test-utils进行（https://vue-test-utils.vuejs.org/zh/）
+
 
 Component Testing
 --------------------------------------------
@@ -66,7 +74,7 @@ count.js
 
 
 count.test.js
-  * mount - 渲染控件
+  * mount/shallowMount - 渲染控件
   * wrapper.vm - 获取vue component
   * wrapper.html() - 获取component的dom html
   * wrapper.vm.$data.count - 获取component内的data/props
@@ -100,7 +108,7 @@ count.test.js
 
 **Remark**: 
 
-* mount会完整渲染组件，shallowMount则是浅渲染，不会渲染里面的子组件。
+* mount会完整渲染组件，shallowMount则是浅渲染，不会渲染里面的子组件。`参见具体区别 <http://wiki.saraqian.cn/Testing/Jest/mount.html>`_
 * 想象，如果button是另外一个Button.vue, 显示部分又是另外一个Display.vue，那当我们在测试Count.vue的时候，依然可以使用上面的测试方法，把3个Vue组件都集成起来进行测试，可以叫Integration Test.
 * 另一种想法，我们也可以单独的测试Count<->Display(当count输入prop时候能display出来, 和Count<->Button（当点击按钮的时候，count的prop会变化），那这种可以叫Shallow Test
 * Basic test example could also refer to https://github.com/vuejs/vue-test-utils-jest-example
