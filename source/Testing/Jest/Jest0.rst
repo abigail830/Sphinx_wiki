@@ -3,6 +3,7 @@
 
 * `Why Testing with Frontend`_
 * `Testing framework`_
+* `Testing strategic`_
 
 
 Why Testing with Frontend
@@ -51,3 +52,12 @@ Testing framework
   expect([]).to.be.empty;
  
 * Sinon: 用于Mock
+
+Testing strategic
+----------------------
+
+We have another wiki talking about `vue with react <http://wiki.saraqian.cn/Testing/Jest%20with%20React.html>`_. There mentioned a triangle for my thought of testing strategic, we also mentioned some good/bad for that triangle. But actually there is also other thought on this point.
+
+* Unit Test -> UI Test -> Snapshot Test
+* Unit Test -> Snapshot Test -> E2E Test
+* Unit Test -> Integration Test -> E2E Test
