@@ -61,7 +61,7 @@ Testing framework
 Vue Testing Guide
 ---------------------
 
-For the basic of Jest, please refer to another article `Jest Basic <http://wiki.saraqian.cn/Testing/Jest.html#>`_
+For the basic of Jest, please refer to another article `Jest Basic <http://wiki.saraqian.cn/Testing/Jest/Jest.html>`_
 
 Here is focusing for testing with Vue.
 
