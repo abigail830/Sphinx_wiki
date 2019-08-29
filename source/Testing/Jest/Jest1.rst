@@ -11,6 +11,7 @@ Basic Notes
 * 命名：如果代码是abc.js,测试代码命名为abc.test.js或abc.spec.js
 * 和Junit一样，拥有beforeAll/beforeEach/afterEach/afterAll
 * TestSuit可以用describe包起来，里面每个案例以test或it开头
+* describe.skip/test.skip/it.skip表示跳过某个测试集/测试，describe.only表示只运行一次
 * 每个测试案例的描述可以参考“should do sth when condition fulfills"
 * Jest 官网： https://jestjs.io/docs/en/getting-started
 
