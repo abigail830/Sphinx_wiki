@@ -1,4 +1,4 @@
-Jest Basic
+1. Jest Basic
 ==================
 
 * `Basic Notes`_
