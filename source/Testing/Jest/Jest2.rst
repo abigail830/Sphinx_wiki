@@ -1,4 +1,4 @@
-Jest Mock、Stub、Spy
+2. Mock、Stub、Spy of Jest 
 ==============================
 
 * `Mock With Jest`_
