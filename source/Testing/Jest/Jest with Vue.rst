@@ -4,6 +4,7 @@ Vue with Jest
 * `What are we testing?`_
 * `Component Testing`_
 * `Avoid`_
+* `Reference`_
 
 
 .. note::
@@ -235,6 +236,11 @@ Believe Vue, not to test framework itself
   
   Very good video: https://www.youtube.com/watch?v=OIpfWTThrK8
 
+
+Reference
+----------------
+
+* https://lmiller1990.github.io/vue-testing-handbook/
 
 
 .. index:: Testing, Jest, Vue
