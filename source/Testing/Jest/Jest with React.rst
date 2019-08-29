@@ -5,7 +5,7 @@ Jest with React
 
 以下的例子主要展示视图层的测试的思路之一 （最经典的分层策略还是unit/integration/e2e)
 
-.. image:: ../../images/ui_layer.png
+.. image:: ../../../images/ui_layer.png
   :width: 600px
 
 这里强调的是UI里面的动作和渲染有需要的话也是可以分开测试。当然，这里也有潜在的悖论：
