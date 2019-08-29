@@ -3,7 +3,7 @@ Jest Basic
 
 * `Basic Notes`_
 * `Basic Test Example with Javascript`_
-* 
+* `Matcher`_
 
 Basic Notes
 -----------------
@@ -53,6 +53,61 @@ Sum.test.js
       expect(result).toBe(3);
     })
   })
+
+Matcher
+-------------
+
+在检验过程中，Jest提供了很多匹配的方式
+
+.. code-block:: javascript
+
+  test('demo of null', () => {
+    // when
+    const n = null;
+    // then
+    expect(n).toBeNull();
+    expect(n).toBeDefined();
+    expect(n).not.toBeUndefined();
+    expect(n).not.toBeTruthy();
+    expect(n).toBeFalsy();
+  });
+  
+  test('demo of zero', () => {
+    // when
+    const z = 0;
+    // then
+    expect(z).not.toBeNull();
+    expect(z).toBeDefined();
+    expect(z).not.toBeUndefined();
+    expect(z).not.toBeTruthy();
+    expect(z).toBeFalsy();
+  });
+
+Common assertion
+``````````````````````
+
+* **toBeGreaterThan** expect(4).toBeGreaterThan(3);
+* **toBeGreaterThanOrEqual** expect(4).toBeGreaterThanOrEqual(3.5);
+* **toBeLessThan** expect(4).toBeLessThan(5);
+* **toBeLessThanOrEqual** expect(4).toBeLessThanOrEqual(4.5);
+* **toBe** expect(value).toBe(4);
+* **toEqual**  expect(value).toEqual(4);
+* **toMatch** expect('team').not.toMatch(/I/);
+* **toContain** expect(shoppingList).toContain('beer');
+
+To assert the exception
+``````````````````````````
+
+* expect(compileAndroidCode).toThrow();
+* expect(compileAndroidCode).toThrow(ConfigError);
+* expect(compileAndroidCode).toThrow('you are using the wrong JDK');
+
+
+To assert the mock
+``````````````````````
+
+* **toHaveBeenCalled** expect(mockFn).toHaveBeenCalled()
+(More could be mentioned in another doc talking about Mock/Stub/Spy)
 
 
 Coverage
