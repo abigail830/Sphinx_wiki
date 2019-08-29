@@ -2,8 +2,8 @@
 ==============================
 
 * `Mock With Jest`_
-* `Stub With Jest`_
 * `Mock module - such as 3rd party lib`_
+* `Stub With Jest`_
 * `async, await and spyOn`_
   
 Mock With Jest
@@ -20,14 +20,27 @@ filter.js
   }
   module.exports = filter;
 
-filter.test.js
+jest.fn()
+`````````````
 
-* 使用jest.fn封装mock object，可后续进行验证
+* 使用jest.fn封装mock object，等于带上了窃听器，可后续被进一步验证。
+* jest.fn()里面参数可以是空，这代表空白替身，没有具体功能但能被验证。
+* jest.fn()也可以传一个实际的方法， 如jest.fn(x=>(x%2)==0),这代表一个被窃听中的具体方法。
+
+验证方法
+``````````
+* expect(mockFunc).toBeCalled();
+* expect(mockFunc).toBeCalledWith(arg1, arg2);
+* expect(mockFunc).lastCalledWith(arg1, arg2);
+
+更多：（具体可参考：https://jestjs.io/docs/zh-Hans/expect.html）
+
 * mockFilterCallback.mock.calls.length， 被mock的object被调用次数
 * mockFilterCallback.mock.calls[0][0]， 被mock的object第一次被调用时候第一个入参
 * mockFilterCallback.mock.results[0].value 被mock的object第一次被调用时的结果
 * mockFilterCallback.mock.instances.length 被mock的object被初始化的次数
 
+filter.test.js
 
 .. code-block:: javascript
   
@@ -53,46 +66,13 @@ filter.test.js
         expect(mockFilterCallback.mock.results[2].value).toBeFalsy;
     })
   })
-  
-  
-Stub With Jest
----------------------------------
-* jest.fn()封装mock object
-* mockReturnValueOnce，模拟返回结果，只会根据设置次序返回一次
-* mockReturnValue 模拟返回结果，每次调用都会使用
-
-
-.. code-block:: javascript
-
-  const filter = require('../src/filter');
-
-  //test code
-  describe("test suit for filter", ()=>{
-
-    test("test case1", ()=>{
-        //given
-        const mockFilterCallback = jest.fn();
-        mockFilterCallback
-            .mockReturnValueOnce(true)
-            .mockReturnValueOnce(true)
-            .mockReturnValue(false);
-        //when
-        filter([1,2,3], mockFilterCallback);
-        //then
-        expect(mockFilterCallback.mock.calls.length).toBe(3);
-        expect(mockFilterCallback.mock.calls[0][0]).toBe(1);
-        expect(mockFilterCallback.mock.calls[1][0]).toBe(2);
-        expect(mockFilterCallback.mock.calls[2][0]).toBe(3);
-        expect(mockFilterCallback.mock.instances.length).toBe(3)
-        expect(mockFilterCallback.mock.results[0].value).toBeTruthy;
-        expect(mockFilterCallback.mock.results[1].value).toBeTruthy;
-        expect(mockFilterCallback.mock.results[2].value).toBeFalsy;
-    })
-  })
 
 
 Mock module - such as 3rd party lib
 ------------------------------------------------
+
+* jest.mock('module path'), 如jest.mock('axios');
+* mockImplementation()/mockImplementationOnce(), 如 axios.get.mockImplementation(() => Promise.resolve(resp)),这里就不是直接模拟返回值，而是模拟这个方法体的内部操作。
 
 Mock axios - user.js
 
@@ -128,6 +108,42 @@ user.test.js
       expect(axios.get).toHaveBeenCalled();
     })
   });
+
+Stub With Jest
+---------------------------------
+* jest.fn()封装mock object
+* mockReturnValueOnce，模拟返回结果，只会根据设置次序返回一次
+* mockReturnValue 模拟返回结果，每次调用都会使用
+
+
+.. code-block:: javascript
+
+  const filter = require('../src/filter');
+
+  //test code
+  describe("test suit for filter", ()=>{
+
+    test("test case1", ()=>{
+        //given
+        const mockFilterCallback = jest.fn();
+        mockFilterCallback
+            .mockReturnValueOnce(true)
+            .mockReturnValueOnce(true)
+            .mockReturnValue(false);
+        //when
+        filter([1,2,3], mockFilterCallback);
+        //then
+        expect(mockFilterCallback.mock.calls.length).toBe(3);
+        expect(mockFilterCallback.mock.calls[0][0]).toBe(1);
+        expect(mockFilterCallback.mock.calls[1][0]).toBe(2);
+        expect(mockFilterCallback.mock.calls[2][0]).toBe(3);
+        expect(mockFilterCallback.mock.instances.length).toBe(3)
+        expect(mockFilterCallback.mock.results[0].value).toBeTruthy;
+        expect(mockFilterCallback.mock.results[1].value).toBeTruthy;
+        expect(mockFilterCallback.mock.results[2].value).toBeFalsy;
+    })
+  })
+  
 
 async, await and spyOn
 -------------------------------
