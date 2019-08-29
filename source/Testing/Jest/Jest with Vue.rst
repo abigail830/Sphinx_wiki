@@ -29,12 +29,12 @@ Testing framework
 
 * **Jest**
   
-  -  `官网 <https://jestjs.io/docs/en/dynamodb>`_ , 大包围，包括了测试框架和断言库和mock等所需元素，只需要引入一个包就可以。
+  -  `Jest官网 <https://jestjs.io/docs/en/dynamodb>`_ , 大包围，包括了测试框架和断言库和mock等所需元素，只需要引入一个包就可以。
   - 内置istanbul可以直接生成coverage报告
 
 * **Mocha** 
   
-  - js测试框架，不包含断言库，所以通常搭配chai使用，`官网 <https://mochajs.org/>`_
+  - js测试框架，不包含断言库，所以通常搭配chai使用，`Mocha官网 <https://mochajs.org/>`_
   - 由describe/it组成，也有before/after/beforeEach/afterEach， it.skip为跳过
   - mocha --recursive -R markdown > spec.md可以把测试用例生成文档
   
@@ -250,7 +250,8 @@ Avoid
 ^^^^^^^^^
 Believe Vue, not to test framework itself
 
-.. code-block:: 
+.. code-block::
+
   <p>{{data}}</p>
   ...
   expect(p.text()).to.be('some prop value here')
