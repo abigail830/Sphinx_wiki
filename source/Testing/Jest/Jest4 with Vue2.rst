@@ -1,4 +1,4 @@
-4.2. Jest example for Login Page
+4.2. Vue test example for Login Page
 =============================================
 
 Login.vue
