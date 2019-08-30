@@ -1,5 +1,8 @@
-4. Snapshot Test - Mount和ShallowMount区别
+4. Snapshot Test
 =========================================================
+
+Mount和ShallowMount区别
+-----------------------------
 
 用具体例子说明： 假设有组件Message, 里面包含子组件List,
 
