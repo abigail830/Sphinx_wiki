@@ -73,6 +73,7 @@ Mock module - such as 3rd party lib
 
 * jest.mock('module path'), 如jest.mock('axios');
 * mockImplementation()/mockImplementationOnce(), 如 axios.get.mockImplementation(() => Promise.resolve(resp)),这里就不是直接模拟返回值，而是模拟这个方法体的内部操作。
+* mockRejectedValue(new Error()),模拟async里面的catch异常场景。等效于mockImplementation(() => Promise.reject())，也等效于mockImplementation(() => throw new Error())
 
 Mock axios - user.js
 
