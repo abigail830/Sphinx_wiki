@@ -1,4 +1,4 @@
-4.1. Vue with Jest
+6.1. Vue with Jest
 =====================
 
 * `What are we testing?`_
