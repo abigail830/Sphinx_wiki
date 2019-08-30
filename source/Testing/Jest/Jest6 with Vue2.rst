@@ -1,4 +1,4 @@
-4.2. Vue test example for Login Page
+6.2. Vue test example for Login Page
 =============================================
 
 Login.vue
