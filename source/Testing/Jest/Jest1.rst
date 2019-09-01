@@ -24,7 +24,6 @@ Basic Notes
   afterEach(() => console.log('afterEach'));
   afterAll(() => console.log('afterAll'));
   
-  
 
 Basic Test Example with Javascript
 ---------------------------------------
@@ -112,8 +111,7 @@ To assert the mock
 ``````````````````````
 
 * **toHaveBeenCalled** expect(mockFn).toHaveBeenCalled()
-(More could be mentioned in another doc talking about Mock/Stub/Spy)
-
+(More could be mentioned in another doc talking about `Mock/Stub/Spy <http://wiki.saraqian.cn/Testing/Jest/Jest2.html>`_ )
 
 Coverage
 -------------
