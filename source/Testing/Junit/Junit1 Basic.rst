@@ -1,4 +1,4 @@
-Junit Basic
+1. Junit Basic
 ================
 
 每个测试方法应该按照用户故事中的验收提交分为 Given\When\Then 三段。如：
@@ -20,7 +20,7 @@ Junit Basic
     }
 
 
-1. Prepare Step - 前置准备（Given）
+1.1 Prepare Step - 前置准备（Given）
 -----------------------------------
 
 不同的准备方法，如：
@@ -36,12 +36,12 @@ Junit Basic
 * 在@Before/@BeforeEach的setup方法里面配置，每个测试方法运行前会自动运行，用完后可以在@After/@AfterEach里面销毁
 * 在@BeforeClass/@BeforeAll的方法里面配置，整个测试类创建时候会自动运行，用完后可以在@AfterClass/@AfterAll方法里面销毁
 
-2. Execution - 执行方法（When）
+1.2. Execution - 执行方法（When）
 ----------------------------------
 
 把需要测试的代码触发一次
 
-3. Assert Result - 判断结果（Then）
+1.3. Assert Result - 判断结果（Then）
 ------------------------------------
 
 多种不同类型的判断
