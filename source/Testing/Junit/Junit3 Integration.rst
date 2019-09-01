@@ -57,10 +57,24 @@ pom.xml中添加依赖
 如何在H2中创建和生产一样的表结构
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+这里可以借助一些业界的数据库版本管理工具进行，如flyway.
 
+pom.xml
 
+.. code-block:: xml
   
-  
+  <dependency>
+    <groupId>org.flywaydb</groupId>
+    <artifactId>flyway-core</artifactId>
+    <scope>test<scppe>
+  </dependency>
+
+在resources/db/migration路径下，把各个版本的SQL按顺序放好。如V1__create_user_tbl.sql, V2__create_wish_table.sql, V3__update_age_column.sql...etc.
+
+* 因为使用了H2和flyway的scope设置为test, 通过以上配置，flyway可以在spring运行起来的时候，自动按顺序运行migration下的所有sql。
+* 如果在非测试环境下使用，如在生产环境对真实数据库配置flyway，它会自动记录下migration内哪些SQL是已经运行，然后只继续按顺序运行其他未运行过的SQL。
+
+到这一步，内存版的数据库和表结构就建立好了，可以继续开始组件测试的编写。
   
  **谨记： 无论使用什么数据库，测试案例运行前后应做好数据清理**
 
