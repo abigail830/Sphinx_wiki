@@ -18,19 +18,3 @@
 
 
 .. index:: Testing, Junit
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
