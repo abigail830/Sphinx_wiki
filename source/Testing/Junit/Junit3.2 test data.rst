@@ -1,6 +1,12 @@
 3.2 怎样准备测试数据
 ==========================
 
+* `方法一 利用程序Repository、Dao中写好的CRUD`_
+* `方法二 使用独立的JDBC+SQL准备和清理数据`_
+* `方法三 使用三方工具如DbUnit、Db-Rider等`_
+
+  - `DbUnit`_
+  - `DB-rider`_
 
 方法一 利用程序Repository、Dao中写好的CRUD
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -144,3 +150,4 @@ test java
     }
   }
 
+.. index:: Testing, Junit
