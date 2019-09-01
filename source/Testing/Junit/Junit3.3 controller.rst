@@ -1,9 +1,18 @@
 3.3 怎样触发Controller
 ========================================
 
+基本触发方式：
+
 * `MockMVC`_
 * `Rest-Assured`_
 * `TestRestTemplate`_
+
+延伸应用：
+
+* `如果单独测试Controller层`_
+
+------------------------------
+
 
 MockMVC
 --------------
@@ -92,5 +101,41 @@ TestRestTemplate
     }
   }
 
+如果单独测试Controller层
+----------------------------
+
+可以利用MockBean把Controller所依赖的Service生成替身，正常Mockito写法，并准备好测试数据的模拟when/thenReturn.
+
+.. code-block:: java
+  
+  @AutoConfigureMockMvc
+  class UserMockBeanIntegrationTest extends IntegrationTestBase {
+
+    @Autowired
+    MockMvc mockMvc;
+
+    @MockBean
+    UserService userService;
+
+    @BeforeEach
+    public void setUp() {
+        super.setUp();
+        initMocks(this);
+    }
+
+    @Test
+    void getAllUsers() throws Exception {
+        //given
+        List<User> users = Arrays.asList(new User(1, "user1", "M", "url1"));
+        when(userService.getAllUsers()).thenReturn(users);
+        //when
+        final MvcResult mvcResult = mockMvc.perform(get("/users")).andReturn();
+        //then
+        Assertions.assertEquals(200, mvcResult.getResponse().getStatus());
+
+        String expect = "[{\"id\":1,\"userName\":\"user1\",\"gender\":\"M\",\"avatarUrl\":\"url1\"}]";
+        Assertions.assertEquals(expect, mvcResult.getResponse().getContentAsString());
+    }
+  }
 
 .. index:: Testing, Junit
