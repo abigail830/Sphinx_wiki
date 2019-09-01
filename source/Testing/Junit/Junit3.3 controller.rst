@@ -70,9 +70,27 @@ Rest-Assured
 TestRestTemplate
 ---------------------------
 
+与mockMvc比较，TestRestTemplate不是在同一个进程内，它是真的在模拟另一个外部服务通过controller调用。所以即使在测试中mark @Transactional，也没有办法回滚测试数据
 
+.. code-block:: java
+  
+  public class UserRestTemplateIntegrationTest extends IntegrationTestBase {
 
+    @Autowired
+    TestRestTemplate testRestTemplate;
 
+    @Test
+    @DatabaseSetup(value = "/dbunit/UserTest_allUsers.xml", type = DatabaseOperation.CLEAN_INSERT)
+    void should_get_all_users() {
+
+        List<User> userList = new ArrayList<>();
+        final ResponseEntity<? extends List> result = testRestTemplate
+                .exchange("/users", HttpMethod.GET, null, userList.getClass());
+
+        Assertions.assertEquals(HttpStatus.OK, result.getStatusCode());
+        Assertions.assertEquals(2, result.getBody().size());
+    }
+  }
 
 
 .. index:: Testing, Junit
