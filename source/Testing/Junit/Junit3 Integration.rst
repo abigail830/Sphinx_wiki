@@ -10,8 +10,8 @@
 * `思考二: 怎样准备测试数据`_
   
   * `方法一 利用程序Repository、Dao中写好的CRUD`_
-  * `方法二. 使用独立的JDBC+SQL准备和清理数据`_
-  * `方法三. 使用三方工具如DbUnit、Db-Rider等`_
+  * `方法二 使用独立的JDBC+SQL准备和清理数据`_
+  * `方法三 使用三方工具如DbUnit、Db-Rider等`_
 
 
 
@@ -91,13 +91,13 @@ pom.xml
 
 到这一步，内存版的数据库和表结构就建立好了，可以继续开始组件测试的编写。
   
-**谨记： 无论使用什么数据库，测试案例运行前后应做好数据清理**
+  **谨记： 无论使用什么数据库，测试案例运行前后应做好数据清理**
+
+-----------------------------
 
 
-
-
-思考二: 怎样准备测试数据
---------------------------------
+**思考二: 怎样准备测试数据**
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 方法一 利用程序Repository、Dao中写好的CRUD
@@ -118,6 +118,57 @@ pom.xml
 
 DbUnit
 +++++++++++++
+
+pom.xml
+
+.. code-block:: xml
+  
+  <dependency>
+    <groupId>org.dbunit</groupId>
+    <artifactId>dbunit</artifactId>
+    <version>2.5.0</version>
+    <type>jar</type>
+  <scope>test</scope>
+  </dependency>
+  <dependency>
+    <groupId>com.github.springtestdbunit</groupId>
+    <artifactId>spring-test-dbunit</artifactId>
+    <version>1.2.0</version>
+    <scope>test</scope>
+  </dependency>
+
+test/resource/dbunit/UserTest_allUsers.xml
+
+.. code-block:: xml
+  
+  <dataset>
+    <user_tbl id="1" user_name="user1" gender="F" avatar_url="url1"></user_tbl>
+    <user_tbl id="2" user_name="user2" gender="M"></user_tbl>
+    <wish_tbl id="1" user_id="1" description="This is wish1" create_time="2018-12-12 12:12:12.112233445"></wish_tbl>
+    <wish_tbl id="2" user_id="1" description="This is wish2" create_time="2018-12-13 12:12:12.112233445"></wish_tbl>
+    <wish_tbl id="3" user_id="2" description="This is wish3" create_time="2019-01-11 12:12:12.112233445"></wish_tbl>
+  </dataset>
+
+.. code-block:: java
+  
+    @Test
+    @DatabaseSetup(value = "/dbunit/UserTest_allUsers.xml", type = DatabaseOperation.CLEAN_INSERT)
+    @ExpectedDatabase(value = "/dbunit/UserTest_insertUser_expect.xml",
+            table = "user_tbl",
+            assertionMode = DatabaseAssertionMode.NON_STRICT)
+    @DatabaseTearDown(value = "/dbunit/UserTest_insertUser_expect.xml", type = DatabaseOperation.DELETE)
+    void should_add_user() {
+        //given
+        final User user3 = new User("user3", "M", "url3");
+        //when
+        userService.addUser(user3);
+        //then
+        //assert result is in above xml config
+    }
+
+DB-rider
++++++++++++++++++
+
 
 
 
