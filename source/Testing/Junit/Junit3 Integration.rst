@@ -94,6 +94,8 @@
 
 3. 创建IntegrationTestBase,标记好tag是Integraton（可改），然后其他组件测试都extends这个基类。而在pipeline运行的时候也可以指定-Dtag=Integration，这个好处是可以把很多通用Annotation也放在父类。
 
+**Junit 5**
+
 .. code-block:: java
   
   @ExtendWith(SpringExtension.class)
@@ -102,6 +104,17 @@
   public class IntegrationTestBase {
   
   }
+
+**Junit 4**
+
+.. code-block:: java
+  
+  @RunWith(SpringRunner.class)
+  @SpringBootTest
+  @Category(IntegrationTestBase.class)
+  public abstract class IntegrationTestBase {}
+
+
 
 另关于文件命名，以测试案例描述的那个场景然后加“IT”结尾。如CustomerServiceByJdbcIT.java
 
