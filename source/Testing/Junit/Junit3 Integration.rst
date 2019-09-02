@@ -21,7 +21,7 @@
 命名规范
 ----------------
 
-通常，单元测试的案例会放在和原被测试文件同样的package路径下（不过是under test_), 但对于组件测试，我们需要考虑更多：
+通常，单元测试的案例会放在和原被测试文件同样的package路径下（不过是under test), 但对于组件测试，我们需要考虑更多：
 
 * 组件测试运行时间较长，当案例越来越多的时候，在某些场景下，我们可能会想单独运行单元测试，或者单独运行组件测试。
 * 组件测试更多的为了测试某一个场景，如果使用跟单测一样的命名方式，可能并没有把场景描述清晰。
@@ -32,7 +32,7 @@
   
 .. code-block:: xml
   
-          <plugin>
+              <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
                 <version>3.0.0</version>
@@ -62,6 +62,30 @@
                                 </resource>
                             </resources>
                         </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M3</version>
+                <configuration>
+                    <skipTests>${skipUnitTest}</skipTests>
+                </configuration>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.0.0-M3</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
