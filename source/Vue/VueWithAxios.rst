@@ -8,13 +8,15 @@ Vue With Axios
 * `Config the API_URL in .env config`_
 * `Test for userApi.ts`_
 
-**Make use of API via Vue**
+**Make use of API via Vue modules**
 
-* `Make use of API in VueX  modules`_
+* `Make use of API in VueX modules`_
 
-**Make use of API in VueX  modules**
+**Make use of API in Vue**
 
-* `Make use of API in VueX  modules`_
+* `Make use of API via Vue`_
+
+```````````````````````````````````````````````````````
 
 
 Define the Request/Response object
@@ -109,7 +111,7 @@ Test for userApi.ts
 But of course, it is not recomment. Given once the backend server have issue, this test would be impacted to fail. More frequencely, we could mock the axios to ensure the unit test is independent and stable.
 
 
-Make use of API in VueX  modules
+Make use of API via Vue modules
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 store/modules/users.ts
