@@ -1,4 +1,4 @@
-Funtional program in aliyun
+Funtional program in ALiYun
 ===========================================
 
 Before mainly for Java8 based setup.
@@ -165,6 +165,18 @@ Last, implement the handleRequest for real proper.
         return encryptor.decrypt(encryptedMessage);
     }
   } 
+
+
+In backend config of ALiYun, we need to provide the input as that input POJO mentioned above. Such as:
+
+.. code-block:: json
+  
+  {
+  "envKey": "password",
+  "message": "lkZfR0OSfs1jgEcNMuFG8le0KeTfKHMXNaOJ+UY0Sck="
+  }
+
+Finally, we should be able to get the result by trigger such function with above source info.
 
 .. index:: Serverless, Java
 
