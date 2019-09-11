@@ -182,6 +182,7 @@ Other
 ---------------
 
 * When we want to have the constructor method for init, need to implement the FunctionInitializer.
+* To get logger: context.getLogger()
 
 
 .. index:: Serverless, Java
