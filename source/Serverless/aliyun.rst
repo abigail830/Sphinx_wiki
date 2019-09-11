@@ -178,5 +178,11 @@ In backend config of ALiYun, we need to provide the input as that input POJO men
 
 Finally, we should be able to get the result by trigger such function with above source info.
 
+Other
+---------------
+
+* When we want to have the constructor method for init, need to implement the FunctionInitializer.
+
+
 .. index:: Serverless, Java
 
