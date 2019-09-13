@@ -28,7 +28,7 @@ Assume that we already had function created as below:
 Create Workflow
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: yml
+.. code-block:: yaml
   
   version: v1beta1
   type: flow
@@ -59,7 +59,7 @@ Of course, there is other ways for implement above demo. Said, above way is to c
 
 And we could also create that in a 'pass task' as below:
 
-.. code-block:: yml
+.. code-block:: yaml
   
   version: v1beta1
   type: flow
@@ -95,7 +95,7 @@ Task Step
 * acs:ram::1489268165805041:role/sara-execution is the user we created in RAM with right to AliyunFCInvocationAccess, then extract the id part into resourceArn 
 * The origin output of echo is {"content":"sara"}, with outputMappings, we could map content to {"message":"sara"}
 
-.. code-block:: yml
+.. code-block:: yaml
   
     - type: task
       name: GetContent
@@ -109,7 +109,7 @@ Pass Step
 
 This is mainly for transform the input and output. Similar as model mapper to remap the input/local object from previous steps into the suitable output format as prepare for next step.
 
-.. code-block:: yml
+.. code-block:: yaml
   
     - type: pass
       name: GeneratePassword
@@ -120,7 +120,7 @@ This is mainly for transform the input and output. Similar as model mapper to re
 Parallel Step
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: yml
+.. code-block:: yaml
   
   steps:
     - type: parallel
