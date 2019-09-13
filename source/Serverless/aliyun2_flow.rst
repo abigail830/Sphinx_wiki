@@ -51,7 +51,7 @@ Create Workflow
 
 Then, we would able to trigger this workflow with below result:
 
-.. image:: ../images/workflow.png
+.. image:: ../../images/workflow.png
   :width: 500px
 
 
