@@ -52,7 +52,7 @@ Create Workflow
 Then, we would able to trigger this workflow with below result:
 
 .. image:: ../../images/workflow.png
-  :width: 500px
+  :width: 600px
 
 
 Of course, there is other ways for implement above demo. Said, above way is to create password in Encrypt steps, we could also hardcode that in Encrypt function. 
