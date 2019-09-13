@@ -15,7 +15,7 @@ Adding aliyun's lib in pom.xml
   </dependency>
 
 
-First way is base on StreamRequestHandler
+First way is base on StreamRequestHandler 
 --------------------------------------------------
 
 .. code-block:: java
