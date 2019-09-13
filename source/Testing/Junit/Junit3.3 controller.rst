@@ -50,6 +50,7 @@ Rest-Assured
 -----------------------
 
 使用Given/When/Then的BDD写法，可以把结果extract().as(*.class), 也可以直接使用jsonPath进行比较
+
   “.body("userName", hasItems("user1", "user2"))”
 
 .. code-block:: java
