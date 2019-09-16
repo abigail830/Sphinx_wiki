@@ -1,4 +1,4 @@
-Hello World of Angular
+1. Hello World of Angular
 ============================
 
 .. image:: ../../images/helloworld.png
