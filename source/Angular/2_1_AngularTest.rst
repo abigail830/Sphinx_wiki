@@ -1,4 +1,4 @@
-2.1 Angular Testing with Jasmine & Karma
+2.1 Test with Jasmine & Karma
 ===========================================
 
 By default, Angular contained **Jasmine & Karma**. 
