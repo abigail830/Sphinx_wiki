@@ -1,4 +1,4 @@
-Test with Jest
+2.2 Test with Jest
 ====================
 
 First to add the dependency of Jest:
