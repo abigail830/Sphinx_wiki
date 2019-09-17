@@ -1,5 +1,5 @@
-0. Angular-CLI
-=============
+1.1. Angular-CLI Basic
+==============================
 
 *  `环境准备`_
 *  `创建新项目`_ ： ng new [ApplicationName]
