@@ -112,4 +112,33 @@ Step6. Update app.component.html
   <router-outlet></router-outlet>
   <app-footer/>
 
+So far, it should be working to show home page and login page by specify in url said http://localhost:4200/ and http://localhost:4200/login
+
+Step7. Update header.html
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: html
+  
+     <nav class="navbar navbar-light">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">conduit</a>
+        <ul class="nav navbar-nav pull-xs-right">
+          <li class="nav-item">
+            <a routerLink="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/login">Login</a>
+          </li>
+          
+        </ul>
+      </div>
+    </nav>
+
+Fianlly, till here, the top menu should be also working.
+
+.. images:: ../../images/home_angular.png
+  :width: 550px
+  
+
+.. index:: Angular
 
