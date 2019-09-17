@@ -34,11 +34,40 @@ And when generate component, by default it already come together with test case 
     });
   });
 
-When 'ng test', Karma by default would trigger the browser to open, run the test case in it and generate the report. Some points ppls use to complant Karma solution:
+When 'ng test', Karma by default would trigger the browser to open, run the test case in it and generate the report. Some points ppls use to complain Karma solution:
 
 * It would recompile whole project every time, so it would be slower
 * Testing report is not clear enough for some scenario
 * Without snapshot test by compare with Jest
+
+**Default Karma config for open browser:**
+
+.. code-block:: javascript
+  
+  plugins: [
+      require('karma-jasmine'),
+      require('karma-chrome-launcher'),
+      require('karma-jasmine-html-reporter'),
+      require('karma-coverage-istanbul-reporter'),
+      require('@angular-devkit/build-angular/plugins/karma')
+  ],
+
+Another way is using phantomjs instead to make it bit faster
+
+.. bode-block:: bash
+  
+  npm i --save-dev karma-phantomjs-launcher
+
+.. code-block:: javascript
+  
+  plugins: [
+    require('karma-jasmine'),
+    require('karma-phantomjs-launcher'),
+    require('karma-jasmine-html-reporter'),
+    require('karma-coverage-istanbul-reporter'),
+    require('@angular/cli/plugins/karma')
+  
+
 
 Reference
 -------------
