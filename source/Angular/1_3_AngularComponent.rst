@@ -3,7 +3,7 @@
 
 * `Command to generate component`_
 * `Keys in Component`_
-* `Life-Cycle`_
+* `LifeCycle`_
 
 
 Command to generate component
@@ -49,7 +49,7 @@ Keys in Component
   }
 
 
-Life-Cycle
+LifeCycle
 -------------------
 
 .. image:: ../../images/lifecycle-component.png
