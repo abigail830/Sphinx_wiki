@@ -52,7 +52,8 @@ When 'ng test', Karma by default would trigger the browser to open, run the test
       require('@angular-devkit/build-angular/plugins/karma')
   ],
 
-Another way is using headless browser like phantomjs instead to make it bit faster
+Config with headless browser
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
     
@@ -73,8 +74,6 @@ Karma.conf.js
   //...other config
   browsers: ['PhantomJS', 'Chrome'],
 
-Script in package.json could also update to  **"test": "ng test --no-watch --code-coverage"**
-
 If the project is using ES6, while Phantomjs only supporting ES5, so error may happen:
 
   PhantomJS 2.1.1 (Mac OS X 0.0.0) ERROR
@@ -89,6 +88,26 @@ To fix it, `refering post <https://stackoverflow.com/questions/29736114/how-to-u
 
 **Finally, another solution is to use Jest instead.**
 
+
+TestCoverage
+^^^^^^^^^^^^^^^^^
+
+* Script in package.json could update to  **"test": "ng test --no-watch --code-coverage"**
+* To setup threshold for test coverage:
+
+.. code-block:: javascript
+  
+  coverageIstanbulReporter: {
+    reports: [ 'html', 'lcovonly' ],
+    fixWebpackSourcePaths: true,
+    thresholds: {
+      statements: 80,
+      lines: 80,
+      branches: 80,
+      functions: 80
+    }
+  }
+  
 
 Reference
 -------------
