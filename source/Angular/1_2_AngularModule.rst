@@ -1,8 +1,15 @@
 1.2 Angular Module
 ==============================
 
+* `Command to generate module`_
+* `Keys in NgModule`_
+
+  * `Common imports`_
+  * `Enable trace for routing`_
+
+
 Command to generate module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------
 
 .. code-block:: bash
   
@@ -47,13 +54,13 @@ Command to generate module
   export class LoginRoutingModule { }
 
 Keys in NgModule
-^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
-* declarations： 可声明对象，如属于本NgModule的组件、指令、管道
-* exports： 导出，能在其他模块组件中使用的可生命对象子集 
-* imports： 导入， 导出本模块组件时所需的其他模块的类
-* providers：本模块向全局服务中贡献的那些服务的创建器。这些服务能被本应用中任何部分使用（也可以在组件级别指定provider，这是首选方式）
-* bootstrap —— 应用主视图，根组件（如app.module.ts)。所有其他视图的宿主。
+* **declarations：** 可声明对象，如属于本NgModule的组件、指令、管道
+* **exports：** 导出，能在其他模块组件中使用的可生命对象子集 
+* **imports：** 导入， 导出本模块组件时所需的其他模块的类
+* **providers：**本模块向全局服务中贡献的那些服务的创建器。这些服务能被本应用中任何部分使用（也可以在组件级别指定provider，这是首选方式）
+* **bootstrap:** 应用主视图，根组件（如app.module.ts)。所有其他视图的宿主。
 
 .. code-block:: typescript
   
@@ -87,12 +94,37 @@ Keys in NgModule
 Common imports
 ^^^^^^^^^^^^^^^^^^^^
 
-* CommonModule: when need to use NgIf and NgFor (it would come by default)
-* RouteModule: when need routing function.Said RouterLink.forRoot() or .forChild()(it would come by default for routing module)
-* FormsModule: When need to construct forms(it included NgModel)
-* ReactiveFormsModule: for reactive forms
-* BrowserModule: when need to run app in Browser
-* HttpClientModule: when need to http task with backend server
+* **CommonModule:** when need to use NgIf and NgFor (it would come by default)
+* **RouteModule:** when need routing function.Said RouterLink.forRoot() or .forChild()(it would come by default for routing module)
+* **FormsModule:** When need to construct forms(it included NgModel)
+* **ReactiveFormsModule:** for reactive forms
+* **BrowserModule:** when need to run app in Browser
+* **HttpClientModule:** when need to http task with backend server
+
+Enable trace for routing
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: typescript
+  
+  import { NgModule } from '@angular/core';
+  import { RouterModule, Routes } from '@angular/router';
+  
+  const routes: Routes = [
+    {
+      path: 'dashboard',
+      loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule),
+      data: {
+        title: 'Dashboard'
+      }
+    }
+  ];
+
+  @NgModule({
+    imports: [RouterModule.forRoot(routes, { enableTracing: true })],
+    exports: [RouterModule]
+  })
+  export class AppRoutingModule {}
 
 
+.. index:: Angular
   
