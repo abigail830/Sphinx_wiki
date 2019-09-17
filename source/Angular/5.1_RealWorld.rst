@@ -20,14 +20,24 @@
 
 .. code-block:: bash
   
-  ng create component header
-  ng create component footer
+  ng generate component header
+  ng generate component footer
 
 Copy the HTML content of header/footer into the newly created component's html
 
 Reference: https://github.com/gothinkster/realworld-starter-kit/blob/master/FRONTEND_INSTRUCTIONS.md#header
 
-**Step4. Update app.component.html**
+**Step4. Create routing module and component of home page**
+
+.. code-block:: bash
+  
+  ng generate component home
+  ng generate module home --routing=true
+
+**Step5. Config Routing of app**
+
+
+**Step6. Update app.component.html**
 
 .. code-block:: html
   
