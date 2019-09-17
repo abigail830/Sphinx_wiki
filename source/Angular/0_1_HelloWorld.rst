@@ -1,4 +1,4 @@
-1. Hello World of Angular
+0.1. Hello World of Angular
 ============================
 
 .. image:: ../../images/helloworld.png
