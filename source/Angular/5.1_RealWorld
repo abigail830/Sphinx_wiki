@@ -1,0 +1,20 @@
+5.1 RealWorldApp Angular Exmaple (1)
+===========================================
+
+**Step1. Create project**
+
+.. code-block:: bash
+  
+  ng new real-world
+  
+
+
+**Step2. Create component Header & Footer**
+
+.. code-block:: bash
+  
+  ng create component header
+  ng create component footer
+
+Copy the HTML content of header/footer into the newly created component's html
+
