@@ -74,7 +74,8 @@ This is the config included test coverage, otherwise, could also only use first 
         "<rootDir>/src/app/models",
         "jestGlobalMocks.ts",
         ".module.ts",
-        "<rootDir>/src/app/main.ts"
+        "<rootDir>/src/main.ts",
+        "<rootDir>/src/polyfills.ts"
     ],
   }
  
