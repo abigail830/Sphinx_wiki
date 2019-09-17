@@ -56,10 +56,10 @@ Command to generate module
 Keys in NgModule
 ----------------------
 
-* **declarations：** 可声明对象，如属于本NgModule的组件、指令、管道
-* **exports：** 导出，能在其他模块组件中使用的可生命对象子集 
-* **imports：** 导入， 导出本模块组件时所需的其他模块的类
-* **providers：**本模块向全局服务中贡献的那些服务的创建器。这些服务能被本应用中任何部分使用（也可以在组件级别指定provider，这是首选方式）
+* **declarations:** 可声明对象，如属于本NgModule的组件、指令、管道
+* **exports:** 导出，能在其他模块组件中使用的可生命对象子集 
+* **imports:** 导入， 导出本模块组件时所需的其他模块的类
+* **providers:** 本模块向全局服务中贡献的那些服务的创建器。这些服务能被本应用中任何部分使用（也可以在组件级别指定provider，这是首选方式）
 * **bootstrap:** 应用主视图，根组件（如app.module.ts)。所有其他视图的宿主。
 
 .. code-block:: typescript
@@ -103,6 +103,8 @@ Common imports
 
 Enable trace for routing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Using '{ enableTracing: true }' in app.routing.module.ts
 
 .. code-block:: typescript
   
