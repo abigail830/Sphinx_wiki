@@ -7,6 +7,8 @@
   * `Common imports`_
   * `Enable trace for routing`_
 
+* `Routing Setup`_
+
 
 Command to generate module
 -------------------------------
@@ -126,6 +128,36 @@ Using '{ enableTracing: true }' in app.routing.module.ts
     exports: [RouterModule]
   })
   export class AppRoutingModule {}
+
+
+Routing Setup
+-----------------
+
+.. code-block:: typescript
+  
+  const routes: Routes = [
+   {
+     path: 'dashboard',
+     loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule),
+     data: {
+       title: 'Dashboard'
+     }
+   },
+   {
+     path: 'agent/:id',
+     component: AgentsModule
+   },
+   {
+     path: '',
+     redirectTo: '/dashboard',
+     pathMatch: 'full'
+   },
+   {
+     pathMatch: '**',
+     component: PageNotFoundComponent
+   }
+ ];
+
 
 
 .. index:: Angular
