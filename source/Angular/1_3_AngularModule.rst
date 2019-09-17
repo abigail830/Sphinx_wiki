@@ -1,4 +1,4 @@
-1.2 Angular Module
+1.3 Angular Module
 ==============================
 
 * `Command to generate module`_
