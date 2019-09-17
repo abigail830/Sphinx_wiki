@@ -19,11 +19,13 @@ Step2. add the dependency of Jest:
 
 Step3. Update tsconfig files
 
-* In tsconfig.spec.json, replace 'jasmine' to 'jest' in types.
+* In tsconfig.spec.json, replace 'jasmine' to 'jest' in types, remove "src/test.ts" under files.
 * In tsconfig.json, add types with jest to compilerOptions as well
 
 .. code-block:: json
   
+  {
+    "extends": "./tsconfig.json",
     "compilerOptions": {
       "outDir": "./out-tsc/spec",
       "types": [
@@ -31,7 +33,14 @@ Step3. Update tsconfig files
         "node"
       ]
     },
- 
+    "files": [
+      "src/polyfills.ts"
+    ],
+    "include": [
+      "src/**/*.spec.ts",
+      "src/**/*.d.ts"
+    ]
+  }
 
 Step4. Update angular.json
  
@@ -43,6 +52,8 @@ Replace test builder:
  
 Step5. jest-config.js
  
+This is the config included test coverage, otherwise, could also only use first 3 lines.
+
 .. code-block:: javascript
   
   module.exports = {
