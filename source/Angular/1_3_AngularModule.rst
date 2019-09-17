@@ -134,7 +134,8 @@ Using '{ enableTracing: true }' in app.routing.module.ts
 Routing Setup
 -----------------
 
-It would follow the config sequence as priority (So you may see the last config would be put at the bottom)
+* It would follow the config sequence as priority (So you may see the last config would be put at the bottom)
+* The 1st sample below is using lazy load machanizm.
 
 .. code-block:: typescript
   
