@@ -25,6 +25,8 @@
 
 Copy the HTML content of header/footer into the newly created component's html
 
+Reference: https://github.com/gothinkster/realworld-starter-kit/blob/master/FRONTEND_INSTRUCTIONS.md#header
+
 **Step4. Update app.component.html**
 
 .. code-block:: html
