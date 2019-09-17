@@ -45,7 +45,13 @@ Service could be inject to module and component via **providers**. Only only ins
 
 Similar, we could also inject it into @Component via providers.
 
+What is Service for?
+--------------------------
 
+* To handle the B/E communication
+* To provide the necessary data and transformation for layout
+* Temporary store share data
+* Encapsulate biz domain to provide CRUD..etc functions.
 
 
 .. index:: Angular
