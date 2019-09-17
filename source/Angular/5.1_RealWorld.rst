@@ -1,13 +1,15 @@
 5.1 RealWorldApp Angular Exmaple (1)
 ===========================================
 
-**Step1. Create project**
+Step1. Create project
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
   
   ng new real-world
   
-**Step2. Add external css into index**
+Step2. Add external css into index
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: html
   
@@ -16,7 +18,8 @@
   <link rel="stylesheet" href="//demo.productionready.io/main.css">
 
 
-**Step3. Create component Header & Footer**
+Step3. Create component Header & Footer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
   
@@ -25,9 +28,10 @@
 
 Copy the HTML content of header/footer into the newly created component's html
 
-Reference: https://github.com/gothinkster/realworld-starter-kit/blob/master/FRONTEND_INSTRUCTIONS.md#header
+Reference: https://github.com/gothinkster/realworld-starter-kit/blob/master/FRONTEND_INSTRUCTIONS.md#header . But ensure not include those part like header/body/html, only include the inside part said <footer> and <nav>.
 
-**Step4. Create routing module and component of home & login page**
+Step4. Create routing module and component of home & login page
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
   
@@ -37,10 +41,70 @@ Reference: https://github.com/gothinkster/realworld-starter-kit/blob/master/FRON
   ng generate component login
   ng generate module login --routing=true
 
-**Step5. Config Routing of app**
+Step5. Config Routing of app
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**app-routing.modules.ts**
+
+.. code-block:: typescript
+  
+  import { NgModule } from '@angular/core';
+  import { Routes, RouterModule } from '@angular/router';
+  import { HomeComponent } from './home/home.component';
+  import { LoginComponent } from './login/login.component';
+
+  const routes: Routes = [
+    {
+      path: '',
+      component: HomeComponent
+    },
+    {
+      path: 'login',
+      component: LoginComponent
+    }
+  ];
+
+  @NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+  })
+  export class AppRoutingModule { }
+
+**app.module.ts** ensure included all necessary module/components
+
+.. code-block:: typescript
+  
+  import { BrowserModule } from '@angular/platform-browser';
+  import { NgModule } from '@angular/core';
+  
+  import { AppRoutingModule } from './app-routing.module';
+  import { AppComponent } from './app.component';
+  import { HeaderComponent } from './header/header.component';
+  import { FooterComponent } from './footer/footer.component';
+  import { HomeComponent } from './home/home.component';
+  import { LoginComponent } from './login/login.component';
+  
+  @NgModule({
+    declarations: [
+      AppComponent,
+      HeaderComponent,
+      FooterComponent,
+      HomeComponent,
+      LoginComponent
+    ],
+    imports: [
+      BrowserModule,
+      AppRoutingModule,
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
+  })
+  export class AppModule { }
 
 
-**Step6. Update app.component.html**
+
+Step6. Update app.component.html
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: html
   
