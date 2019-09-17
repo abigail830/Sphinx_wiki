@@ -8,6 +8,7 @@
   * `Enable trace for routing`_
 
 * `Routing Setup`_
+* `Active Route in UI`_
 
 
 Command to generate module
@@ -133,6 +134,8 @@ Using '{ enableTracing: true }' in app.routing.module.ts
 Routing Setup
 -----------------
 
+It would follow the config sequence as priority (So you may see the last config would be put at the bottom)
+
 .. code-block:: typescript
   
   const routes: Routes = [
@@ -157,6 +160,31 @@ Routing Setup
      component: PageNotFoundComponent
    }
  ];
+
+Active Route in UI
+-----------------------
+
+Said after we defined routing "" & "login", in the header.component.html we could refer by this:
+
+.. code-block:: html
+ 
+ <ul class="nav navbar-nav pull-xs-right">
+  <li class="nav-item">
+   <a routerLink="/">Home</a>
+  </li>
+  <li class="nav-item">
+   <a routerLink="/login">Login</a>
+  </li>
+ </ul>
+
+And in app.component.html, we could have a general setup as:
+
+.. code-block:: html
+ 
+ <app-header></app-header>
+ <router-outlet></router-outlet>
+ <app-footer></app-footer>
+
 
 
 
