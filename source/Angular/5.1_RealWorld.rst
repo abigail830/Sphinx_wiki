@@ -27,12 +27,15 @@ Copy the HTML content of header/footer into the newly created component's html
 
 Reference: https://github.com/gothinkster/realworld-starter-kit/blob/master/FRONTEND_INSTRUCTIONS.md#header
 
-**Step4. Create routing module and component of home page**
+**Step4. Create routing module and component of home & login page**
 
 .. code-block:: bash
   
   ng generate component home
   ng generate module home --routing=true
+  
+  ng generate component login
+  ng generate module login --routing=true
 
 **Step5. Config Routing of app**
 
