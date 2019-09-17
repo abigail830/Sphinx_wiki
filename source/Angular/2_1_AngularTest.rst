@@ -52,11 +52,14 @@ When 'ng test', Karma by default would trigger the browser to open, run the test
       require('@angular-devkit/build-angular/plugins/karma')
   ],
 
-Another way is using phantomjs instead to make it bit faster
+Another way is using headless browser like phantomjs instead to make it bit faster
 
-.. bode-block:: bash
-  
+.. code-block:: bash
+    
   npm i --save-dev karma-phantomjs-launcher
+
+
+Karma.conf.js
 
 .. code-block:: javascript
   
@@ -67,6 +70,24 @@ Another way is using phantomjs instead to make it bit faster
     require('karma-coverage-istanbul-reporter'),
     require('@angular/cli/plugins/karma')
   
+  //...other config
+  browsers: ['PhantomJS', 'Chrome'],
+
+Script in package.json could also update to  **"test": "ng test --no-watch --code-coverage"**
+
+If the project is using ES6, while Phantomjs only supporting ES5, so error may happen:
+
+  PhantomJS 2.1.1 (Mac OS X 0.0.0) ERROR
+    SyntaxError: Use of reserved word 'class'
+    at http://localhost:9877/_karma_webpack_/polyfills.js:3166:0
+
+  PhantomJS 2.1.1 (Mac OS X 0.0.0) ERROR
+    SyntaxError: Use of reserved word 'class'
+    at http://localhost:9877/_karma_webpack_/polyfills.js:3166:0
+
+To fix it, `refering post <https://stackoverflow.com/questions/29736114/how-to-use-es6-with-phantomjs>`_
+
+**Finally, another solution is to use Jest instead.**
 
 
 Reference
