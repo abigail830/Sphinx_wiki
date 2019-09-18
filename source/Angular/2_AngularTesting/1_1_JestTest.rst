@@ -1,5 +1,5 @@
-2.2 Test with Jest
-====================
+1.1 Update to Jest
+======================
 
 Step1. clean up Karma in default Angular project
 
