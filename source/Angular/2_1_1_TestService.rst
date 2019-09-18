@@ -68,14 +68,41 @@ Case1. UserService will invoke HttpClient directly
       username: 'username',
       token: 'token'
     };
-    service.login(userCredentials).subscribe(user => {
-      expect(user).toEqual(expectUser);
-      done();
-    }, fail);
+    service.login(userCredentials).subscribe(
+      user => {
+        expect(user).toEqual(expectUser);
+        done();
+      }, 
+      error => fail('Fail to simulate sucess'),
+    );
   
     const request = testingController.expectOne(service.loginUrl);
     expect(request.request.method).toEqual('POST');
     request.flush(expectUser);
+   });
+   
+     it('Should able to get error when login fail', () => {
+    // given
+    const userCredentials: UserCredentials = {
+      email: 'email',
+      password: 'password'
+    };
+    const mockErrorResponse = { status: 400, statusText: 'Bad Request' };
+    const error = 'Invalid request parameters';
+
+    // when
+    service.login(userCredentials).subscribe(
+      user => fail('Fail to simulate error'),
+      err => {
+        expect(err.error).toBe(error);
+        expect(err.status).toBe(400);
+      }
+    );
+
+    // then
+    const request = testingController.expectOne(service.loginUrl);
+    expect(request.request.method).toEqual('POST');
+    request.flush(error, mockErrorResponse);
    });
   });
 
