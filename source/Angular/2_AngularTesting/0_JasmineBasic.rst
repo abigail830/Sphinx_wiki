@@ -1,4 +1,4 @@
-Jasmine Basic
+0. Jasmine Basic
 =====================
 
 Same example as Jest still valid in Jasmine.
