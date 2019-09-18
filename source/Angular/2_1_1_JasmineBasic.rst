@@ -45,7 +45,14 @@ Matchers
   expect(12).not.toBe(null);
   expect(object1).toEqual(object2);
   expect(null).toBeNull();
+  expect(foo).toBeTruthy();
+  expect(a).not.toBeTruthy();
+  expect(2.78).toBeLessThan(pi);
+  expect(pi).toBeGreaterThan(2.78);
 
+  var a = ["foo", "bar", "baz"];
+  expect(a).toContain("bar");
+  
   var message = "foo bar baz";
   expect(message).toMatch(/bar/);
   expect(message).toMatch("bar");
@@ -58,3 +65,4 @@ Matchers
   expect(a.bar).not.toBeDefined();
 
 
+.. index:: Angular, Jasmine, Testing
