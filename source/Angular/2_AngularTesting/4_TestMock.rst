@@ -85,7 +85,9 @@ Test with real authService and real localStorage
 Test with mock authService
 -------------------------------------------------------------
 
-Create a mockAuthService in mock folder
+**Keys**
+
+* Create a mockAuthService in mock folder which extends AuthService
 
 .. code-block:: typescript
   
@@ -128,6 +130,12 @@ Then Test with MockAuthService
 
 Test with spyOn
 ---------------------
+
+**Keys**
+
+* spyOn(authService, 'isAuthenticated').and.returnValue(false);
+* expect(authService.isAuthenticated).toHaveBeenCalled();
+* expect(authService.isAuthenticated).toHaveBeenCalledTimes(1);
 
 .. code-block:: typescript
   
