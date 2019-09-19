@@ -8,6 +8,7 @@ Background
 * Main page also have a button, once clicked, it would route to Register page.
 * Having 2 sub component page Login & Register.
 
+main.component.ts
 
 .. code-block:: typescript
   
@@ -28,6 +29,8 @@ Background
       this.router.navigateByUrl('/register');
     }
   }
+
+main.component.html
 
 .. code-block:: html
   
