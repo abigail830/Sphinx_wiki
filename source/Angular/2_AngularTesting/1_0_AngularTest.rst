@@ -30,7 +30,20 @@ Karma.conf.js
 .. code-block:: javascript
   
   //browsers: ['Chrome'],
-  browsers: ['ChromeHeadless'],
+  autoWatch: false,
+    browsers: ['ChromeHeadless'],
+    customLaunchers: {
+      ChromeHeadless: {
+        base: 'Chrome',
+        flags: [
+          '--headless',
+          '--disable-gpu',
+          '--no-sandbox',
+          '--remote-debugging-port=9222',
+        ]
+      }
+    },
+    singleRun: true,
 
 
 使用phantomjs
