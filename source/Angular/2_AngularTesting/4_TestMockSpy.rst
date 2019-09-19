@@ -1,5 +1,5 @@
-4. Test with Mock
-=======================
+4. Test with Mock and Spy
+============================
 
 * `Background`_
 * `Test with real authService and real localStorage`_
