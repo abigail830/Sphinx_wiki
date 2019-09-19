@@ -1,10 +1,12 @@
-Test with Mock
-==================
+4. Test with Mock
+=======================
 
 * `Background`_
 * `Test with real authService and real localStorage`_
 * `Test with mock authService`_
 * `Test with spyOn`_
+
+Reference Demo4 in https://github.com/abigail830/angular-demo
 
 
 Background
