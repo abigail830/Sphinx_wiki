@@ -119,5 +119,21 @@ To test the button click
   
   });
 
+同理，也可以自己制造一个Stub的class
+
+.. code-block:: typescript
+  
+  class RouterStub {
+    navigateByUrl(url: string) { return url; }
+  }
+  TestBed.configureTestingModule({
+    declarations: [HomePageContentComponent],
+    providers: [
+      { provide: Auth, useClass: AuthStub },
+      { provide: Router, useClass: RouterStub }
+    ]
+  }).compileComponents()
+
+
 
 .. index:: Angular, Testing, Jasmine
