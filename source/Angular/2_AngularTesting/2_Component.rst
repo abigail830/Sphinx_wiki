@@ -79,7 +79,16 @@ And ts contain below property
     title = 'demo';
   }
 
+当需要测试【渲染】/【绑定】/【动作】的时候，不可避免就是需要在页面上选择控件，从而获取里面的值作判断。
 
+常见控件获取方式
+^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: typescript
+  
+  h1 = fixture.nativeElement.querySelector('h1');
+  h1_content = fixture.debugElement.nativeElement.querySelector('h1').textContent
+  
 
 
 
