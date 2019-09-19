@@ -1,6 +1,8 @@
 1. Karma Basic
 ===========================================
 
+Karma的配置集中在karma.config.js
+
 **Default Karma config for open browser:**
 
 .. code-block:: javascript
@@ -14,9 +16,25 @@
   ],
 
 Config with headless browser
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------
 
 If you think its too slow to open browser every time, its also support to run test with headless browser which would be bit quicker.
+
+**有两种配置方式：**
+
+使用ChromeHeadless (最简单)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Karma.conf.js
+
+.. code-block:: javascript
+  
+  //browsers: ['Chrome'],
+  browsers: ['ChromeHeadless'],
+
+
+使用phantomjs
+^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
     
@@ -35,7 +53,7 @@ Karma.conf.js
     require('@angular/cli/plugins/karma')
   
   //...other config
-  browsers: ['PhantomJS', 'Chrome'],
+  browsers: ['PhantomJS'],
 
 If the project is using ES6, while Phantomjs only supporting ES5, so error may happen:
 
@@ -57,7 +75,26 @@ To fix it, `refering post https://stackoverflow.com/questions/29736114/how-to-us
 TestCoverage
 ^^^^^^^^^^^^^^^^^
 
-* Script in package.json could update to  **"test": "ng test --no-watch --code-coverage"**
+* 生成测试覆盖率报告命令："ng test --no-watch --code-coverage"
+* 完成时，会在项目中创建一个新的 /coverage 目录。打开其 index.html 文件以查看代码覆盖率值的报告
+* 如果希望每次都生成有两种方法：
+
+  * 方法一： 更新"Script" in package.json  
+    "test": "ng test --no-watch --code-coverage"**
+  * 方法二： 配置angular.json
+  
+  .. code-block:: json
+    
+    "test": {
+      "options": {
+        "codeCoverage": true
+      }
+    }
+    
+  
+  
+  
+  
 * To setup threshold for test coverage:
 
 .. code-block:: javascript
