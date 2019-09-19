@@ -55,6 +55,32 @@ auth.service.ts
   }
 
 
+Test with real authService and real localStorage
+--------------------------------------------------------------
+
+.. code-block:: typescript
+  
+    describe('Test with real AuthService and localStorage', () => {
+      let component: LoginComponent;
+      beforeEach(() => {
+        const authService: AuthService = new AuthService();
+        component = new LoginComponent(authService);
+      });
+      afterEach(() => {
+        component = null;
+      });
+      it('should able to show login when with token', () => {
+        localStorage.setItem('token', '12345');
+        expect(component.needLogin()).toBeFalsy();
+      });
+      it('should able to hidden login when without token', () => {
+        localStorage.removeItem('token');
+        expect(component.needLogin()).toBeTruthy();
+      });
+    });
+
+
+
 Test with mock authService
 -------------------------------------------------------------
 
