@@ -1,7 +1,9 @@
 1.1 Update to Jest
 ======================
 
-Step1. clean up Karma in default Angular project
+如果偏向与使用Jest而不是Jasmine+Karam的话，可以更改一下的配置
+
+Step1. clean up Karma in default Angular project （optional）
 
 .. code-block:: bash
   
@@ -49,6 +51,9 @@ Replace test builder:
 * from "builder": "@angular-devkit/build-angular:karma",' 
 * to '"builder": "@angular-builders/jest:run"'
 * feel free to remove karma config and main config
+
+也可以直接更改package.json里面scripts的test部分为"jest",这里的build不改也是可以的（因为没有被调用到）
+ 
  
 Step5. jest-config.js
  
