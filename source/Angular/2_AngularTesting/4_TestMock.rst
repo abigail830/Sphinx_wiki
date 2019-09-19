@@ -55,7 +55,7 @@ auth.service.ts
   }
 
 
-Test with real authService and real localStorage
+Test with mock authService
 -------------------------------------------------------------
 
 Create a mockAuthService in mock folder
@@ -64,7 +64,7 @@ Create a mockAuthService in mock folder
   
   import { Injectable } from '@angular/core';
 
-  export class MockAuthService {
+  export class MockAuthService extends AuthService {
     authenticated = false;
   
     isAuthenticated(): boolean {
