@@ -79,8 +79,12 @@ TestCoverage
 * 完成时，会在项目中创建一个新的 /coverage 目录。打开其 index.html 文件以查看代码覆盖率值的报告
 * 如果希望每次都生成有两种方法：
 
-  * 方法一： 更新"Script" in package.json  
+  * 方法一： 更新"Script" in package.json 
+  
+  .. code-block:: json
+    
     "test": "ng test --no-watch --code-coverage"**
+
   * 方法二： 配置angular.json
   
   .. code-block:: json
@@ -90,10 +94,7 @@ TestCoverage
         "codeCoverage": true
       }
     }
-    
-  
-  
-  
+
   
 * To setup threshold for test coverage:
 
