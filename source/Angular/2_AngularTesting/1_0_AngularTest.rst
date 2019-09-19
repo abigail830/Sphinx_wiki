@@ -104,7 +104,10 @@ TestCoverage
     
     "test": {
       "options": {
-        "codeCoverage": true
+        "codeCoverage": true,
+        "codeCoverageExclude": [
+           "src/app/models/**/*"
+        ]
       }
     }
 
