@@ -1,9 +1,17 @@
 2. Test on Component 
 ===========================================
 
-By default, Angular contained **Jasmine & Karma**. 
+测试component的时候，需要测试的是什么？
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-And when generate component, by default it already come together with test case structure.
+* 当页面渲染好后，重要的、应该存在的控件存在，而且初始值正确
+* 当页面有数据绑定时候，当模拟属性赋值，视图是否能正确的绑定并跟随变化。反向的时候，当页面控件变化，绑定数据是否正确更新并获取
+* 当页面控件有动作的时候，除了页面关联变化，绑定属性变化，是否还正确触发了其他后台动作（如service调用）
+
+参考默认生成的测试案例
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When generate component, by default it already come together with test case structure.
 
 .. code-block:: javascript
   
@@ -70,6 +78,7 @@ And ts contain below property
   export class AppComponent {
     title = 'demo';
   }
+
 
 
 
