@@ -4,6 +4,7 @@ Test with Mock
 * `Background`_
 * `Test with real authService and real localStorage`_
 * `Test with mock authService`_
+* `Test with spyOn`_
 
 
 Background
@@ -69,11 +70,11 @@ Test with real authService and real localStorage
       afterEach(() => {
         component = null;
       });
-      it('should able to show login when with token', () => {
+      it('should able to hidden login when have token', () => {
         localStorage.setItem('token', '12345');
         expect(component.needLogin()).toBeFalsy();
       });
-      it('should able to hidden login when without token', () => {
+      it('should able to show login when without token', () => {
         localStorage.removeItem('token');
         expect(component.needLogin()).toBeTruthy();
       });
@@ -114,18 +115,41 @@ Then Test with MockAuthService
         component = null;
         authService = null;
       });
-      it('should able to show login when with token', () => {
+      it('should able to hidden login when have token', () => {
         authService.authenticated = true;
         expect(component.needLogin()).toBeFalsy();
       });
-      it('should able to hidden login when without token', () => {
+      it('should able to show login when without token', () => {
         authService.authenticated = false;
         expect(component.needLogin()).toBeTruthy();
       });
     });
 
 
+Test with spyOn
+---------------------
 
+.. code-block:: typescript
+  
+  describe('Test with spyOn', () => {
+    let component: LoginComponent;
+    let authService: AuthService;
+    beforeEach(() => {
+      authService = new AuthService();
+      component = new LoginComponent(authService);
+    });
+    afterEach(() => {
+      component = null;
+    });
+    it('should able to show login when without token', () => {
+      spyOn(authService, 'isAuthenticated').and.returnValue(false);
+      expect(component.needLogin()).toBeTruthy();
+    });
+    it('should able to hidden login when without token', () => {
+      spyOn(authService, 'isAuthenticated').and.returnValue(true);
+      expect(component.needLogin()).toBeFalsy();
+    });
+  });
 
 
 
