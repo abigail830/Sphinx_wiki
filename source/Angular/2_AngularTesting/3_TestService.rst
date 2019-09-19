@@ -1,6 +1,13 @@
 3. Test on Service
 ===========================
 
+Keys
+^^^^^^^^^^^
+
+* 尽量把HttpClient的应用集中在少量Service中，使用HttpClientTestingModule进行测试（类似Case1）， 其他不涉及HttpClient的地方使用spy的方式更简洁
+* 不要直接在component的ts中直接调用HttpClient，让视图层和逻辑层分离，测试更容易写。
+
+
 Case1. UserService will invoke HttpClient directly
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -209,10 +216,6 @@ user2.service.spec.ts
   });
 
 
-Keys
-^^^^^^^^^^^
 
-* 尽量把HttpClient的应用集中在少量Service中，使用HttpClientTestingModule进行测试（类似Case1）， 其他不涉及HttpClient的地方使用spy的方式更简洁
-* 不要直接在component的ts中直接调用HttpClient，让视图层和逻辑层分离，测试更容易写。
 
 .. index:: Angular, Jasmine, Testing
