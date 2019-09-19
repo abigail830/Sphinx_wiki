@@ -86,12 +86,37 @@ And ts contain below property
 
 .. code-block:: typescript
   
-  h1 = fixture.nativeElement.querySelector('h1');
-  h1_content = fixture.debugElement.nativeElement.querySelector('h1').textContent
+  //Via nativeElement
+  h1 = fixture.nativeElement.querySelector('h1');  
+  h1_content = fixture.debugElement.nativeElement.querySelector('h1').textContent;
+  const button = fixture.debugElement.nativeElement.querySelector('button');
+  button.click();
   
+  //By.css
+  const bannerDe: DebugElement = fixture.debugElement;
+  const paragraphDe = bannerDe.query(By.css('p'));
+  
+  //模拟输入->发布事件->侦测变化
+  const hostElement = fixture.nativeElement;
+  const nameInput: HTMLInputElement = hostElement.querySelector('input');
+  nameInput.value = 'quick BROWN  fOx';
+  
+  nameInput.dispatchEvent(newEvent('input'));
+  fixture.detectChanges();
+  expect(nameDisplay.textContent).toBe('Quick Brown  Fox');
 
 
+**NativeElement: 原生DOM元素**
 
+* fixture.nativeElement 的值是 any 型別的。 
+* DebugElement.nativeElement 也同樣是 any 型別的。
+* nativeElement 的屬性取決於執行環境。 你可以在沒有 DOM，或者其 DOM 模擬器無法支援全部 HTMLElement API 的平臺上執行這些測試。
+* nativeElement后面可以接上querySelector/querySelectorAll
 
+**DebugElement: 由Angular封装的抽象层**
+  
+  Angular 依賴於 DebugElement 這個抽象層，就可以安全的橫跨其支援的所有平臺。 Angular 不再建立 HTML 元素樹，而是建立 DebugElement 樹，其中包裹著相應執行平臺上的原生元素。 nativeElement 屬性會解開 DebugElement，並返回平臺相關的元素物件。
 
+* debugElement后面可以接上query
 
+.. index:: Angular, Testing, Jasmine
