@@ -1,4 +1,4 @@
-4.1 Cruise
+Cruise
 ==============
 
 Project Setup

@@ -1,4 +1,4 @@
-3.1 Get Param From URL
+Get Param From URL
 =======================
 
 假设1：
