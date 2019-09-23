@@ -102,6 +102,10 @@ Above also showing 4 part of obseravable
 
 * **Dispose Observable:** .unsubscribe
 
+可以解读为：当‘可观察对象’被侦听的时候，侦听者正常会做next的内容，异常会做error的内容，完成会做complete的内容。
+
+
+
 
 Operator 操作
 ^^^^^^^^^^^^^^^^^^
