@@ -32,5 +32,19 @@ Website: https://rxjs-dev.firebaseapp.com/guide/overview
 比如 map, pluck, pairwise, sample 
 
 
+Observable
+-----------------
+
++---------+---------+--------------+
+|         | Single  |  Multiple    |
++=========+=========+==============+
+| Pull    |Function | Iterator     |
++---------+---------+--------------+
+| Push    |Promise  | Observable   |
++=========+=========+==============+
+
+
+
+
 
 .. index:: RxJS, Angular
