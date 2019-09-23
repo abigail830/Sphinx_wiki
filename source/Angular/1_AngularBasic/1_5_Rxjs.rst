@@ -114,7 +114,17 @@ Subscription 侦听
 .. code-block:: javascript
   
   //consumer
-  const subscription = observable.subscribe(x => console.log(x));
+  const subscription = observable.subscribe({
+    next(x) {
+      console.log('got value ' + x)
+    },
+    error(err) {
+      console.error('something wrong occurred: ' + err);
+    },
+    complete() {
+       console.log('done');
+    }
+  });
   subscription.unsubscribe();
 
 Subject 主题
