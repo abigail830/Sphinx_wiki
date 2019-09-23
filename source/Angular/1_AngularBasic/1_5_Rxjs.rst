@@ -33,7 +33,7 @@ Website: https://rxjs-dev.firebaseapp.com/guide/overview
 
 
 Observable
------------------
+^^^^^^^^^^^^^^^
 
 +---------+---------+--------------+
 |         | Single  |  Multiple    |
