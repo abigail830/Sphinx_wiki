@@ -8,6 +8,9 @@ Website: https://rxjs-dev.firebaseapp.com/guide/overview
 * `关键概念`_
 * `Observable 可观察对象`_
 * `Operator 操作`_
+* `Subscription 侦听`_
+* `Subject 主题`_
+
 
 关键概念
 ^^^^^^^^^^^^
@@ -105,10 +108,24 @@ Operator 操作
 https://rxjs-dev.firebaseapp.com/guide/operators
 
 
-Subscription
-^^^^^^^^^^^^^^^^
+Subscription 侦听
+^^^^^^^^^^^^^^^^^^^^^
 
+.. code-block:: javascript
+  
+  //consumer
+  const subscription = observable.subscribe(x => console.log(x));
+  subscription.unsubscribe();
 
+Subject 主题
+^^^^^^^^^^^^^^^^^^^^
+
+  一个主题就像一个可观察的对象，但是可以向多个观察者进行多播。主题就像事件发射器:它们维护许多侦听器的注册表。
+
+* **BehaviorSubject**: 存着现有的值（如1），当有新的subscription, 然后有新值（如2）流进来的时候，现有的值（1）也会喷给这个新的subscribe.
+* **ReplaySubject**: 类似BehaviorSubject，但可以进一步指定replay过去的多少个值。必要时，还可以指定window Time的时间限制
+  const subject = new ReplaySubject(100, 500 /* windowTime */);
+* **AsyncSubject**：同样类似BehaviorSubject, 但只在遇到.complete()的时候才会给新subject发送现有值
 
 
 .. index:: RxJS, Angular
