@@ -156,5 +156,10 @@ Scheduler 定时器
 
 Also having queueScheduler/asapScheduler/animationFrameScheduler
 
+Reference
+^^^^^^^^^^^^^^^^^^
+
+* https://blog.techbridge.cc/2017/12/08/rxjs/
+
 
 .. index:: RxJS, Angular
