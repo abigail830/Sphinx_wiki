@@ -53,28 +53,36 @@ Observable
     } else {
       reject(error);
     }
-  });
-  
+  });  
 
-
-  Observables are able to deliver values either synchronously or asynchronously.
+Observables are able to deliver values either synchronously or asynchronously.
 
 
 .. code-block:: javascript
   
-  const foo = new Observable(subscriber => {
-    console.log('Hello');
-    
-    // it can return multiple value synchronously
-    subscriber.next(42);
-    subscriber.next(100);
-    subscriber.next(200);
-    
-    // happens asynchronously
-    setTimeout(() => {
-      subscriber.next(300); 
-    }, 1000);
+  //provider
+  const observable = new Observable(function subscribe(subscriber) {
+    try {
+      // it can return multiple value synchronously
+      subscriber.next(1);
+      subscriber.next(2);
+      
+      // happens asynchronously
+      setTimeout(() => {
+        subscriber.next(300); 
+      }, 1000);
+      
+      subscriber.complete();
+    } catch (err) {
+      subscriber.error(err); // delivers an error if it caught one
+    }
   });
+  
+  //consumer
+  const subscription = observable.subscribe(x => console.log(x));
+  subscription.unsubscribe();
+
+Above also showing 4 part of obseravable
 
 * Create Observable
 * Subscribe Observable
@@ -86,22 +94,7 @@ Observable
 
 * Dispose Observable
 
-.. code-block:: javascript
-  
-  //provider
-  const observable = new Observable(function subscribe(subscriber) {
-    try {
-      subscriber.next(1);
-      subscriber.next(2);
-      subscriber.complete();
-    } catch (err) {
-      subscriber.error(err); // delivers an error if it caught one
-    }
-  });
-  
-  //consumer
-  const subscription = observable.subscribe(x => console.log(x));
-  subscription.unsubscribe();
+
 
 
 
