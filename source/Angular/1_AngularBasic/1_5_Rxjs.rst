@@ -54,8 +54,54 @@ Observable
       reject(error);
     }
   });
+  
 
 
+  Observables are able to deliver values either synchronously or asynchronously.
+
+
+.. code-block:: javascript
+  
+  const foo = new Observable(subscriber => {
+    console.log('Hello');
+    
+    // it can return multiple value synchronously
+    subscriber.next(42);
+    subscriber.next(100);
+    subscriber.next(200);
+    
+    // happens asynchronously
+    setTimeout(() => {
+      subscriber.next(300); 
+    }, 1000);
+  });
+
+* Create Observable
+* Subscribe Observable
+* Executing Observable
+
+  * "Next" notification: sends a value such as a Number, a String, an Object, etc.
+  * "Error" notification: sends a JavaScript Error or exception.
+  * "Complete" notification: does not send a value.
+
+* Dispose Observable
+
+.. code-block:: javascript
+  
+  //provider
+  const observable = new Observable(function subscribe(subscriber) {
+    try {
+      subscriber.next(1);
+      subscriber.next(2);
+      subscriber.complete();
+    } catch (err) {
+      subscriber.error(err); // delivers an error if it caught one
+    }
+  });
+  
+  //consumer
+  const subscription = observable.subscribe(x => console.log(x));
+  subscription.unsubscribe();
 
 
 
