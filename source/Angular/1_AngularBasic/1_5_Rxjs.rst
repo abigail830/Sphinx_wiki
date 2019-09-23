@@ -127,6 +127,7 @@ Subscription 侦听
   });
   subscription.unsubscribe();
 
+
 Subject 主题
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -136,6 +137,23 @@ Subject 主题
 * **ReplaySubject**: 类似BehaviorSubject，但可以进一步指定replay过去的多少个值。必要时，还可以指定window Time的时间限制
   const subject = new ReplaySubject(100, 500 /* windowTime */);
 * **AsyncSubject**：同样类似BehaviorSubject, 但只在遇到.complete()的时候才会给新subject发送现有值
+
+
+Scheduler 定时器
+^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: javascript
+  
+  const observable = new Observable((observer) => {
+    observer.next(1);
+    observer.next(2);
+    observer.next(3);
+    observer.complete();
+  }).pipe(
+    observeOn(asyncScheduler)
+  );
+
+Also having queueScheduler/asapScheduler/animationFrameScheduler
 
 
 .. index:: RxJS, Angular
