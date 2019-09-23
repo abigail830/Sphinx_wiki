@@ -88,19 +88,26 @@ Observables are able to deliver values either synchronously or asynchronously.
 
 Above also showing 4 part of obseravable
 
-* Create Observable
-* Subscribe Observable
-* Executing Observable
+* **Create Observable:** new, of, from, interval
+* **Subscribe Observable:** .subscribe
+* **Executing Observable**
 
   * "Next" notification: sends a value such as a Number, a String, an Object, etc.
   * "Error" notification: sends a JavaScript Error or exception.
   * "Complete" notification: does not send a value.
 
-* Dispose Observable
+* **Dispose Observable:** .unsubscribe
 
 
 Operator 操作
 ^^^^^^^^^^^^^^^^^^
+
+https://rxjs-dev.firebaseapp.com/guide/operators
+
+
+Subscription
+^^^^^^^^^^^^^^^^
+
 
 
 
