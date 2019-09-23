@@ -5,7 +5,11 @@ Website: https://rxjs-dev.firebaseapp.com/guide/overview
 
   Rx是一个基于可观测序列处理组合异步与事件驱动的库
 
-关键概念：
+* `关键概念`_
+* `Observable 可观察对象`_
+* `Operator 操作`_
+
+关键概念
 ^^^^^^^^^^^^
 
 **纯函数 Pure Function**
@@ -32,8 +36,8 @@ Website: https://rxjs-dev.firebaseapp.com/guide/overview
 比如 map, pluck, pairwise, sample 
 
 
-Observable
-^^^^^^^^^^^^^^^
+Observable 可观察对象
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +---------+---------+--------------+
 |         | Single  |  Multiple    |
@@ -95,6 +99,8 @@ Above also showing 4 part of obseravable
 * Dispose Observable
 
 
+Operator 操作
+^^^^^^^^^^^^^^^^^^
 
 
 
