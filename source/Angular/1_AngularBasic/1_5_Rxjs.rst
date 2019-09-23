@@ -10,6 +10,7 @@ Website: https://rxjs-dev.firebaseapp.com/guide/overview
 * `Operator 操作`_
 * `Subscription 侦听`_
 * `Subject 主题`_
+* `Scheduler 定时器`_
 
 
 关键概念
