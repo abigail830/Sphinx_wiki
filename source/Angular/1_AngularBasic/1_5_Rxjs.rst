@@ -43,6 +43,18 @@ Observable
 | Push    |Promise  | Observable   |
 +---------+---------+--------------+
 
+对于promise来说，接受一个回调方法，里面会分别处理resolve（对应与then)/reject(对应于catch)两种场景：
+
+.. code-block:: javascript
+  
+  const promise = new Promise(function(resolve, reject){
+    if(/*异步操作成功*/){
+      resolve(value);
+    } else {
+      reject(error);
+    }
+  });
+
 
 
 
