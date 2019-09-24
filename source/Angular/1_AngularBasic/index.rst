@@ -1,4 +1,4 @@
-Angular Basic
+1. Angular Basic
 ===================
 
 Everything about Angular Basic
