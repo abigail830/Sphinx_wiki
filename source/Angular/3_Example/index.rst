@@ -1,4 +1,4 @@
-Examples
+3. Examples
 ===============
 
 Everything about Angular Examples
