@@ -42,9 +42,7 @@ If go 'cypress ui' Runs tab and login, dashboard should be able to load in brows
 .. image:: ../../../images/dashboard.png
   :width: 550px
 
-Of course, before that, we would need to run the test with record key so that all info could be uploaded. Detail command could be get via Setting tab in UI.
-
-such as: cypress run --record --key b3b1ff07-b824-4ad8-bd29-57b57b875651
+Of course, before that, we would need to run the test with record key(as below session mentioned) so that all info could be uploaded. Detail command could be get via Setting tab in UI.
 
 
 Other command:
@@ -57,7 +55,7 @@ Other command:
     cypress run --spec "cypress/integration/conduit.spec.js"
 
 
-* Run with video upload to cypress test runner: 
+* Run with video upload to cypress test runner(so that could be collect in dashboard: 
 
   .. code-block:: bash
     
