@@ -4,10 +4,6 @@ Cypress Basic
 .. code-block:: javascript
   
   describe('Test conduit', function(){  
-    it('Should able to access the conduit demo website', function(){
-        cy.visit('https://demo.realworld.io/#/')
-    })
-
     it('Should able to access sign in page', function(){
         cy.visit('https://demo.realworld.io/#/')
         cy.contains('Sign in').click()
