@@ -18,3 +18,4 @@ Other Reference:
 ---------------
 
 * https://segmentfault.com/a/1190000009769787#articleHeader24
+* https://codecraft.tv/courses/angular/unit-testing/overview/
