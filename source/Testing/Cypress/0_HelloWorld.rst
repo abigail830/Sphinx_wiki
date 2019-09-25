@@ -38,8 +38,20 @@ It would open the GUI of cypress, manually choose above project and select that 
 Other command:
 ^^^^^^^^^^^^^^^^^^^
 
-* Only run 1 test case: cypress run --spec "cypress/integration/conduit.spec.js"
-* Run with video upload to cypress test runner: cypress run --record --key b3b1ff07-b824-4ad8-bd29-57b57b875651
+* Only run 1 test case: 
+
+  .. code-block:: bash
+    
+    cypress run --spec "cypress/integration/conduit.spec.js"
+
+
+* Run with video upload to cypress test runner: 
+
+  .. code-block:: bash
+    
+    cypress run --record --key b3b1ff07-b824-4ad8-bd29-57b57b875651
+    
+
 * To disable video, update in cypress.json
 
   .. code-block:: json
