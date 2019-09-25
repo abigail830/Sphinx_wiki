@@ -103,17 +103,50 @@ Key Commands for action - 触发动作
 
 
 Key Commands for matcher - 匹配判断 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------------------------------------
+
+.. code-block:: javascript
+  
+  cy.get('.error').should('be.empty')                    // Assert that '.error' is empty
+  cy.contains('Login').should('be.visible')              // Assert that el is visible
+  cy.wrap({ foo: 'bar' }).its('foo').should('eq', 'bar') // Assert the 'foo' property equals 'bar'
+  
+  //should+and
+  cy.get('option:first').should('be.selected').and('have.value', 'Metallica')
+  
+  //seperate to body
+  cy.get('.connectors-list > li').should(($lis) => {
+    expect($lis).to.have.length(3)
+    expect($lis.eq(0)).to.contain('Walk the dog')
+  })
+  
+  //combine get+find+should+then
+  cy.get('.docs-header')
+    .find('div')
+    // .should(cb) callback function will be retried
+    .should(($div) => {
+      expect($div).to.have.length(1)
+    })
+    // .then(cb) callback is not retried,
+    // it either passes or fails
+    .then(($div) => {
+      expect($div).to.have.text('Introduction')
+    })
 
 
+**More matcher could refer to:**
+
+* chai (https://github.com/chaijs/chai | https://www.chaijs.com/api/bdd/)
+* sinon-chai (https://docs.cypress.io/guides/references/assertions.html#Sinon-Chai | https://github.com/domenic/sinon-chai)
+* chai-jquery (https://docs.cypress.io/guides/references/assertions.html#Chai-jQuery)
 
 
 Other Commands
-^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------------------------------------
 
-* cy.visit(url): 访问URL
-
-
+cy.visit(url)
+^^^^^^^^^^^^^^^^^
+访问URL
 
 
 .. index:: Cypress, Testing
