@@ -34,6 +34,14 @@ It would open the GUI of cypress, manually choose above project and select that 
 .. image:: ../../../images/cypress_hello.png
   :width: 550px
 
+Dashboard
+---------------
+
+If go 'cypress ui' Runs tab and login, dashboard should be able to load in browser
+
+.. image:: ../../../images/dashboard.png
+  :width: 550px
+
 
 Other command:
 ^^^^^^^^^^^^^^^^^^^
@@ -61,6 +69,8 @@ Other command:
       "video": false
     }
 
+
+In cypress ui Setting tab, you would able to see a full version of setting.json. Once some config setted/overrided from cypress.json, it would also be highlighted in ui. So it would be very clear what is the latest setting.
 
 
 .. index:: Cypress, Testing
