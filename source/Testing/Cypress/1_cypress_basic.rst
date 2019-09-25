@@ -17,13 +17,13 @@ Cypress Basic
     })
   })
   
-Key Commands
------------------
+Key Commands for yield element - 获取控件 
+-----------------------------------------------------
 
 cy.get(element)
 ^^^^^^^^^^^^^^^^^^
 
-获取控件 (https://docs.cypress.io/api/commands/get.html)
+https://docs.cypress.io/api/commands/get.html
   
 .. code-block:: javascript
     
@@ -48,7 +48,7 @@ cy.get(element)
 cy.contains(selector, content)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-获取控件 (https://docs.cypress.io/api/commands/contains.html), 获取优先级：input[type='submit'] < button < a < label
+https://docs.cypress.io/api/commands/contains.html, 获取优先级：input[type='submit'] < button < a < label
 
 .. code-block:: javascript
     
@@ -66,20 +66,54 @@ cy.contains(selector, content)
 cy.find(selector)
 ^^^^^^^^^^^^^^^^^^^^^^
 
-获取(多个）控件 (https://docs.cypress.io/api/commands/find.html#Selector)
+https://docs.cypress.io/api/commands/find.html#Selector
 
 .. code-block:: javascript
     
     cy.get('#parent').find('li')
 
 
+Key Commands for action - 触发动作 
+-----------------------------------------------------
 
-cy.visit(url)
-^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: javascript
+  
+  //type
+  cy.get('input').type('Hello, World') 
+  
+  //click
+  cy.get('button').click() 
+  cy.contains('Welcome').click() 
+  
+  //submit
+  cy.get('form').submit() 
+  
+  //checkbox or radio | uncheck()
+  cy.get('[type="radio"]').first().check() 
+  
+  //focus and blur
+  cy.get('input').first().focus().blur()
+  
+  //scroll
+  cy.scrollTo(0, 500)                     // Scroll the window 500px down
+  cy.get('.sidebar').scrollTo('bottom')   // Scroll 'sidebar' to its bottom
+  
+  //mouseover
+  cy.get('.menu-item').trigger('mouseover')
 
-访问URL
+
+Key Commands for matcher - 匹配判断 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 
 
+Other Commands
+^^^^^^^^^^^^^^^^^^^^^^^
 
+* cy.visit(url): 访问URL
+
+
+
+
+.. index:: Cypress, Testing
