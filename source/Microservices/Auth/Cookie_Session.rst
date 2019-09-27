@@ -9,12 +9,31 @@ HTTP Cookie
 
 * Name/Value
 * Domain
-* HttpOnly
+* HttpOnly: 是否只是http协议使用。只能在后端通过getCookies()获取，js不能获取
 * Size: Max 5M
+* Expiry:
 
-.. image:: ../../images/cookie.png
+  - expiry=-1，代表浏览器关闭后，cookie就失效了；
+  - expiry>0，代表会将cookie保存到硬盘中，直到设置时间过期才会被浏览器自动删除；
+  - expiry=0，删除cookie，cookie都会被浏览器给删除。
+
+.. image:: ../../../images/cookie.png
   :width: 500px
   
+
+
+Authentication认证
+--------------------------
+
+.. image:: ../../../images/cookie_auth.png
+  :width: 400px
+
+
+Protential problem
+^^^^^^^^^^^^^^^^^^^^^^^
+
+由上图可以看出，后端需要把sessionId都存起来作后续验证使用。当用户访问量大的时候对后端的压力就会很大，如果存DB的话I/O读写会很慢，如果存Redis并且加上load balance的话可以解决速度问题。当然，万一redis或者load balance机制出问题，还是会丢失信息需要用户重新登陆。
+
 
 Alternative
 ^^^^^^^^^^^^^^^
@@ -34,14 +53,10 @@ https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Storage_API
 Refer: https://developer.mozilla.org/zh-CN/docs/Web/API/IndexedDB_API
 
 
-Authentication认证
---------------------------
+Other Reference
+----------------------
 
-.. image:: ../../images/cookie_auth.png
-  :width: 400px
-
-
-
+* https://mp.weixin.qq.com/s?__biz=MzA5Njc2OTg4NQ==&mid=2247483703&idx=1&sn=fd9984e2e7c6aee7429f261697dfacbd&chksm=90aa4305a7ddca13fcc28fd6266b0e19ad1961a79387b89f213f5b6f93beef5ad06a2cc8916e&scene=21#wechat_redirect
 
 
 .. index:: Cookie, Authentication, Microservices
