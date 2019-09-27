@@ -7,8 +7,8 @@ HTTP Cookie
 
 **Cookie key elements：**
 
-* Name/Value
-* Domain
+* Name/Value：基本的键值对
+* Domain: Cookie的作用域
 * HttpOnly: 是否只是http协议使用。只能在后端通过getCookies()获取，js不能获取
 * Size: Max 5M
 * Expiry:
@@ -24,6 +24,8 @@ HTTP Cookie
 
 Authentication认证
 --------------------------
+
+简单来说，服务器端获取Session并保存Id，然后同样返回并保存在客户端的Cookie，后续校验客户端带来的Id与服务器本地比较作验证
 
 .. image:: ../../../images/cookie_auth.png
   :width: 400px
