@@ -44,7 +44,8 @@ Authentication认证
 Protential problem
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-由上图可以看出，后端需要把sessionId都存起来作后续验证使用。当用户访问量大的时候对后端的压力就会很大，如果存DB的话I/O读写会很慢，如果存Redis并且加上load balance的话可以解决速度问题。当然，万一redis或者load balance机制出问题，还是会丢失信息需要用户重新登陆。
+* 上面提及，使用Cookie对于网络等的消耗不太适合移动端
+* 另外，由上图可以看出，后端需要把sessionId都存起来作后续验证使用。当用户访问量大的时候对后端的压力就会很大，如果存DB的话I/O读写会很慢，如果存Redis并且加上load balance的话可以解决速度问题。当然，万一redis或者load balance机制出问题，还是会丢失信息需要用户重新登陆。
 
 
 Alternative
