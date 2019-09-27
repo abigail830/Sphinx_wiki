@@ -35,7 +35,10 @@ HTTP Cookie
 Authentication认证
 --------------------------
 
-简单来说，服务器端获取Session并保存Id，然后同样返回并保存在客户端的Cookie，后续校验客户端带来的Id与服务器本地比较作验证
+简单来说，
+ * 服务器端通过请求获取用户信息，做校验如果成功的话，生成Session并保存Id
+ * 然后SessionId同样返回并保存在客户端的Cookie
+ * 后续校验客户端时，把带来的Id与服务器本地比较作验证，只要是一个在expiry限时内曾经验证过的id，都当作有效
 
 .. image:: ../../../images/cookie_auth.png
   :width: 400px
