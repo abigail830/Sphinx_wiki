@@ -5,8 +5,8 @@ Cookie、Session认证
 * `Authentication认证`_
 
   * `Protential problem`_
-  * `Alternative`_
 
+* `Alternative`_
 * `Other Reference`_
 
 ```````````````````````````````
@@ -65,7 +65,7 @@ Protential problem
 
 
 Alternative
-^^^^^^^^^^^^^^^
+-----------------
 
 新的浏览器API已经允许开发者直接将数据存储到本地，如使用 `Web Storage`_ API （本地存储和会话存储）或 IndexedDB 。
 
