@@ -47,17 +47,27 @@ Authentication认证
 Protential problem
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-* 上面提及，使用Cookie对于网络等的消耗不太适合移动端
+* 由于服务器指定Cookie后，浏览器的每次请求都会携带Cookie数据，会带来额外的性能开销（尤其是在移动环境下）
 * 另外，由上图可以看出，后端需要把sessionId都存起来作后续验证使用。
+
  - 当用户访问量大的时候对后端的压力就会很大，如果有多个后端实例，就涉及到在多实例之间共享session信息。
  - 如果存DB的话I/O读写会很慢
  - 如果存Redis并且加上load balance的话可以解决速度问题。当然，万一redis或者load balance机制出问题，还是会丢失信息需要用户重新登陆。
 
+换而言之，后端需要存session这件事情会对后端服务的自由扩容有限制。
+
+**改进思路：**
+
+* 不使用Cookie而参考如sessionStorage/localStorage的方式
+* 后端服务尽量无状态，如不保存session
+
+从而引申出了JWT的验证方式。
+
 
 Alternative
 ^^^^^^^^^^^^^^^
-由于服务器指定Cookie后，浏览器的每次请求都会携带Cookie数据，会带来额外的性能开销（尤其是在移动环境下）。新的浏览器API已经允许开发者直接将数据存储到本地，如使用 `Web Storage`_ API （本地存储和会话存储）或 IndexedDB 。
 
+新的浏览器API已经允许开发者直接将数据存储到本地，如使用 `Web Storage`_ API （本地存储和会话存储）或 IndexedDB 。
 
 **Web Storage**
 
