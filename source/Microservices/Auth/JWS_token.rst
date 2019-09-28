@@ -17,7 +17,7 @@ JWS、Token认证
 JWT Basic
 ------------
 
-JWT 的全称是 JSON Web Token. 
+JWT 的全称是 JSON Web Token. 由三部分组成: Header.Payload.Signature 
 
 Header
 ^^^^^^^^^^
@@ -59,8 +59,6 @@ Signature
 ^^^^^^^^^^^^^^
 
 根据Header中指定的算法，对Header和Payload进行加密，然后把Base64Url转换后的header.payload.signature并合为JWT。
-
-
 
 
 
