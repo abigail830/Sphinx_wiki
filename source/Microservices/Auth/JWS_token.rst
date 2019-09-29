@@ -75,3 +75,7 @@ Reference
 -------------
 
 * JWT Debugger tools: https://jwt.io/
+* Demo: https://dzone.com/articles/spring-boot-security-json-web-tokenjwt-hello-world
+
+.. index:: Authentication
+
