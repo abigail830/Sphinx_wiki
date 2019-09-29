@@ -27,23 +27,11 @@ If we not config the password via config, Springboot would try to generate one a
   Using default security password: c8be15de-4488-4490-9dc6-fab3f91435c6
 
 
-The same could verify via Junit test:
+**The same could verify via Junit test:**
 
 .. code-block:: java
   
-  package com.github.abigail830.jwtdemo.api;
-
-  import org.junit.Test;
-  import org.junit.runner.RunWith;
-  import org.springframework.beans.factory.annotation.Autowired;
-  import org.springframework.boot.test.context.SpringBootTest;
-  import org.springframework.boot.test.web.client.TestRestTemplate;
-  import org.springframework.http.HttpMethod;
-  import org.springframework.http.HttpStatus;
-  import org.springframework.http.ResponseEntity;
-  import org.springframework.test.context.junit4.SpringRunner;
-  
-  import static org.junit.Assert.*;
+  //ignore those imports
   
   @SpringBootTest
   @RunWith(SpringRunner.class)
