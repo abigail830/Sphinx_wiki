@@ -159,6 +159,13 @@ JWTUtil.java
 ^^^^^^^^
 * 当我把上文sign后的签名放到https://jwt.io/，随时可以看到之前的header,playload内容，所以这里只是一个签名和验证签名真确的过程，中间不涉及任何加密动作，所以，切勿把密码等重要的敏感信息放在playload里面
 * 如果实在希望对内容也进行加密，参考JWE/JOSE：https://bitbucket.org/connect2id/nimbus-jose-jwt/wiki/Home
+* 注意使用Https的连接防止JWT被盗用，对比于使用cookie+HttpOnly的配置，localStorage会更容易收到XSS和CSRF攻击
+* 为安全故， 其中使用的Secret可以设置成于用户相关而不是全局一致，如在登陆认证成功后生成，退出时候修改或删除从而强迫后续必须重新认证。
+* JWT做session会话管理？JWT本身设置了expiryTime的话是没办法自动更新超时的，一更新的话整个token内容都变了。下面其中三个（不是太好的）解决思路：
+ 
+ * 简单粗暴的话，可以每次有请求的时候就返回一个新的JWTtoken
+ * 使用refreshToken
+ * 使用redis管理expiry时间，每次访问时候自动更新
 
 
 Reference
