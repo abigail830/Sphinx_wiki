@@ -8,6 +8,10 @@ JWS、Token认证
   * `Signature`_
 
 * `Authentication`_
+
+ * `大致流程`_
+ * `代码实现`_
+ 
 * `Reference`_
 
 
@@ -128,7 +132,6 @@ JWTUtil.java
         try {
             Algorithm algorithm = Algorithm.HMAC512(SECRET);
             JWTVerifier verifier = JWT.require(algorithm)
-                    .withIssuer("jwt-demo")
                     .build();
             return verifier.verify(token).getSubject();
 
@@ -139,6 +142,15 @@ JWTUtil.java
     }
  }
 
+这里verify的时候返回的是Subject部分，其实可以取claim的任意信息，比如Issuer。
+
+**简单验证签名**
+
+如果verify过程中没有抛出exception，也没有过期，也可以进一步校验取出的claim部分是否正确，如issuer是否“jwt-demo”，如果全部校验通过，则承认这是之前已经经过认证和签名的客户，正常通过进行后续操作。从而，通过验证签名去证明“你是你”，而没有在后端储存任意其他信息。
+
+**复杂验证**
+
+后台也可以在第一次签名的时候就把用户信息和token对应关系存起来，做进一步校验。
 
 
 Reference
