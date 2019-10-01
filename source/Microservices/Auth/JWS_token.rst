@@ -11,6 +11,7 @@ JWS、Token认证
 
   * `大致流程`_
   * `代码实现`_
+  * `注意`_
  
 * `Reference`_
 
@@ -153,6 +154,11 @@ JWTUtil.java
 **复杂验证**
 
 * 后台也可以在第一次签名的时候就把用户信息和token对应关系存起来，做进一步校验。
+
+注意
+^^^^^^^^
+* 当我把上文sign后的签名放到https://jwt.io/，随时可以看到之前的header,playload内容，所以这里只是一个签名和验证签名真确的过程，中间不涉及任何加密动作，所以，切勿把密码等重要的敏感信息放在playload里面
+* 如果实在希望对内容也进行加密，参考JWE/JOSE：https://bitbucket.org/connect2id/nimbus-jose-jwt/wiki/Home
 
 
 Reference
