@@ -136,7 +136,7 @@ Step7. Update header.html
 
 Fianlly, till here, the top menu should be also working.
 
-.. image:: ../../images/home_angular.png
+.. image:: ../../../images/home_angular.png
   :width: 550px
 
 
