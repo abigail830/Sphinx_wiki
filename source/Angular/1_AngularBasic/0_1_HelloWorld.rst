@@ -1,7 +1,7 @@
 0. Hello World of Angular
 ============================
 
-.. image:: ../../images/helloworld.png
+.. image:: ../../../images/helloworld.png
   :width: 600px
 
 基础ABC
