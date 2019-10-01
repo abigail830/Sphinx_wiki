@@ -162,9 +162,10 @@ JWTUtil.java
 * 注意使用Https的连接防止JWT被盗用，对比于使用cookie+HttpOnly的配置，localStorage会更容易收到XSS和CSRF攻击
 * 为安全故， 其中使用的Secret可以设置成于用户相关而不是全局一致，如在登陆认证成功后生成，退出时候修改或删除从而强迫后续必须重新认证。
 * JWT做session会话管理？JWT本身设置了expiryTime的话是没办法自动更新超时的，一更新的话整个token内容都变了。下面其中三个（不是太好的）解决思路： 
- - 简单粗暴的话，可以每次有请求的时候就返回一个新的JWTtoken
- - 使用refreshToken
- - 使用redis管理expiry时间，每次访问时候自动更新
+
+  - 简单粗暴的话，可以每次有请求的时候就返回一个新的JWTtoken
+  - 使用refreshToken
+  - 使用redis管理expiry时间，每次访问时候自动更新
 
 
 Reference
