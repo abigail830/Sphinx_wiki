@@ -4,8 +4,11 @@ Security基础概念
 提到安全的时候，首先需要搞清楚几个概念：
 
 * `Part1. 编码、加密、哈希、模糊`_
-* `Part2. Authentication认证、Authority授权`_
-* `Part3. 不同的网络安全攻击
+* `Part2. Authentication认证、Authorization授权`_
+* `Part3. 不同的网络安全攻击`_
+
+  * `Cross Site Scripting (XSS)`_
+  * `Cross-Site Request Forgery (XSRF or CSRF)`_
 
 
 Part1. 编码、加密、哈希、模糊
@@ -63,19 +66,19 @@ Obfuscation 模糊处理
 例如: javascript obfuscator, proguard
 
 
-Part2. Authentication认证、Authority授权
+Part2. Authentication认证、Authorization授权
 ------------------------------------------------
 
-Authentication
-^^^^^^^^^^^^^^^^^^^^
+Authentication认证
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 * 认证"你是不是合格的用户？“
 * 通常需要用户输入用户名、密码等信息，由后台服务（如Auth Service）进行验证
 * 当验证通过后，可以基于不同的方式返回客户端（如sessionID、JWT、Token等）
 
 
-Authority
-^^^^^^^^^^^^^^^
+Authorization授权
+^^^^^^^^^^^^^^^^^^^^^^
 
 * 验证”你是不是你？“
 * 比如JWT中通过验证签名的token进行，如果是sessionID的话就需要再校验一次之前Authentication时候同时保存下来的user vs sessionID信息，从而证明你就是那个之前认证过的你
@@ -84,4 +87,21 @@ Authority
 
 Part3. 不同的网络安全攻击
 ------------------------------
+
+Cross Site Scripting (XSS) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+当外部实体能够在你的网站或应用程序中执行代码时，跨站脚本攻击就会发生。如果攻击者可以在您的域上执行代码，那么您的JWT令牌就很容易受到攻击。
+
+许多框架，包括Angular，会自动清理输入并防止任意代码执行。如果您不使用对输入/输出进行开箱即用消毒的框架，您可以查看由谷歌开发的诸如caja之类的插件来提供帮助。在许多框架和语言中，清理输入是一个已经解决的问题，建议使用框架或插件来解决这个问题。
+
+
+Cross-Site Request Forgery (XSRF or CSRF)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+如果您在本地存储中使用JWT，那么ss站点请求伪造攻击就不是问题。另一方面，如果您的用例要求您将JWT存储在cookie中，那么您将需要防止XSRF。
+
+为了简化，防止XSRF攻击，您的服务器在与客户端建立会话时将生成一个惟一的令牌(注意这不是JWT)。然后，每当将数据提交到服务器时，一个隐藏的输入字段将包含这个令牌，服务器将检查令牌是否匹配。同样，由于我们的建议是将JWT存储在本地存储器中，所以您可能不必担心XSRF攻击。
+
+
+
+.. index:: Security, Authentication, Authorization
 
