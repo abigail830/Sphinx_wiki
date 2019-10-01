@@ -52,7 +52,7 @@ Keys in Component
 LifeCycle
 -------------------
 
-.. image:: ../../images/lifecycle-component.png
+.. image:: ../../../images/lifecycle-component.png
   :width: 550px
 
 
