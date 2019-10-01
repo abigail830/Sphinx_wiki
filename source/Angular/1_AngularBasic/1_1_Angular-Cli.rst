@@ -68,7 +68,7 @@
 端到端测试
 ^^^^^^^^^^
 
-.. image:: ../../images/e2e.png
+.. image:: ../../../images/e2e.png
   :width: 600px
 
 
