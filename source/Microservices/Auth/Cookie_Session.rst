@@ -20,7 +20,7 @@ HTTP Cookie
 * Name/Value：基本的键值对
 * Domain: Cookie的作用域
 * HttpOnly: 是否只是http协议使用。只能在后端通过getCookies()获取，js不能获取
-* Size: Max 5M
+* Size: Max 4k(cookie size)
 * Expiry:
 
   - expiry=-1，代表浏览器关闭后，cookie就失效了；
@@ -48,6 +48,7 @@ Protential problem
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 * 由于服务器指定Cookie后，浏览器的每次请求都会携带Cookie数据，会带来额外的性能开销（尤其是在移动环境下）
+* Cookie的作用域在domain/子domain，对于现代微服务跨domain的需求实现上有限制
 * 另外，由上图可以看出，后端需要把sessionId都存起来作后续验证使用。
 
  - 当用户访问量大的时候对后端的压力就会很大，如果有多个后端实例，就涉及到在多实例之间共享session信息。
