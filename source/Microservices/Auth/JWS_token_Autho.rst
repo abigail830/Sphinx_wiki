@@ -1,7 +1,8 @@
-基于JWS、Token的授权（1）
+JWS、Token的授权例子（1）
 =====================================
 
-该方式使用 Annotation + Interceptor + SpringBoot 为例子, 关注在如何进行授权（假设用户已经有必要的机制做验证和生成JWT token）
+该方式使用 Annotation + Interceptor + SpringBoot 为例子, 关注在如何进行授权（假设用户已经有必要的机制做验证和生成JWT token）没有使用Spring Security
+
 
 基本步骤
 -------------
