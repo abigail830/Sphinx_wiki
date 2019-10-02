@@ -40,11 +40,15 @@ Interceptor: AuthorizationInterceptor.java
 * header中是否包含"Authorization:token"
 * 获取token并进行JWT验证
 
+  这种方式后台完全没有状态，也不需要进一步查询，所以效率比较高。需要注意的是可以考虑设置一个比较短的token有效时间，和更频密的更新这个全局的secret能让授权更安全。
+
 如需要还可以有更多的操作，比如说：
 
 * 首先decode JWT，获取如用户名的信息
 * 根据用户名（从DB或redis）查询到对应的密码或者Secret
 * 根据获取的password或者secret进行verify
+
+  这种方式就需要在后台有存储状态（如username/secret之间），回到了类似cookie/session的状况
 
 .. code-block:: java
   
