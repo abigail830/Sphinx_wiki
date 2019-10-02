@@ -45,7 +45,6 @@ Interceptor: AuthorizationInterceptor.java
 * 根据用户名（从DB或redis）查询到对应的密码或者Secret
 * 根据获取的password或者secret进行verify
 
-
 .. code-block:: java
   
   @Component
@@ -181,7 +180,7 @@ Controller(No IgnoreToken): UserController.java
   }
 
 
-
+另外，因为我们还可以把UserGroup的信息放在Token里面，如果token验证通过后是否马上可以获取所需信息, 还可以再添加另外一层的interceptor专门做User Group相关的授权认证。因为签名已经验过，在UserGroup授权的时候，只需要decode了token获取用户组，然后查询DB或Redis等基础设施获取用户组与页面或对应信息的权限关系。
 
 
 .. index:: Authorization, Security, JWT, Token
