@@ -1,9 +1,27 @@
 基于JWS、Token的Authorization（1）
 =====================================
 
-该方式使用 Annotation + Interceptor + SpringBoot 为例子
+该方式使用 Annotation + Interceptor + SpringBoot 为例子, 关注在如何进行授权（假设用户已经有必要的机制做验证和生成JWT token）
 
-**Annotation:** IgnoreToken.java
+基本步骤
+-------------
+
+* `Annotation: IgnoreToken.java`_
+* `Interceptor: AuthorizationInterceptor.java`_
+* `InterceptorConfig: InterceptorConfig.java`_
+* `Infrastructure: JWTAuth0Util.java`_
+
+调用步骤
+-------------
+
+* `Controller(IgnoreToken): HelloController.java`_
+* `Controller(No IgnoreToken): UserController.java`_
+
+
+Annotation: IgnoreToken.java
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Annotation设置为可以使用在方法级，必要时还可以给这个Annotation设置不同的flag进行控制，但这里只需要简单的当作有Annotation默认就是Ignore就好了。
 
 .. code-block:: java
   
@@ -13,7 +31,20 @@
   //    boolean required() default true;
   }
 
-**Interceptor:** AuthorizationInterceptor.java
+Interceptor: AuthorizationInterceptor.java
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+这里作为例子,使用了全局的Secret并只作了最基础的两项检查：
+
+* header中是否包含"Authorization:token"
+* 获取token并进行JWT验证
+
+如需要还可以有更多的操作，比如说：
+
+* 首先decode JWT，获取如用户名的信息
+* 根据用户名（从DB或redis）查询到对应的密码或者Secret
+* 根据获取的password或者secret进行verify
+
 
 .. code-block:: java
   
@@ -58,7 +89,8 @@
   
   }
 
-**InterceptorConfig:** InterceptorConfig.java
+InterceptorConfig: InterceptorConfig.java
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
   .. code-block:: java
     
@@ -74,7 +106,8 @@
   }
 
 
-**Infrastructure:** JWTAuth0Util.java
+Infrastructure: JWTAuth0Util.java
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: java
   
@@ -103,6 +136,52 @@
         return JWT.decode(token);
     }
   }
+
+
+Controller(IgnoreToken): HelloController.java
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+配合Annotation使用，所以当用户调用 GET /hello 的时候，服务都不会校验Header当中的Token，而直接可以返回“Hello World".
+
+.. code-block:: java
+  
+  @RestController
+  @RequestMapping(value = "/hello")
+  public class HelloController {
+
+    @Autowired
+    UserApplService userApplService;
+
+    @GetMapping
+    @IgnoreToken
+    public String hello() {
+        return "Hello World";
+    }
+  }
+
+
+Controller(No IgnoreToken): UserController.java
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+这时候，当用户调用 GET /users，interceptor就会校验header中是否有token，有的话进一步校验，如果任意一处不通过，则不会返回用户查询结果
+
+.. code-block:: java
+  
+  @RestController
+  @RequestMapping(value = "/users")
+  public class UserController {
+  
+    @Autowired
+    UserApplService userApplService;
+
+    @GetMapping
+    public ApplicationUser findUser(@RequestParam String userName) {
+        return userApplService.findUserByName(userName);
+    }
+  }
+
+
+
 
 
 .. index:: Authorization, Security, JWT, Token
