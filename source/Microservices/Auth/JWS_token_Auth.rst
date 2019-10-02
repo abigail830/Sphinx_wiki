@@ -91,10 +91,10 @@ Interceptor: AuthorizationInterceptor.java
 InterceptorConfig: InterceptorConfig.java
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-  .. code-block:: java
+.. code-block:: java
     
-    @Configuration
-    public class InterceptorConfig implements WebMvcConfigurer {
+  @Configuration
+  public class InterceptorConfig implements WebMvcConfigurer {
     
       @Autowired
       AuthorizationInterceptor authorizationInterceptor;
