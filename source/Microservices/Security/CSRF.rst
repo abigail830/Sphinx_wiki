@@ -62,5 +62,11 @@ HTTP头中有一个Referer字段，这个字段用以标明请求来源于哪个
   amount=100.00&routingNumber=1234&account=9876&_csrf=<secure-random>
 
 
+思考
+---------
+
+* 伪造网站应该是排版看起来一样但域名不一样，如果客户端使用Cookie保存token或者sessionId，是不是就不可能跨域获取token内容，从而CSRF的机会很低？
+* 如果使用了localStorage的话，跨域可以获取里面的token，就增加了CSRF的机会？
+
 
 .. index:: Security, SpringBoot
