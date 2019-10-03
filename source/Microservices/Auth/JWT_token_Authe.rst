@@ -15,7 +15,10 @@ JWS、Token的认证例子（1）
 
 * `UserController`_
 
-----------------------
+
+
+具体关键代码
+--------------
 
 UserLoginToken
 ^^^^^^^^^^^^^^^^^^^^^
@@ -34,8 +37,7 @@ AuthenticationInterceptor
 
 正常的话，应该在里面就需要拿到body里面的applicationUser信息，然后连接DB进行校验。只有校验通过之后才生成token。然后在对应的service里面就不需要再做校验的工作，只是继续比如保存audit trail。这样在header里面也不需要有类似user信息这样额外的header
 
-但是这种方式就牵涉到需要读@RequestBody的内容，因为是inputStream流通常只能读一次，不然会遇到exception
-  HttpMessageNotReadableException: I/O error while reading input message; nested exception is java.io.IOException: Stream closed]
+但是这种方式就牵涉到需要读@RequestBody的内容，因为是inputStream流通常只能读一次，不然会遇到exception： HttpMessageNotReadableException: I/O error while reading input message; nested exception is java.io.IOException: Stream closed]
   
 除非在中间层再搞个wrapper之类的把inputStream缓存下来，通过Filter等方式继续把缓存的内容传递下去。
 参考： https://github.com/abigail830/jwt-demo/commit/dea76ed1bca49315efa0ba74fbc2b00d9d043625
