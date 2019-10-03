@@ -32,37 +32,54 @@ UserLoginToken
 AuthenticationInterceptor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-这里使用的是postHandle而不是preHandle： 
+正常的话，应该在里面就需要拿到body里面的applicationUser信息，然后连接DB进行校验。只有校验通过之后才生成token。然后在对应的service里面就不需要再做校验的工作，只是继续比如保存audit trail。这样在header里面也不需要有类似user信息这样额外的header
 
-* 方法一：如果使用preHandle的话，那应该在里面就需要拿到body里面的applicationUser信息，然后连接DB进行校验。只有校验通过之后才生成token。然后在对应的service里面就不需要再做校验的工作，只是继续比如保存audit trail。
-  但是这种方式就牵涉到需要读@RequestBody的内容，因为是inputStream流通常只能读一次，除非在中间层再搞个wrapper之类的把inputStream缓存下来，通过Filter等方式继续把缓存的内容传递下去。
-
-* 方法二：在拦截器里面不校验，由service里面进行校验,如果校验通过，后台会在response.header里面设置token所需的比如username, 然后拦截器在postHandle里面根据这个key生成token放回到response.Authorization里面给后续使用
+但是这种方式就牵涉到需要读@RequestBody的内容，因为是inputStream流通常只能读一次，除非在中间层再搞个wrapper之类的把inputStream缓存下来，通过Filter等方式继续把缓存的内容传递下去。
 
 
 .. code-block:: java
   
   @Component
   public class AuthenticationInterceptor implements HandlerInterceptor {
-
+  
     @Autowired
     JWTAuth0Util jwtAuth0Util;
-
+  
     @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, 
-                        Object handler, @Nullable ModelAndView modelAndView) throws Exception {        
-        if (handler instanceof HandlerMethod) {        
-            HandlerMethod handlerMethod = (HandlerMethod) handler;
-            Method method = handlerMethod.getMethod();
-            if (method.isAnnotationPresent(UserLoginToken.class)) {
-                final String usename = response.getHeader(HEADER_USERNAME);
-                if (usename != null) {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
+                             Object handler) throws Exception {
+  
+        if (!(handler instanceof HandlerMethod)) {
+            return true;
+        }
+  
+        HandlerMethod handlerMethod = (HandlerMethod) handler;
+        Method method = handlerMethod.getMethod();
+  
+        if (method.isAnnotationPresent(UserLoginToken.class)) {
+            final String usename = request.getHeader(HEADER_USERNAME);
+            if (usename != null) {
+                try {
                     String token = jwtAuth0Util.sign(usename);
                     response.setHeader(HEADER_AUTHORIZATION, token);
+                } catch (JWTCreationException ex) {
+                    return failToSignTokenResponse(response);
                 }
+            } else {
+                return failToSignTokenResponse(response);
             }
+
         }
-    } 
+        return true;
+    }
+  
+    private boolean failToSignTokenResponse(HttpServletResponse response) throws IOException {
+        response.getWriter().write("Fail to sign token.");
+        response.setContentType("application/json");
+        response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        return false;
+    }
+  
   }
 
 
