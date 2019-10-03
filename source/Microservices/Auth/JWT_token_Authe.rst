@@ -39,10 +39,11 @@ AuthenticationInterceptor
 
 但是这种方式就牵涉到需要读@RequestBody的内容，因为是inputStream流通常只能读一次，不然会遇到exception： HttpMessageNotReadableException: I/O error while reading input message; nested exception is java.io.IOException: Stream closed]
   
-除非在中间层再搞个wrapper之类的把inputStream缓存下来，通过Filter等方式继续把缓存的内容传递下去。
-参考： https://github.com/abigail830/jwt-demo/commit/dea76ed1bca49315efa0ba74fbc2b00d9d043625
+除非在中间层再搞个wrapper之类的把inputStream缓存下来，通过Filter等方式继续把缓存的内容传递下去。参考： https://github.com/abigail830/jwt-demo/commit/dea76ed1bca49315efa0ba74fbc2b00d9d043625
 
 即使这样做了，因为只override了getInputStream/getReader两个方法，controller当中也没办法使用@RequestBody了，也只能调用类似request.getReader/getParameter之类的方式，从而底层是使用了重载后的方法获取cache后的body。还是比较麻烦的。
+
+另一种做法是可以直接在controller的login方法里面直接做这个校验和setToken的动作，这个比较简单。
 
 .. code-block:: java
   
