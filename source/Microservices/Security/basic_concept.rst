@@ -80,7 +80,7 @@ Authentication认证
 Authorization授权
 ^^^^^^^^^^^^^^^^^^^^^^
 
-* 验证”你是不是你？“
+* 验证”你是不是你？“ + “你能干什么？”
 * 比如JWT中通过验证签名的token进行，如果是sessionID的话就需要再校验一次之前Authentication时候同时保存下来的user vs sessionID信息，从而证明你就是那个之前认证过的你
 * 进而可以进行该用户对应的操作。（用户组信息也可以存在claim中包括在token信息里面，从而不用再次查询用户组获得具体权限）
 
