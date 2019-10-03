@@ -64,6 +64,48 @@ If we not config the password via config, Springboot would try to generate one a
 
 但这时候测试，自动会弹出登陆，输入admin/admin之后可以获取比如swagger-ui.html，也可以执行http get的请求，但是http post的请求会得到403. 这是因为spring security中默认启动了CSRF保护机制
 
+如果需要禁用CSRF，可以配置如下config：
+
+* 新版Spring-Security强制要求密码加密，所以这里引入了BCryptPasswordEncoder（还需要在main设置@Bean创建才能autowired)
+* configureGlobal部分负责authentication, 这里配置之后就不需要在application.yml设置user/password
+* 下附如何让swagger的html可以不需要校验，需要配置路径比较多。
+* 另外可以参考如何让如登陆页面无需授权，让admin对应api需要对应用户组，这些都是属于authorization授权
+* 最后部分，如果httpBasic(),无权限会返回401. 如果使用formLogin()则会返回spring默认登陆页面（还可以进一步指定自定义登陆页面的）
+
+.. code-block:: java
+  
+  @Configuration
+  @EnableWebSecurity
+  public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+  
+    @Autowired
+    BCryptPasswordEncoder bCryptPasswordEncoder;
+  
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+                .inMemoryAuthentication()
+                .withUser("admin").password(bCryptPasswordEncoder.encode("admin")).roles("ADMIN")
+                .and()
+                .withUser("user").password(bCryptPasswordEncoder.encode("password")).roles("USER");
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.cors().
+                and().csrf().disable().authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/swagger-ui.html","/swagger-resources/**",
+                        "/webjars/**", "/configuration/security", "/configuration/ui",
+                        "/v2/api-docs","/hello").permitAll()
+                .antMatchers(HttpMethod.POST, SIGN_UP_URL, REGISTER_URL).permitAll()
+                .antMatchers("/admins").hasRole("ADMIN")
+                .and()
+                .httpBasic();
+  //            .anyRequest().authenticated()
+  //            .and().formLogin();
+    }
+  }
+
 
 
 Reference
