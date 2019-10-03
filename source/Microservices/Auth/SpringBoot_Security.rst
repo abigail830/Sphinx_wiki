@@ -69,8 +69,9 @@ If we not config the password via config, Springboot would try to generate one a
 Reference
 ---------------
 
-* Spring Security: https://blog.csdn.net/u013435893/article/details/79596628
+* Spring Security: https://docs.spring.io/spring-security/site/docs/3.2.x/reference/htmlsingle/html5/
 * CSRF： https://spring.io/blog/2013/08/21/spring-security-3-2-0-rc1-highlights-csrf-protection/
+* https://blog.csdn.net/u013435893/article/details/79596628
 
 
 
