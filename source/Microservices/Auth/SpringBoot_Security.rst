@@ -62,6 +62,16 @@ If we not config the password via config, Springboot would try to generate one a
       }
   }
 
-但这时候测试，自动会弹出登陆，输入admin/admin之后可以获取比如swagger-ui.html，也可以执行http get的请求，但是http post的请求会得到403.
+但这时候测试，自动会弹出登陆，输入admin/admin之后可以获取比如swagger-ui.html，也可以执行http get的请求，但是http post的请求会得到403. 这是因为spring security中默认启动了CSRF保护机制
+
+
+
+Reference
+---------------
+
+* Spring Security: https://blog.csdn.net/u013435893/article/details/79596628
+* CSRF： https://spring.io/blog/2013/08/21/spring-security-3-2-0-rc1-highlights-csrf-protection/
+
+
 
 .. index:: Security, SpringBoot, Authentication
