@@ -10,6 +10,8 @@ JWT、Token的授权例子(2)
 * `JWTAuthorizationFilter`_
 * `WebSecurityConfig`_
 
+当POST+/register的时候，不会做校验，从而让用户信息可以存到DB。当/login的时候会进行Authentication（下篇再讲）。而任何其他url进来的话都会进行authorization。只要header中没有token或者token无法verify通过，则返回403.
+
 
 pom.xml
 ^^^^^^^^^^
