@@ -1,4 +1,4 @@
-JWT、Token的授权例子(2)
+JWT、Token的授权例子（2）
 =============================
 
 在例子1中，没有使用spring-Security，这个例子集中来看看如果使用了Spring-Security之后可以带来什么便利
