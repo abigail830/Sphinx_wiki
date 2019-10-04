@@ -120,7 +120,14 @@ UserDetailsServiceImpl
         }
     }
   }
+
+如果想更改登陆的URL,可以在webConfig里面这样创建filter
+
+.. code-block:: java
   
+  final JWTAuthenticationFilter jwtAuthenticationFilter = new JWTAuthenticationFilter(authenticationManager());
+  jwtAuthenticationFilter.setFilterProcessesUrl("/users/login");
+
 
 
 .. index:: Security, Authentication, Spring
