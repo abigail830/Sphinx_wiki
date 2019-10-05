@@ -1,4 +1,4 @@
-Oauth - Wechat Auth Example
+OAuth - Wechat Auth Example
 ==============================
 
 授权认证过程
