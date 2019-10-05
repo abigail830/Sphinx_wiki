@@ -17,7 +17,12 @@ Oauth - Wechat Auth Example
   * `小程序端`_
   * `后台程序解密`_
 
+Other OAuth Reference
+------------------------
 
+  * https://juejin.im/post/5adf3a07f265da0ba567322d
+
+-------------------------
 
 代码摘要
 -----------
