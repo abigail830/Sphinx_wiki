@@ -31,7 +31,8 @@ wx.login已经封装好如何调用微信后台服务获取授权码，所以这
 Step2. 拿到授权码调用自己的后台应用
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-如，小程序端把授权码放在header的“X-WX-Code”中，然后调用后台约定接口this.globalData.apiBase + "/common/wxLogin"
+* 小程序端把授权码放在header的“X-WX-Code”中
+* 然后调用后台约定接口this.globalData.apiBase + "/common/wxLogin"
 
 .. code-block:: javascript
 
@@ -63,7 +64,8 @@ Step2. 拿到授权码调用自己的后台应用
 Step3. 后台应用获取授权码再进一步调用微信的接口
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-在后台接口中，预设好AppID和AppSecret，在获取刚存在header中的授权码一起，调用微信提供的auth接口https://api.weixin.qq.com/sns/jscode2session?
+* 在后台接口中，预设好AppID和AppSecret，再获取刚存在header中的授权码一起，
+* 调用微信提供的auth接口https://api.weixin.qq.com/sns/jscode2session?
 
 .. code-block:: java
   
@@ -83,7 +85,7 @@ Step3. 后台应用获取授权码再进一步调用微信的接口
 Step4. 小程序在接收到的结果里面获取
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-如果后台登陆成功，小程序会得到对应的session_key和open_id.至此，登陆授权认证步骤初步完成
+如果后台登陆成功，小程序会得到对应的session_key和open_id。至此，登陆授权认证步骤初步完成
 
 .. code-block:: javascript
 
