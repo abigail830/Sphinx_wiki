@@ -3,12 +3,19 @@ JWS、Token的认证例子（2）
 
 这里也是使用Spring-Security的方式进行认证的例子。
 
+* `代码摘要`_
+
+  * `JWTAuthenticationFilter`_
+  * `WebSecurityConfig`_
+  * `UserDetailsServiceImpl`_
+
+* `Advance`_
+* `Reference`_
+
+
+
 代码摘要
------------
-
-* `JWTAuthenticationFilter`_
-* `WebSecurityConfig`_
-
+---------------
 
 JWTAuthenticationFilter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -128,6 +135,20 @@ UserDetailsServiceImpl
   final JWTAuthenticationFilter jwtAuthenticationFilter = new JWTAuthenticationFilter(authenticationManager());
   jwtAuthenticationFilter.setFilterProcessesUrl("/users/login");
 
+Advance
+--------------
+
+Consider Authentication/Authorization with Roles, User groups.
+
+
+
+Reference
+-------------
+
+* https://qtdebug.com/spring-security-8-token/
+* https://auth0.com/blog/implementing-jwt-authentication-on-spring-boot/
+* https://docs.spring.io/spring-security/site/docs/3.0.x/reference/el-access.html
+* https://blog.csdn.net/u013435893/article/details/79605239
 
 
 .. index:: Security, Authentication, Spring
