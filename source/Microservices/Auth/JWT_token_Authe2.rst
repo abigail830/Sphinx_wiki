@@ -151,6 +151,7 @@ Reference
 * https://blog.csdn.net/u013435893/article/details/79605239
 * https://github.com/ajkr195/springbootrocks
 * https://github.com/ajkr195/SpringMvcSecurity4Hibernate5
+* https://www.jianshu.com/p/18875c2995f1
 
 
 .. index:: Security, Authentication, Spring
