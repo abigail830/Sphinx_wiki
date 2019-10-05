@@ -149,6 +149,8 @@ Reference
 * https://auth0.com/blog/implementing-jwt-authentication-on-spring-boot/
 * https://docs.spring.io/spring-security/site/docs/3.0.x/reference/el-access.html
 * https://blog.csdn.net/u013435893/article/details/79605239
+* https://github.com/ajkr195/springbootrocks
+* https://github.com/ajkr195/SpringMvcSecurity4Hibernate5
 
 
 .. index:: Security, Authentication, Spring
