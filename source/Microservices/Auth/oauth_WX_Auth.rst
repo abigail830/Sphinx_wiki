@@ -20,7 +20,7 @@ Oauth - Wechat Auth Example
 Other OAuth Reference
 ------------------------
 
-  * https://juejin.im/post/5adf3a07f265da0ba567322d
+* https://juejin.im/post/5adf3a07f265da0ba567322d
 
 -------------------------
 
