@@ -35,6 +35,9 @@ SAML
 
 Security Assertion Markup Language, (https://baike.baidu.com/item/SAML)
 
+.. image: ../../../images/saml.png
+  : width: 500px
+  
 
 
 简单流程例子
