@@ -22,4 +22,4 @@ OAuth with Spring
 
 * http://blog.huotaihe.com/2019/06/21/spring-boot-oauth2/
 
-.. index:: OAuth, Security, Spring
+.. index:: OAuth, Security, SpringBoot
