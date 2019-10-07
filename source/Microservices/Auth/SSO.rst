@@ -7,10 +7,12 @@ SSO within same domain
 假设有app1.comp.com, app2.comp.com, app3.comp.com希望共享登陆
 
 比如使用Session+Cookie的方式：
+
 * 在前端只需要设置Domain为comp.com,这三者因为属于同一个domain下，所以可以分享cookie获取共同的用户资料。
 * 而后台那边就需要连接到同一个session管理，比如由一个统一的服务统治下的Redis。
 
 设想过程如下：
+
 * 用户触发app1.comp.com, app1后台校验cookie里的token/用户信息，如果有则发送都sso服务进行验证
 
 
