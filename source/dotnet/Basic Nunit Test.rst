@@ -167,5 +167,5 @@ solution/project/NumberCounterService.cs
     }
   }
 
-.. index:: Testing, dotnet, C#, Nunit
+.. index:: Testing, Dotnet, C#, Nunit
 
