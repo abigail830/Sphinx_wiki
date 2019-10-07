@@ -11,37 +11,8 @@ SSO within same domain
 * 在前端只需要设置Domain为comp.com,这三者因为属于同一个domain下，所以可以分享cookie获取共同的用户资料。
 * 而后台那边就需要连接到同一个session管理，比如由一个统一的服务统治下的Redis。
 
-
-SSO cross different domains
--------------------------------
-
-假设有app1.comp1.com, app2.comp2.com, app3.comp3.com希望共享登陆，因为他们跨域，所以没办法共享同一个cookie.
-
-所以这里首先需要解决的是，在其中一个域登陆之后，怎么通知其他域知道这个登陆了的信息和获取相关的用户信息。另一个就是关于Token怎么更新了。
-
-
-
-方式
--------------
-
-实现SSO通常会提到几种方式：
-
-* OAuth
-* SAML
-* OpenId
-
-SAML
-^^^^^^^^
-
-Security Assertion Markup Language, (https://baike.baidu.com/item/SAML)
-
-.. image: ../../../images/saml.png
-  : width: 500px
-  
-
-
 简单流程例子
--------------
+^^^^^^^^^^^^^
 
 初始A，B，C全部处于未登录状态，没有令牌(tokenid)
   
@@ -53,8 +24,31 @@ Security Assertion Markup Language, (https://baike.baidu.com/item/SAML)
 6. 子系统收到通过信息，将用户信息解密，存进session一分钟(token)，跳转页面至首页或用户请求页；
 7. 一分钟失效后或者子系统访问时，发现有令牌但session中无信息，再次重复4,5,6。
 
+SSO cross different domains
+-------------------------------
+
+假设有app1.comp1.com, app2.comp2.com, app3.comp3.com希望共享登陆，因为他们跨域，所以没办法共享同一个cookie.
+
+所以这里首先需要解决的是，在其中一个域登陆之后，怎么通知其他域知道这个登陆了的信息和获取相关的用户信息。另一个就是关于Token怎么更新了。
 
 
+SSO實現方式
+-------------
+
+实现SSO通常会提到几种方式：
+
+* OAuth
+* SAML
+* OpenId
+
+SAML
+^^^^^^^^
+
+Security Assertion Markup Language, (https://baike.baidu.com/item/SAML),一個比較清晰的flow https://www.mutuallyhuman.com/blog/choosing-an-sso-strategy-saml-vs-oauth2/。當然，這裏也可以不用user/pwd的方式登陸，比如使用Multi Factor驗證，AD等的其他方式。
+
+.. image:: ../../../images/saml.png
+  :width: 500px
+  
 
 
 
