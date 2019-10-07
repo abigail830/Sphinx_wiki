@@ -218,4 +218,4 @@ Quick Note
 * Verify: mockPrinter.Verify(p => p.Print("This is the mock return"), Times.Once);
 
 
-.. index: Testing, dotnet, C#, Nunit
+.. index: Testing, Dotnet, C#, Nunit
