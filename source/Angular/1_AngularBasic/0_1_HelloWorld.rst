@@ -87,5 +87,5 @@ Angular模版基础关键字
 
 
 
-.. index:: angular, UI
+.. index:: Angular, UI
 
