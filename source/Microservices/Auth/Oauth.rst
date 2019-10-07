@@ -15,3 +15,11 @@ OAuth的四种方式
 * **implicit**： response_type=token
 * **password**： grant_type=password
 * **client credentials**： grant_type=client_credentials
+
+
+OAuth with Spring
+^^^^^^^^^^^^^^^^^^^^^
+
+* http://blog.huotaihe.com/2019/06/21/spring-boot-oauth2/
+
+.. index:: OAuth, Security, Spring
