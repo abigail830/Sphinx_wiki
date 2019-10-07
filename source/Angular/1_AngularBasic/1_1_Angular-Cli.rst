@@ -72,7 +72,7 @@
   :width: 600px
 
 
-.. index:: angular, UI
+.. index:: Angular, UI
 
 
 
