@@ -154,4 +154,4 @@ Reference
 * https://www.jianshu.com/p/18875c2995f1
 
 
-.. index:: Security, Authentication, Spring
+.. index:: Security, Authentication, SpringBoot
