@@ -11,17 +11,13 @@ SSO within same domain
 * 在前端只需要设置Domain为comp.com,这三者因为属于同一个domain下，所以可以分享cookie获取共同的用户资料。
 * 而后台那边就需要连接到同一个session管理，比如由一个统一的服务统治下的Redis。
 
-设想过程如下：
-
-* 用户触发app1.comp.com, app1后台校验cookie里的token/用户信息，如果有则发送都sso服务进行验证
-
 
 SSO cross different domains
 -------------------------------
 
 假设有app1.comp1.com, app2.comp2.com, app3.comp3.com希望共享登陆，因为他们跨域，所以没办法共享同一个cookie.
 
-所以这里首先需要解决的是，在其中一个域登陆之后，怎么通知其他域知道这个登陆了的信息和获取相关的用户信息
+所以这里首先需要解决的是，在其中一个域登陆之后，怎么通知其他域知道这个登陆了的信息和获取相关的用户信息。另一个就是关于Token怎么更新了。
 
 
 
