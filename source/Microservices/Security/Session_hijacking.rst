@@ -22,11 +22,14 @@ https://baike.baidu.com/item/%E4%BC%9A%E8%AF%9D%E5%8A%AB%E6%8C%81
 * 主动劫持；
 
 
-防御思路
+预防&检测
 -----------
 
-* 使用Https
-* 使用可靠的cert
+* 网络层面限制和校验入网连接
+* 使用加密通信
+
+  * 使用Https
+  * 使用可靠的cert
 
 
 Reference
