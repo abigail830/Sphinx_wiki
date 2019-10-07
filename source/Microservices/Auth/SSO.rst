@@ -30,6 +30,12 @@ SSO cross different domains
 * SAML
 * OpenId
 
+SAML
+^^^^^^^^
+
+Security Assertion Markup Language, (https://baike.baidu.com/item/SAML)
+
+
 
 简单流程例子
 -------------
