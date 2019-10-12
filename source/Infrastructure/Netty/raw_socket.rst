@@ -51,8 +51,10 @@
                     break;
                 }
             }
+            inputStream.close();
+            
         }catch (Exception ex){
-            System.out.println("Exception happen when try to get InputStream");
+            System.out.println("Exception happen when try to handle InputStream");
         }finally {
             try{
                 System.out.println("Close Socket");
