@@ -67,6 +67,12 @@
     }
   }
 
+Remark
+^^^^^^^^^
+
+这里可以留意http keepAlive的设置，如果InputStream.close被调用之后，该connection对应的底层socket可以被回收并重复利用
+
+* http://www.tianshouzhi.com/api/tutorials/netty/406
 
 .. index:: Netty
 
