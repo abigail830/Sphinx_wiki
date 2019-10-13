@@ -1,18 +1,30 @@
-1.1 Write Contract (YAML)
-==============================
+1.1 Write Spring Contract 
+============================
 
+Spring Contract support 2 format: YAML & Groovy. Here focus on YAML format
+
+
+* `Naming`_
 * `Header`_
 * `Request`_
 * `Response`_
+
+Naming
+----------
+
+* 如果没有另外配置，默认的契约放置路径在 src/test/resources/contracts,可以在里面再建立目录结构区分案例
+* 每个yaml文件里面可以是一个案例，文件命名为should_do_sth_when_condition_fulfills
 
 
 Header
 ----------
 
-* **name [mandatory]:** should do sth when condition fulfils
+* **name:** should do sth when condition fulfils
 * **description:** Some description
 * **priority:** 8
 * **ignored:** true
+
+如果文件里面只有1个案例，文件名字也已经比较表意，那这里的name也可以不需要写了
 
 .. code-block:: yaml
   
