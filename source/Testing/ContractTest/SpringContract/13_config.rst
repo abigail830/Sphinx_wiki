@@ -1,4 +1,4 @@
-1.3 Config Spring Project
+1.3 Config Project
 ============================
 
 Adding dependency and plugin
@@ -96,7 +96,7 @@ Step 3
 
 在src/test/java/com.dmall.productservice.contractTest下，创建ProductBase.java, Product是对应了契约所在的sub folder, Base是固定命名，所以所有在/api/product下的契约将与这个Base对应。也就是说所有所需的数据都会在这个Base之中准备。 
 
-**示例代码**: 这里使用了mock的方式, 最后一行配置
+**示例代码**: 
 
 .. code-block:: java
   
@@ -137,12 +137,23 @@ Step 3
     }
   }
 
-
+注意
+`````
+* 最后一行配置了对应的controller, 而且该controller是使用构造函数注入的，如果是使用autowire注入的话，应该在开始时候使用@InjectMocks的方式注入
+* 这里使用了mock的方式, 所以所有数据通过mock返回，等于只测试了controller层的接口。
+* 另一种思路是把它作为集成测试一直通测到DB实现，这是就可以使用类似DB-Rider/DB unit之类的工具帮助准备DB数据了。至于，应该只测接口还是通测，这是一个一直还在争论中的问题，需要根据实际场景探索寻找适合的平衡点。
 
 Step 4
 ^^^^^^^^^
 
-此时只要运行mvn test或者gradle build
+此时只要运行mvn test或者gradle build，就会触发到Spring Contract Test. 如果成功运行自然就build success了，如果失败，日志可能如下：
+
+**失败日志**
+
+  org.springframework.cloud.contract.verifier.tests.ProductTest > validate_should_get_products FAILED
+    java.lang.IllegalStateException at ProductTest.java:80
+
+
 
 .. index:: Testing, Contract
 
