@@ -96,10 +96,6 @@ Response
 
 
 
-Advance with RegularExpression
------------------------------------------
-
-
 
 
 .. index:: Testing, Contract
