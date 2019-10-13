@@ -1,75 +1,12 @@
 2. Mock、Stub、Spy of Jest 
 ==============================
 
-* `Mock With Jest`_
-* `Mock module - such as 3rd party lib`_
-* `Stub With Jest`_
-* `async, await and spyOn`_
+* `Mock - jest.mock`_
+* `Stub - jest.fn()`_
+* `Spy - jest.spyOn`_
   
-Mock With Jest
+Mock - jest.mock
 ------------------------------
-
-filter.js
-
-.. code-block:: javascript
-  
-  function filter(items, callback){
-    for(let index=0;index<items.length;index++){
-        callback(items[index]);
-    }
-  }
-  module.exports = filter;
-
-jest.fn()
-`````````````
-
-* 使用jest.fn封装mock object，等于带上了窃听器，可后续被进一步验证。
-* jest.fn()里面参数可以是空，这代表空白替身，没有具体功能但能被验证。
-* jest.fn()也可以传一个实际的方法， 如jest.fn(x=>(x%2)==0),这代表一个被窃听中的具体方法。
-
-验证方法
-``````````
-* expect(mockFunc).toBeCalled();
-* expect(mockFunc).toBeCalledWith(arg1, arg2);
-* expect(mockFunc).lastCalledWith(arg1, arg2);
-
-更多：（具体可参考：https://jestjs.io/docs/zh-Hans/expect.html）
-
-* mockFilterCallback.mock.calls.length， 被mock的object被调用次数
-* mockFilterCallback.mock.calls[0][0]， 被mock的object第一次被调用时候第一个入参
-* mockFilterCallback.mock.results[0].value 被mock的object第一次被调用时的结果
-* mockFilterCallback.mock.instances.length 被mock的object被初始化的次数
-
-filter.test.js
-
-.. code-block:: javascript
-  
-  //production code
-  const filter = require('../src/filter');
-
-  //test code
-  describe("TestSuit for filter", ()=>{
-    it("verify callback of filter should be invoke correctly", ()=>{
-        //given
-        const mockFilterCallback = jest.fn(x=>(x%2)==0);
-        //when
-        filter([1,2,3], mockFilterCallback);
-        //then
-        expect(mockFilterCallback.mock.calls.length).toBe(3);
-        expect(mockFilterCallback.mock.calls[0][0]).toBe(1);
-        expect(mockFilterCallback.mock.calls[1][0]).toBe(2);
-        expect(mockFilterCallback.mock.calls[2][0]).toBe(3);
-        expect(mockFilterCallback.mock.instances.length).toBe(3)
-
-        expect(mockFilterCallback.mock.results[0].value).toBeFalsy;
-        expect(mockFilterCallback.mock.results[1].value).toBeTruthy;
-        expect(mockFilterCallback.mock.results[2].value).toBeFalsy;
-    })
-  })
-
-
-Mock module - such as 3rd party lib
-------------------------------------------------
 
 * jest.mock('module path'), 如jest.mock('axios');
 * mockImplementation()/mockImplementationOnce(), 如 axios.get.mockImplementation(() => Promise.resolve(resp)),这里就不是直接模拟返回值，而是模拟这个方法体的内部操作。
@@ -110,8 +47,71 @@ user.test.js
     })
   });
 
-Stub With Jest
+Stub - jest.fn()
 ---------------------------------
+
+filter.js
+
+.. code-block:: javascript
+  
+  function filter(items, callback){
+    for(let index=0;index<items.length;index++){
+        callback(items[index]);
+    }
+  }
+  module.exports = filter;
+
+
+* 使用jest.fn封装mock object，等于带上了窃听器，可后续被进一步验证。
+* jest.fn()里面参数可以是空，这代表空白替身，没有具体功能但能被验证。
+* jest.fn()也可以传一个实际的方法， 如jest.fn(x=>(x%2)==0),这代表一个被窃听中的具体方法。
+
+验证方法
+``````````
+* expect(mockFunc).toBeCalled();
+* expect(mockFunc).toBeCalledWith(arg1, arg2);
+* expect(mockFunc).lastCalledWith(arg1, arg2);
+
+更多：（具体可参考：https://jestjs.io/docs/zh-Hans/expect.html）
+
+* mockFilterCallback.mock.calls.length， 被mock的object被调用次数
+* mockFilterCallback.mock.calls[0][0]， 被mock的object第一次被调用时候第一个入参
+* mockFilterCallback.mock.results[0].value 被mock的object第一次被调用时的结果
+* mockFilterCallback.mock.instances.length 被mock的object被初始化的次数
+
+方式一.带侦听的真function
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+filter.test.js
+
+.. code-block:: javascript
+  
+  //production code
+  const filter = require('../src/filter');
+
+  //test code
+  describe("TestSuit for filter", ()=>{
+    it("verify callback of filter should be invoke correctly", ()=>{
+        //given
+        const mockFilterCallback = jest.fn(x=>(x%2)==0);
+        //when
+        filter([1,2,3], mockFilterCallback);
+        //then
+        expect(mockFilterCallback.mock.calls.length).toBe(3);
+        expect(mockFilterCallback.mock.calls[0][0]).toBe(1);
+        expect(mockFilterCallback.mock.calls[1][0]).toBe(2);
+        expect(mockFilterCallback.mock.calls[2][0]).toBe(3);
+        expect(mockFilterCallback.mock.instances.length).toBe(3)
+
+        expect(mockFilterCallback.mock.results[0].value).toBeFalsy;
+        expect(mockFilterCallback.mock.results[1].value).toBeTruthy;
+        expect(mockFilterCallback.mock.results[2].value).toBeFalsy;
+    })
+  })
+
+方式二. 空白的纯侦听木偶
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 * jest.fn()封装mock object
 * mockReturnValueOnce，模拟返回结果，只会根据设置次序返回一次
 * mockReturnValue 模拟返回结果，每次调用都会使用
@@ -146,8 +146,11 @@ Stub With Jest
   })
   
 
-async, await and spyOn
+Spy - jest.spyOn
 -------------------------------
+
+
+**例子： event.js 调用 fetch 调用 axios**
 
 event.js
 
@@ -177,7 +180,7 @@ fetch.js
     }
   }
 
-* 思路一: 单独测试fetch.js的时候，mock axios module, 可以验证callback方法的确被调用了
+* **思路一:** 单独测试fetch.js的时候，mock axios module, 可以验证callback方法的确被调用了
 
 .. code-block:: javascript  
   
@@ -193,7 +196,7 @@ fetch.js
     expect(mockFn).toBeCalled();
   })
   
-* 思路二: 对于event.js来说，可以验证mock了的fetch方法的确被调用了，此时“fetchPostsList be called!”并不会被打印，因为没有使用真身
+* **思路二:** 对于event.js来说，同理可以验证mock了的fetch方法的确被调用了，此时“fetchPostsList be called!”并不会被打印，因为没有使用真身
 
 .. code-block:: javascript  
   
@@ -214,7 +217,7 @@ fetch.js
   });
   
 
-* 思路三: 对于event.js来说，可以验证fetch方法的确被调用了，spy的fetch因为并没有override其中的implementation其实是真身，所以会打印“fetchPostsList be called!”
+* **思路三:** 对于event.js来说，spyOn fetch.fetchPostsList, 可以验证fetch方法的确被调用了，spy的fetch因为并没有override其中的implementation其实是真身，所以会打印“fetchPostsList be called!”
 
 .. code-block:: javascript  
   
