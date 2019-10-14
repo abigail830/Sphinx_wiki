@@ -1,4 +1,4 @@
-1.3 Config Project
+1.3 Provider
 ============================
 
 Adding dependency and plugin
@@ -42,7 +42,9 @@ build.gradle
 Write contract
 -----------------
 
-Default path: src/test/resources/contracts， 因为测试需要对应数据准备，所以通常还会再建目录结构，这就需要配置指定testJava如何与contract匹配的问题。 例如，
+准确来说这里是放置契约。契约应该在之前已经经过双方协商定下来了，可以由任意一方把它落到文件格式。 契约默认放置路径: src/test/resources/contracts
+
+因为测试需要对应数据准备，所以通常还会再建目录结构，这就需要配置指定testJava如何与contract匹配的问题。 例如，
 
 Step 1
 ^^^^^^^
@@ -152,6 +154,39 @@ Step 4
 
   org.springframework.cloud.contract.verifier.tests.ProductTest > validate_should_get_products FAILED
     java.lang.IllegalStateException at ProductTest.java:80
+
+在这个过程之中，Spring其实会自动的根据契约生成测试案例，放置在build/generated-test-sources/contracts/org.springframework.cloud.contract.verifier.tests/ProductTest.java, 如果maven项目则在target目录下
+
+.. code-block:: java
+  
+  public class ProductTest extends ProductBase {
+  
+	  @Test
+  	public void validate_should_created_product() throws Exception {
+	  	// given:
+		  	MockMvcRequestSpecification request = given()
+			  		.header("Content-Type", "application/json")
+				  	.body("{\"name\":\"Mac mini\",\"description\":\"Mac mini computer\",\"price\":\"9888.00\"}");
+	  	// when:
+		  	ResponseOptions response = given().spec(request)
+			  		.post("/products");
+	  	// then:
+		  	assertThat(response.statusCode()).isEqualTo(200);
+			  assertThat(response.header("Content-Type")).isEqualTo("application/json;charset=UTF-8");
+  		// and:
+	  		DocumentContext parsedJson = JsonPath.parse(response.getBody().asString());
+		  	assertThatJson(parsedJson).field("['id']").isEqualTo(10);
+			  assertThatJson(parsedJson).field("['price']").isEqualTo("9888.00");
+  			assertThatJson(parsedJson).field("['description']").isEqualTo("Mac mini computer");
+	  		assertThatJson(parsedJson).field("['name']").isEqualTo("Mac mini");
+  	}
+  }
+
+对照着step1中的契约内容，可以看见自动生成的测试：
+
+* 基于MovkMvc，以validate+契约文件名作为案例名称，如果product文件夹下面有多个契约，都会生成在这个测试java里面成为多个测试案例。
+* 继承了所对应的ProductBase
+* 为契约中有的字段都写了断言，因为是hardcode的值，所以都是精确的isEqualTo。
 
 
 
