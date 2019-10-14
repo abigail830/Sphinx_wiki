@@ -155,6 +155,8 @@ Step 4
   org.springframework.cloud.contract.verifier.tests.ProductTest > validate_should_get_products FAILED
     java.lang.IllegalStateException at ProductTest.java:80
 
+**自动生成测试**
+
 在这个过程之中，Spring其实会自动的根据契约生成测试案例，放置在build/generated-test-sources/contracts/org.springframework.cloud.contract.verifier.tests/ProductTest.java, 如果maven项目则在target目录下
 
 .. code-block:: java
@@ -188,6 +190,29 @@ Step 4
 * 继承了所对应的ProductBase
 * 为契约中有的字段都写了断言，因为是hardcode的值，所以都是精确的isEqualTo。
 
+
+Step 5
+^^^^^^^^^^
+
+除了自动生成测试案例，之前引入的spring-cloud-contract-maven-plugin还可以帮助生成Stub的挡板服务。具体参考https://cloud.spring.io/spring-cloud-contract/spring-cloud-contract-maven-plugin/plugin-info.html
+
+这个plugin其实有几个步骤：
+
+1. **convert**
+
+把契约复制到build/stubs/META-INF/com.dmall/product-service/0.1.0/contracts/product下面，并且把内容转换为json放置在build/stubs/META-INF/com.dmall/product-service/0.1.0/contracts/mappings/product下面，这个json其实就是类似wiremock支持的json格式
+
+2. **generateStubs**
+
+这一步就会把之前生成出来json封装为一个基于wiremock的挡板服务jar包中，放置在build/lib.product-service-0.1.0-stub.jar, 后续只要上传到nexus或者jfrog之类的软件仓库就可以被任何需要该挡板的人所获取
+
+3. **generateTests**
+
+这个就是Step4中自动生成的测试
+
+对生产者来说，关键是在gengerateTests。而是否应该在生产者里面去生成Stub这个可以灵活配置。
+
+比如说，可以另外有一个mock-Server的项目，里面就是获取所有契约之后统一生成stub.jar的，也是可以的。这样的话在生产者的配置里面可以把convert和generateStubs这两个步骤skip掉，同理在mock-Server的项目里面，把generateTests的步骤skip掉
 
 
 .. index:: Testing, Contract
