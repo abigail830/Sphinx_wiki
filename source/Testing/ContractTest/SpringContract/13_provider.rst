@@ -194,7 +194,7 @@ Step 4
 Step 5
 ^^^^^^^^^^
 
-除了自动生成测试案例，之前引入的spring-cloud-contract-maven-plugin还可以帮助生成Stub的挡板服务。具体参考https://cloud.spring.io/spring-cloud-contract/spring-cloud-contract-maven-plugin/plugin-info.html
+除了自动生成测试案例，之前引入的spring-cloud-contract-maven-plugin还可以帮助生成Stub的挡板服务。具体参考https://cloud.spring.io/spring-cloud-contract/spring-cloud-contract-maven-plugin/plugin-info.html （spring-cloud-contract-gradle-plugin也是同理）
 
 这个plugin其实有几个步骤：
 
