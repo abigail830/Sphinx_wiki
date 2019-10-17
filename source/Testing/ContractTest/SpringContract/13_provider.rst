@@ -35,7 +35,7 @@ build.gradle
     dependencies {
         testImplementation('org.springframework.cloud:spring-cloud-starter-contract-verifier')
     }
-}
+  }
 
 
 
