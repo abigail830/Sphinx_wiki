@@ -112,6 +112,16 @@ Response
 Matchers
 ----------------
 
+key + regex
+^^^^^^^^^^^^^
+
+.. code-block:: yaml
+ 
+ headers:
+  - key: Content-Type
+    regex: "application/json.*"
+
+
 json_path + type + value/predefined
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -126,14 +136,24 @@ json_path + type + value/predefined
           type: by_regex
           predefined: only_alpha_unicode
 
+
 **Pre-define Regular Expression:**
+
 [only_alpha_unicode, number, any_boolean, ip_address, hostname, email, url, uuid, iso_date, iso_date_time, iso_time, iso_8601_with_offset, non_empty, non_blank]:
 
+
 **作为Stub挡板时候，可以根据以下命令生成挡板：**
+
 by_equality, by_regex, by_date, by_timestamp, by_time, 
 
+
 **作为Verificator时候，可以根据以下命令生成测试案例Assertion：**
-by_equality, by_regex, by_date, by_timestamp, by_time, by_command, by_type, by_null
+
+* by_equality, by_regex - 固定值/正则值
+* by_date, by_timestamp, by_time - 可以没有value部分，直接以类型assert 
+* by_command （value: assertThatValueIsANumber($it)）
+* by_type (minOccurrence/maxOccurrence)
+* by_null (value:null)
 
 
 .. index:: Testing, Contract
