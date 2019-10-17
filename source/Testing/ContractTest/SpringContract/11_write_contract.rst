@@ -160,8 +160,11 @@ by_equality, by_regex, by_date, by_timestamp, by_time,
 
 当作为消费者，使用契约生成的挡板做测试
 
+* 这时候会使用Request部分的matchers，只要消费者发送的请求符合matchers里面的要求（不需要跟固定值一致），就可以获取Response里面的返回值（非matchers部分的固定值）
+
 当作为生产者，使用契约生成的自动化测试案例进行验证
 
+* 这时候会对照Request部分的固定值，只要生产者发送的Request里面完全匹配指定值，自动化测试案例里面就会按照Response里面的matcher进行比较（无matchers的时候就使用Response里面的固定值进行校验）。
 
 
 .. index:: Testing, Contract
