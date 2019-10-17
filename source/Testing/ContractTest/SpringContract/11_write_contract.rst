@@ -5,9 +5,12 @@ Spring Contract support 2 format: YAML & Groovy. Here focus on YAML format
 
 
 * `Naming`_
-* `Header`_
-* `Request`_
-* `Response`_
+* Body
+
+  * `Header`_
+  * `Request`_
+  * `Response`_
+  * `Matchers`_
 
 Naming
 ----------
@@ -106,8 +109,31 @@ Response
         - key: foo3
           command: andMeToo($it)
 
+Matchers
+----------------
 
+json_path + type + value/predefined
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. code-block:: yaml
+  
+    matchers:
+      body:
+        - path: $.foo2
+          type: by_regex
+          value: bar
+        - path: $.foo
+          type: by_regex
+          predefined: only_alpha_unicode
+
+**Pre-define Regular Expression:**
+[only_alpha_unicode, number, any_boolean, ip_address, hostname, email, url, uuid, iso_date, iso_date_time, iso_time, iso_8601_with_offset, non_empty, non_blank]:
+
+**作为Stub挡板时候，可以根据以下命令生成挡板：**
+by_equality, by_regex, by_date, by_timestamp, by_time, 
+
+**作为Verificator时候，可以根据以下命令生成测试案例Assertion：**
+by_equality, by_regex, by_date, by_timestamp, by_time, by_command, by_type, by_null
 
 
 .. index:: Testing, Contract
