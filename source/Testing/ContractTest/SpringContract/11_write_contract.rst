@@ -155,5 +155,13 @@ by_equality, by_regex, by_date, by_timestamp, by_time,
 * by_type (minOccurrence/maxOccurrence)
 * by_null (value:null)
 
+使用
+^^^^^^^
+
+当作为消费者，使用契约生成的挡板做测试
+
+当作为生产者，使用契约生成的自动化测试案例进行验证
+
+
 
 .. index:: Testing, Contract
