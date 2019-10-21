@@ -69,4 +69,11 @@ HTTP头中有一个Referer字段，这个字段用以标明请求来源于哪个
 * 如果使用了localStorage的话，跨域可以获取里面的token，就增加了CSRF的机会？
 
 
+CSRF攻击案例
+---------------
+
+* https://www.davidairey.com/google-gmail-security-hijack/
+* https://juejin.im/post/5bc009996fb9a05d0a055192
+
+
 .. index:: Security, SpringBoot
