@@ -1,6 +1,10 @@
 ArchUnit
 ==============
 
+* `Dependency`_
+* `Test case`_
+* `Other`_
+
 Dependency
 ----------------
 
@@ -115,6 +119,29 @@ Test case
                 .beFreeOfCycles();
         rule.check(importedClasses);
     }
+
+
+Other
+----------
+
+Import Options
+^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: java
+  	
+  ImportOptions importOptions = new ImportOptions()
+                // 不扫描jar包
+                .with(ImportOption.Predefined.DONT_INCLUDE_JARS)
+                // 排除不扫描的包
+                .with(new DontIncludePackagesImportOption("com.sample..support"));
+        ClassFileImporter classFileImporter = new ClassFileImporter(importOptions);
+        JavaClasses javaClasses = classFileImporter.importPackages("com.sample");
+
+
+Reference
+^^^^^^^^^^^^^^
+* http://www.liuhaihua.cn/archives/618739.html
+
 
 .. index:: ArchUnit
 
