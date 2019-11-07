@@ -57,6 +57,8 @@ Cluster
 
 对于服务注册与发现，反正单点失败（single point of failure)至关重要，建立cluster是最直观的做法. 简单的话只需要配置比如三个application.yml(为了获取majority通常使用单数）
 
+下面只用了两个server组成cluster，留意里面的defaultZone在互指
+
 .. code-block:: yaml
   
   server:
@@ -80,9 +82,29 @@ Cluster
       hostname: peer2
     client:
       serviceUrl:
-        defaultZone: http://peer2:8761/eureka/
+        defaultZone: http://peer1:8761/eureka/
       registerWithEureka: false
       fetchRegistry: false
 
+
+Heart Beat
+----------------
+
+作为服务注册与发现，因为连接本身都是基于间隔性的heart beat 心跳，另外一个非常重要的问题就是万一网络不好的时候怎么处理。
+
+设想一下，服务A和服务B，自身都运作得很好，但因为偶然的网络问题，可能其中B与服务注册中心的心跳断了一段时间。理论上服务注册与发现的中心应当可以等待和自动重试一段时间，如果B resume的话，就可以继续正常工作。而如果重试到超时都未见到B的话，就可以考虑把B从列表中移除。
+
+相关的属性参考：
+
+**server端:**
+
+* eureka.server.enable-self-preservation//（设为false，关闭自我保护主要）
+* eureka.server.eviction-interval-timer-in-ms//清理间隔（单位毫秒，默认是60*1000）
+  
+**client端：**
+
+* eureka.client.healthcheck.enabled = true//开启健康检查（需要spring-boot-starter-actuator依赖）
+* eureka.instance.lease-renewal-interval-in-seconds =10//租期更新时间间隔（默认30秒）
+* eureka.instance.lease-expiration-duration-in-seconds =30//租期到期时间（默认90秒）
 
 .. index:: Microservices, Springboot, Eureka
