@@ -102,7 +102,8 @@ Discovery Client Test
         RestTemplate restTemplate = new RestTemplate();
         final List<ServiceInstance> instances = discoveryClient.getInstances(providerName);
         if(!instances.isEmpty()){
-            final ServiceInstance serviceInstance = instances.get(0);
+            final int index = new Random().nextInt(instances.size());
+            final ServiceInstance serviceInstance = instances.get(index);
             String url = serviceInstance.getUri()+"/name";
             return restTemplate.exchange(url, HttpMethod.GET,null,String.class).getBody();
         }
@@ -112,7 +113,9 @@ Discovery Client Test
 
 这时候多次调用http://localhost:8081/discovery/eureka-consumer1，会发现虽然都是返回“Here is Eureka-Client With DiscoveryClient: eureka-consumer1”，但其实两个consumer 实例会分别打印日志，表示是不同的实例在做回应
 
-但是，仔细看DiscoveryService里面的处理，并不优雅。discoveryClient.getInstances的时候，会根据这个名字，从EurekaServer里面获取整个地址list并获得列表中的第一个地址进行访问。也就是说，客户端需要自己去处理选择逻辑。比如说轮询，还是固定其中一个等等。 这样客户端需要处理的逻辑比较多（当然也可以说是自由度比较大）
+但是，仔细看DiscoveryService里面的处理，并不优雅。
+
+discoveryClient.getInstances的时候，会根据这个名字，从EurekaServer里面获取整个地址list并获得列表中的随机一个地址进行访问。也就是说，客户端需要自己去处理选择逻辑。比如说轮询，还是固定其中一个或者是随机一个等等。 这样客户端需要处理的逻辑比较多（当然也可以说是自由度比较大）
 
 
 .. index:: Microservices, Springboot, Load Balance
