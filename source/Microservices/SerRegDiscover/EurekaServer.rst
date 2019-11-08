@@ -111,6 +111,7 @@ Heart Beat
 HeartBeat问题，尤其是配合网络问题，是在做服务注册与发现时候必须面对的最重要问题。对于分布式系统，不能假设网络总是好的，当heartbeat处理不好，网络几秒的停顿可能导致很严重的问题。
 
 同时，服务本身的stateless也是非常重要。
+
 * 当服务可以彻底的无状态，服务之间就可以放心的使用HOT-HOT模式运行，即使网络停顿，可能也只是某个健在的服务忽然被移除而令另外一个服务压力大增。
 * 但如果服务本身是stateful的，服务之间只能使用HOT-COLD的模式运行，比如PSD(Primary-Slave-Disaster)mode下，平时只有Primary是active的，如果探测到primary heartbeat不在了，就会启动Slave从standby mode到active。然而此时primary可能只是网络问题的假死，instance本身还是alive的。那当slave也启动好了，primary的网络也恢复了，就会出现split brain的问题，两个实例同时会处理同一个请求，很容易出现duplicate trade的严重问题。
  
