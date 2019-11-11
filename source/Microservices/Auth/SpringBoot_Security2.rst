@@ -180,8 +180,8 @@ Step4. Config WebSecurityConfig
 
 WebSecurityConfig, 2 major usage:
 
-* One is to config userDetailsService in the authentication flow. And during this, we need to config the password Encoder as well. It would be used during authentication
-* Config the access right, said diff URL map to diff authority right.
+* **Authentication:** One is to config userDetailsService in the authentication flow. And during this, we need to config the password Encoder as well. It would be used during authentication
+* **Authorization:** Config the access right, said diff URL map to diff authority right.
 
 .. code-block:: java
   
@@ -227,6 +227,13 @@ WebSecurityConfig, 2 major usage:
 Testing
 -------------
 
+假设，controller里面只提供了3个API：
+
+* GET /hello
+* GET /hello-admin
+* GET /user
+
+
 With postman
 ^^^^^^^^^^^^^^^
 
@@ -239,3 +246,13 @@ When checking in the console, we could see this part(user:123456) would be base6
 
   Authorization: Basic dXNlcjoxMjM0NTY=
   
+当postman不设置authentication的时候，会得到401的结果
+  
+  {
+    "timestamp": "2019-11-11T08:05:13.455+0000",
+    "status": 401,
+    "error": "Unauthorized",
+    "message": "Unauthorized",
+    "path": "/hello"
+  }
+
