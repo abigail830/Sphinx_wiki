@@ -233,7 +233,7 @@ With postman
 Input the user/password into Authentication tab.
 
 .. image:: ../../../images/auth1.png
-  :width:: 500px
+  :width: 500px
 
 When checking in the console, we could see this part(user:123456) would be base64 encoded like:
 
