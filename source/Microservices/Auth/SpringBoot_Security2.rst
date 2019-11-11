@@ -248,6 +248,8 @@ When checking in the console, we could see this part(user:123456) would be base6
   
 当postman不设置authentication的时候，会得到401的结果
   
+.. code-block:: json
+  
   {
     "timestamp": "2019-11-11T08:05:13.455+0000",
     "status": 401,
@@ -255,4 +257,6 @@ When checking in the console, we could see this part(user:123456) would be base6
     "message": "Unauthorized",
     "path": "/hello"
   }
+  
 
+.. index:: Microservices, SpringBoot, Authentication
