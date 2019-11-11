@@ -3,7 +3,11 @@ SpringBoot Security(2)
 
 Generally, we would not hardcode user/password but would store it and config in DB and may also further load in Redis. So here is another example with DB connection.
 
+Development part
+-----------------------
+
 Step1. Prepare DB
+^^^^^^^^^^^^^^^^^^^^^^
 
 Table User and Role, and also User_Role which is for the 1-N mapping between them. Also, we could prepare some dummy data in it. Please note the RoleName need to be start with "ROLE_" and also password is MD5 encrypted.
 
@@ -34,6 +38,7 @@ Table User and Role, and also User_Role which is for the 1-N mapping between the
   
 
 Step2. Prepare Entity and Mappper (Assume using mybatis)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 注意，在Entity里面实现了特殊的继承
 
@@ -115,4 +120,122 @@ Step2. Prepare Entity and Mappper (Assume using mybatis)
     }
   }
 
+**RoleMapper.java**
 
+.. code-block:: java
+  
+  @Mapper
+  public interface RoleMapper {
+    @Select("SELECT * " +
+            "FROM ROLE " +
+            "LEFT JOIN USER_ROLE on USER_ROLE.role_id = ROLE.id " +
+            "WHERE id = '${id}'")
+    List<RoleEntity> getRolesByUserId(Long id);
+  }
+
+**UserMapper.java**
+
+.. code-block:: java
+  
+  @Mapper
+  public interface UserMapper {
+    @Select("SELECT * FROM USER WHERE USER_NAME = '${userName,jdbcType=VARCHAR}'")
+    UserEntity loadUserByUsername(String userName);
+
+    @Select("SELECT * FROM USER")
+    List<UserEntity> getAllUserEntity();
+  }
+
+
+Step3. Config UserDetailServer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+CustomUserService, we need this implements UserDetailsService, it would be called for get user info from DB(or memory) for further verification.
+
+.. code-block:: java
+  
+  @Service
+  @Slf4j
+  public class CustomUserService implements UserDetailsService {
+
+    @Autowired
+    UserRepositoryImpl userRepository;
+
+    @Override
+    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+        final UserEntity userEntityByName = userRepository.getUserByName(userName);
+        if(userEntityByName == null){
+            throw new UsernameNotFoundException("UserEntity name not found");
+        }else{
+            final List<RoleEntity> roleByUserId = userRepository.getRoleByUserId(userEntityByName.getId());
+            userEntityByName.setAuthorities(roleByUserId);
+        }
+        log.debug("UserEntity found : {}", userEntityByName);
+        return userEntityByName;
+    }
+  }
+
+Step4. Config WebSecurityConfig
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+WebSecurityConfig, 2 major usage:
+
+* One is to config userDetailsService in the authentication flow. And during this, we need to config the password Encoder as well. It would be used during authentication
+* Config the access right, said diff URL map to diff authority right.
+
+.. code-block:: java
+  
+  @Configuration
+  public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    CustomUserService customUserService;
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(customUserService).passwordEncoder(new PasswordEncoder() {
+            //对密码进行加密
+            @Override
+            public String encode(CharSequence charSequence) {
+                System.out.println(charSequence.toString());
+                return DigestUtils.md5DigestAsHex(charSequence.toString().getBytes());
+            }
+            //对密码进行判断匹配
+            @Override
+            public boolean matches(CharSequence charSequence, String s) {
+                String encode = DigestUtils.md5DigestAsHex(charSequence.toString().getBytes());
+                boolean res = s.equals( encode );
+                return res;
+            }
+        });
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .csrf().disable()
+                .formLogin().disable()
+                .httpBasic()
+                .and()
+                .authorizeRequests()
+                .antMatchers("/hello").hasRole("USER")
+                .antMatchers("/user").hasRole("USER")
+                .antMatchers("/hello-admin").hasRole("ADMIN");
+    }
+  }
+
+Testing
+-------------
+
+With postman
+^^^^^^^^^^^^^^^
+
+Input the user/password into Authentication tab.
+
+.. images:: ../../../images/auth1.png
+  :width:: 500px
+
+When checking in the console, we could see this part(user:123456) would be base64 encoded like:
+
+  Authorization: Basic dXNlcjoxMjM0NTY=
+  
