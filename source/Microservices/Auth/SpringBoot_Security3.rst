@@ -19,7 +19,7 @@ SpringBoot Security(3)
 所以，这里基于例子2，新增加了JwtLoginFilter & JwtVerifyFilter去实现上面提到的流程
 
 .. image:: ../../../images/auth2.png
-  :width: 500px
+  :width: 600px
   
 
 代码实现
@@ -144,12 +144,12 @@ SpringBoot Security(3)
 使用/login获取token
 
 .. image:: ../../../images/auth3.png
-  :width: 500px
+  :width: 600px
 
 然后尝试访问GET /user/hello, 不配置token的话，会得到“登录失败!”
 
 .. image:: ../../../images/auth4.png
-  :width: 500px
+  :width: 600px
 
 
 .. index:: Microservices, 
