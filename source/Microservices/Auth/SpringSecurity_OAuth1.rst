@@ -5,6 +5,7 @@ Spring Security OAuth(1)
 ------------------------------------------------
 
 Step1. Adding dependency
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: xml
   
@@ -21,6 +22,7 @@ Step1. Adding dependency
 
 
 Step2. Enable Auth Server
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: java
   
@@ -34,6 +36,7 @@ Step2. Enable Auth Server
 
 
 Step3. Config client profile
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: yml
   
