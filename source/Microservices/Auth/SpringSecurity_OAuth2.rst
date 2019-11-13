@@ -41,5 +41,9 @@ Auth screen would be shown
 http://localhost:8181/hello?code=rEpnEY
 
 
+If using Postman, we could see the same(but remember to set user/123456 in Authentication tab
+
+.. image:: ../../../images/oauth2_2.png
+  :width: 500px
 
 .. index:: Microservices, SpringBoot
