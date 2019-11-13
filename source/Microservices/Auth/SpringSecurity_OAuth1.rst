@@ -57,4 +57,9 @@ curl client:123456@localhost:8080/oauth/token -dgrant_type=client_credentials -d
 {"access_token":"120a1dd6-b5ca-4d42-b1bd-e0e66e2c0d96","token_type":"bearer","expires_in":43199,"scope":"any"}
 
 
+Reference
+-------------
+
+https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/htmlsingle/#boot-features-security-oauth2-authorization-server
+
 .. index:: Microservices, Springboot,
