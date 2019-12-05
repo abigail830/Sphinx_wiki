@@ -82,4 +82,89 @@ Then in application metrics it would have :
 Detail refer to https://helidon.io/docs/latest/#/guides/09_metrics_mp_guide
 
 
+OpenAPI
+```````````
 
+Adding plugin and dependency. The version is bit strange, seems very easy to conflict and make the server cannot up. Now I am using all be 1.1.2 version
+
+.. code-block:: xml
+  
+        <plugin>
+                <groupId>org.jboss.jandex</groupId>
+                <artifactId>jandex-maven-plugin</artifactId>
+                <version>1.0.6</version>
+                <executions>
+                    <execution>
+                        <id>make-index</id>
+                        <goals>
+                            <goal>jandex</goal>
+                        </goals>
+                    </execution>
+                </executions>
+        </plugin>
+            
+        <dependency>
+            <groupId>org.eclipse.microprofile.openapi</groupId>
+            <artifactId>microprofile-openapi-api</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.helidon.microprofile.openapi</groupId>
+            <artifactId>helidon-microprofile-openapi</artifactId>
+            <version>1.1.2</version>
+            <scope>runtime</scope>
+        </dependency>
+
+Then once access localhost:8080/openapi, it would automatically download the api
+
+.. code-block:: yaml
+  
+  ---
+  openapi: 3.0.1
+  info:
+    title: QuickStart API
+    version: "1.1"
+  paths:
+    /cards:
+      get:
+        responses:
+          200:
+            description: OK
+            content:
+              application/json: {}
+    /greet:
+      get:
+        responses:
+          200:
+            description: OK
+            content:
+              application/json: {}
+    /greet/greeting/{greeting}:
+      put:
+        parameters:
+        - name: greeting
+          in: path
+          required: true
+          schema:
+            type: string
+        responses:
+          200:
+            description: OK
+            content:
+              application/json: {}
+    /greet/{name}:
+      get:
+        parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+        responses:
+          200:
+            description: OK
+            content:
+              application/json: {}
+
+It would not as Swagger to open as a beautiful web page.
