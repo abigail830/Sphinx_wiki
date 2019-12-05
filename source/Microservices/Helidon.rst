@@ -40,6 +40,46 @@ Startup log:
 
 When we access http://localhost:8080/greet, then it would return "{"message":"Hello World!"}"
 
-And when we access http://localhost:8080/health, it would already provided:
+
+Health Check
+```````````````````
+
+When we access http://localhost:8080/health by default, it would already provided:
 
 {"outcome":"UP","checks":[{"name":"deadlock","state":"UP"},{"name":"diskSpace","state":"UP","data":{"free":"45.23 GB","freeBytes":48562728960,"percentFree":"19.37%","total":"233.47 GB","totalBytes":250685575168}},{"name":"heapMemory","state":"UP","data":{"free":"121.59 MB","freeBytes":127499008,"max":"1.78 GB","maxBytes":1908932608,"percentFree":"98.00%","total":"158.00 MB","totalBytes":165675008}}]}
+
+We could also customize it by following https://helidon.io/docs/latest/#/guides/07_health_mp_guide
+
+
+Metrics
+````````````
+
+Default metrics:
+
+- /metrics/base - Base metrics data as specified by the MicroProfile Metrics specification.
+- /metrics/vendor - Helidon-specific metrics data.
+- /metrics/application - Application-specific metrics data.
+
+Good usage is it could help to count the times entering diff class/method/fields. Such as:
+
+.. code-block:: java
+  
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Counted(name = "anyCard", monotonic = true)
+    public JsonObject anyCard() throws InterruptedException {
+        return createResponse("Here are some random cards ...");
+    }
+
+Then in application metrics it would have :
+
+{
+    "com.github.abigail830.helidon.mp.demo.api.GreetingCards.anyCard": 1,
+    "com.github.abigail830.helidon.mp.demo.api.GreetResource.helloName": 0,
+    "com.github.abigail830.helidon.mp.demo.api.GreetResource.helloWorld": 0
+}
+
+Detail refer to https://helidon.io/docs/latest/#/guides/09_metrics_mp_guide
+
+
+
