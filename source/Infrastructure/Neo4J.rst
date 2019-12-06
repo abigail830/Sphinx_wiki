@@ -16,12 +16,24 @@ Now we installed a tar version in centOS http://backup.saraqian.cn:7474/
 Cypher command
 ------------------
 
+Refer: https://neo4j.com/docs/getting-started/3.5/cypher-intro
+
 Basic Command
 ``````````````````
-- Insert: CREATE (ee:Person { name: "Emil", from: "Sweden", klout: 99 })
-- Search: MATCH (ee:Person) WHERE ee.name = "Emil" RETURN ee;
-- MATCH (ee:Person)-[:KNOWS]-(friends) WHERE ee.name = "Emil" RETURN ee, friends
-- MATCH (js:Person)-[:KNOWS]-()-[:KNOWS]-(surfer) WHERE js.name = "Johan" AND surfer.hobby = "surfing" RETURN DISTINCT surfer
+
+**Insert:**
+- CREATE (ee:Person { name: "Emil", from: "Sweden", klout: 99 })
+- CREATE (sara)
+- CREATE (sara:Person)
+
+**Select:**
+- Select all: MATCH (n) RETURN (n)
+- Select : MATCH (ee:Person)-[:KNOWS]-(friends) WHERE ee.name = "Emil" RETURN ee, friends
+- Collect(1-n): MATCH (person:Person)-[:ACTED_IN]->(m:Movie) WITH person, count(*) AS appearances, collect(m.title) AS movies WHERE appearances > 1 RETURN person.name, appearances, movies
+- UNION: MATCH (actor:Person)-[r:ACTED_IN|DIRECTED]->(movie:Movie) RETURN actor.name AS name, type(r) AS type, movie.title AS title
+
+**Delete:**
+- Delete All: MATCH (n) detach DELETE (n)
 
 **Batch operation:**
 
@@ -39,7 +51,8 @@ Basic Command
   (rvb)-[:KNOWS]->(ally)
 
 
-**Using profile/explain to see how the Cypher works: **
+**Using profile/explain to see how the Cypher works:**
+
 - PROFILE MATCH (js:Person)-[:KNOWS]-()-[:KNOWS]-(surfer) WHERE js.name = "Johan" AND surfer.hobby = "surfing" RETURN DISTINCT surfer
 
 
