@@ -1,0 +1,67 @@
+AWS Modern Web Demo
+==================================
+
+AWS provided a demo procedure for deploy website in AWS Infrastructures:
+https://aws.amazon.com/cn/getting-started/projects/build-modern-app-fargate-lambda-dynamodb-python/
+
+
+Step1. Create IDE and download source for static website
+-------------------------------------------------------------
+
+a. Using **Clou9:** The website based IDE 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Search Cloud9, choose region and then create env then would be fine. Such as choose us-east-2
+- git clone -b python https://github.com/aws-samples/aws-modern-application-workshop.git
+
+
+b. create S3 and upload index.html
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create bucket and specify the entrace with index.html, update bucket name in website-bucket-policy.json and upload policy
+
+.. code-block:: bash
+  
+  aws s3 mb s3://modern-web-demo
+  aws s3 website s3://modern-web-demo --index-document index.html
+  aws s3api put-bucket-policy --bucket modern-web-demo --policy file://~/environment/aws-modern-application-workshop/module-1/aws-cli/website-bucket-policy.json
+  aws s3 cp ~/environment/aws-modern-application-workshop/module-1/web/index.html s3://modern-web-demo/index.html 
+
+With complete above, we could access static website via below URL:
+http://modern-web-demo.s3-website.us-east-2.amazonaws.com
+
+
+Step2. Using docker as dynamic backend service with load balancing
+-----------------------------------------------------------------------------
+
+a. Create core stack
+.. code-block:: bash
+  
+  aws cloudformation create-stack --stack-name ModernWebDemoCoreStack --capabilities CAPABILITY_NAMED_IAM --template-body file://~/environment/aws-modern-application-workshop/module-2/cfn/core.yml
+  aws cloudformation describe-stacks --stack-name ModernWebDemoCoreStack 
+
+.. code-block:: json
+  
+  {
+    "Stacks": [
+        {
+            "StackId": "arn:aws:cloudformation:us-east-2:008135705340:stack/ModernWebDemoCoreStack/8ab7d6d0-2fc8-11ea-a7d2-062398501aa6", 
+            "DriftInformation": {
+                "StackDriftStatus": "NOT_CHECKED"
+            }, 
+            "Description": "This stack deploys the core network infrastructure and IAM resources to be used for a service hosted in Amazon ECS using AWS Fargate.", 
+            "Tags": [], 
+            "DeletionTime": "2020-01-05T14:35:00.174Z", 
+            "EnableTerminationProtection": false, 
+            "CreationTime": "2020-01-05T14:34:55.746Z", 
+            "Capabilities": [
+                "CAPABILITY_NAMED_IAM"
+            ], 
+            "StackName": "ModernWebDemoCoreStack", 
+            "NotificationARNs": [], 
+            "StackStatus": "ROLLBACK_COMPLETE", 
+            "DisableRollback": false, 
+            "RollbackConfiguration": {}
+        }
+    ]
+  }
