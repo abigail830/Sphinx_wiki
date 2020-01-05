@@ -97,5 +97,26 @@ Result could also be checked via ECS panel
   aws logs create-log-group --log-group-name modern-web-demo-logs
   aws ecs register-task-definition --cli-input-json file://~/environment/aws-modern-application-workshop/module-2/aws-cli/task-definition.json
 
+d. Create load balancing
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+  
+  aws elbv2 create-load-balancer --name modernwebdemo-nlb --scheme internet-facing --type network --subnets subnet-04628f7c6d56ab10e subnet-06a50a66a2af679db > ~/environment/nlb-output.json
+  
+  aws elbv2 create-target-group --name ModernWebDemo-TargetGroup --port 8080 --protocol TCP --target-type ip --vpc-id vpc-0d4c7ebd06dea4470 --health-check-interval-seconds 10 --health-check-path / --health-check-protocol HTTP --healthy-threshold-count 3 --unhealthy-threshold-count 3 > ~/environment/target-group-output.json
+  
+  aws elbv2 create-listener --default-actions TargetGroupArn=arn:aws:elasticloadbalancing:us-east-2:008135705340:targetgroup/ModernWebDemo-TargetGroup/d9df1bbcabcb7fd6,Type=forward --load-balancer-arn arn:aws:elasticloadbalancing:us-east-2:008135705340:loadbalancer/net/modernwebdemo-nlb/7a06401da6aee431 --port 80 --protocol TCP
+
+e. Create fargate
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+  
+  aws iam create-service-linked-role --aws-service-name ecs.amazonaws.com
+  aws ecs create-service --cli-input-json file://~/environment/aws-modern-application-workshop/module-2/aws-cli/service-definition.json
 
 
+**Error met:**
+
+service ModernWebDemo-Service failed to launch a task with (error ECS was unable to assume the role 'arn:aws:iam::008135705340:role/administrator' that was provided for this task. Please verify that the role being passed has the proper trust relationship and permissions and that your IAM user has permissions to pass this role.).
