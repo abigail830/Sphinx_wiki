@@ -34,11 +34,15 @@ http://modern-web-demo.s3-website.us-east-2.amazonaws.com
 Step2. Using docker as dynamic backend service with load balancing
 -----------------------------------------------------------------------------
 
-a. Create core stack
+a. Create core stack and it would takes some time
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 .. code-block:: bash
   
   aws cloudformation create-stack --stack-name ModernWebDemoCoreStack --capabilities CAPABILITY_NAMED_IAM --template-body file://~/environment/aws-modern-application-workshop/module-2/cfn/core.yml
-  aws cloudformation describe-stacks --stack-name ModernWebDemoCoreStack 
+  aws cloudformation describe-stacks --stack-name ModernWebDemoCoreStack > ~/environment/cloudformation-core-output.json
+
+Result(Same result could be found in cloudFormation):
 
 .. code-block:: json
   
@@ -65,3 +69,33 @@ a. Create core stack
         }
     ]
   }
+
+b. Build docker image and store to ECR
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+  
+  cd ~/environment/aws-modern-application-workshop/module-2/app
+  docker build . -t 008135705340.dkr.ecr.us-east-2.amazonaws.com/mythicalmysfits/service:latest
+  docker run -p 8080:8080 008135705340.dkr.ecr.us-east-2.amazonaws.com/mythicalmysfits/service:latest
+  
+  aws ecr create-repository --repository-name mythicalmysfits/service
+  (aws ecr get-login --no-include-email)
+  
+  docker push 008135705340.dkr.ecr.us-east-2.amazonaws.com/mythicalmysfits/service:latest
+  aws ecr describe-images --repository-name mythicalmysfits/service
+  
+  
+c. Config ECS related
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Result could also be checked via ECS panel
+
+.. code-block:: bash
+  
+  aws ecs create-cluster --cluster-name ModernWebDemo-Cluster
+  aws logs create-log-group --log-group-name modern-web-demo-logs
+  aws ecs register-task-definition --cli-input-json file://~/environment/aws-modern-application-workshop/module-2/aws-cli/task-definition.json
+
+
+
