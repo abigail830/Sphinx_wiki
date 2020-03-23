@@ -32,7 +32,7 @@
 
   ng new pokemon-wiki
 
-.. image:: ../../../images/structure.png
+.. image:: ../../images/structure.png
   :width: 300px
 
 项目启动
