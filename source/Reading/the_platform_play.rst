@@ -37,7 +37,7 @@ A closer look at the platform-based company
 
 一个基于平台的公司将拥有20到40个平台，每个平台都足够大，可以提供重要且独立的服务，但又足够小，便于管理。为了简化平台管理，它帮助将它们分成三个广泛的区域:客户旅程、业务功能和核心it功能(表1)。
 
-.. image:: https://www.mckinsey.com/~/media/McKinsey/Business%20Functions/McKinsey%20Digital/Our%20Insights/The%20platform%20play%20How%20to%20operate%20like%20a%20tech%20company/SVG-Platform-play-exhibit1_v5.ashx
+.. image:: ../images/platformplay1.png
 
 例如，在个人银行中，客户旅程平台涵盖了客户搜索、开户、获得抵押贷款等体验。业务能力平台提供银行解决方案，如支付和信用分析，以及支持功能，如员工养老金管理、可视化仪表板和管理信息系统(MIS)。最后，核心IT平台提供了运行这些旅程和业务功能的共享技术，如云平台、数据分析环境和IT连接解决方案集(表2)。
 
