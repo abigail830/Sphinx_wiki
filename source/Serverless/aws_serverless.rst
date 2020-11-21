@@ -23,7 +23,15 @@ Develop with Lambda
 
   - ``serverless create --help``
   - ``serverless create --template aws-java-maven --path clone-prj``
-  
+
+* Update pom.xml ``<artifactId>clone-prj</artifactId>`` and also ``<name>clone-prj</name>``
+* Update serverless.yml (seems artifact name would auto added stage name at the end) ::
+ 
+ package:
+  artifact: target/clone-prj-dev.jar
+
+* Deploy: ``serverless deploy``
+
 
 First lambda to clone github project and upload to S3
 --------------------------------------------------------
