@@ -1,0 +1,33 @@
+AWS Serverless
+===========================================
+
+Develop with Lambda
+----------------------
+
+至少两种方式开发：纯手写、用框架。 这里我们先使用serverless framework进行
+
+* Install Serverless framework: ``npm install -g serverless``
+  
+  
+
+* Setup AWS IAM 
+
+  * Add user serveless-admin
+  * Add policy AdministratorAccess
+  * Download csv and keey it well
+  
+    - ``export AWS_ACCESS_KEY_ID=<your-key-here>``
+    - ``export AWS_SECRET_ACCESS_KEY=<your-secret-key-here>``
+    - ``serverless config credentials --provider aws --key your-key-here> --secret <your-secret-key-here>``
+    - Then we would see .aws folder is created with credentials
+
+* Create project with template
+
+  - ``serverless create --help``
+  
+
+
+  
+  
+
+
