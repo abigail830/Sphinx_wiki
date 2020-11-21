@@ -29,7 +29,26 @@ First lambda to clone github project and upload to S3
 --------------------------------------------------------
 
 * Setup credential (done above): https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-credentials.html
-* Create a S3 bucket named 'clone-prj'
+* Create a S3 bucket named 'clone-prj' and update the policy to ensure have GET/PUT
+
+.. :code:: json
+   
+   {
+    "Id": "Policy1605970945090",
+    "Version": "2012-10-17",
+    "Statement": [
+     {
+       "Sid": "Stmt1605970311420",
+       "Action": [
+         "s3:GetObject",
+         "s3:PutObject"
+       ],
+       "Effect": "Allow",
+       "Resource": "arn:aws:s3:::clone-prj/*",
+       "Principal": "*"
+     }
+   ]
+  }
 
 
   
