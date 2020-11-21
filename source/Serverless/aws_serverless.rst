@@ -7,8 +7,6 @@ Develop with Lambda
 至少两种方式开发：纯手写、用框架。 这里我们先使用serverless framework进行
 
 * Install Serverless framework: ``npm install -g serverless``
-  
-  
 
 * Setup AWS IAM 
 
@@ -24,7 +22,14 @@ Develop with Lambda
 * Create project with template
 
   - ``serverless create --help``
+  - ``serverless create --template aws-java-maven --path clone-prj``
   
+
+First lambda to clone github project and upload to S3
+--------------------------------------------------------
+
+* Setup credential (done above): https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-credentials.html
+* Create a S3 bucket named 'clone-prj'
 
 
   
